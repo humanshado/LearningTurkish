@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>İstanbul Turkish A1 · Interactive course</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet"><style>:root{
+  --bg:#faf7f5; --panel:#ffffff; --ink:#2b2118; --muted:#7a6a58; --line:#ecdfcc;
+  --accent:#d62839; --accent-2:#a4161a; --accent-soft:#fde2e4;
+  --good:#2f8a4f; --good-soft:#dff3e5; --bad:#c2402a; --bad-soft:#fbe3de;
+  --m:#2f6db5; --m-soft:#e2eefb; --f:#a3407e; --f-soft:#f8e3f0;
+  --radius:14px; --shadow:0 1px 2px rgba(60,40,10,.06),0 4px 14px rgba(60,40,10,.06);
+  --ar:"Noto Naskh Arabic","Amiri","Traditional Arabic",serif;
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#1a1611; --panel:#241e17; --ink:#f3e9dc; --muted:#b4a28c; --line:#3a3027;
+  --accent:#ef5b67; --accent-2:#ff8a93; --accent-soft:#3d1c20;
+  --good:#5cc27f; --good-soft:#1d3324; --bad:#ef7a64; --bad-soft:#3d221d;
+  --m:#7fb0ef; --m-soft:#1e2b3b; --f:#e38bc0; --f-soft:#3a2032;
+  --shadow:none;
+}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);line-height:1.5}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--accent-2)}
+.ar{font-family:var(--ar);direction:rtl;unicode-bidi:isolate;line-height:1.9}
+.tk{font-weight:600;line-height:1.4}
+.pr{color:var(--muted);font-style:italic;font-size:14px}
+.en{color:var(--muted)}
+.arg{display:none;font-family:var(--ar);direction:rtl;color:var(--accent-2);font-size:18px;line-height:1.7}
+body.show-ar .arg{display:block}
+body.no-pr .pr{display:none} body.no-en .en{display:none}
+b.say{color:var(--accent-2);cursor:pointer;border-bottom:1px dotted var(--accent)}
+b.say:hover{background:var(--accent-soft)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-inner{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1}
+.brand small{color:var(--muted);font-size:12px}
+.brand b{font-size:17px}
+.toggles{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 11px;font-size:13px;display:inline-flex;gap:6px;align-items:center}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-2);font-weight:600}
+.progress{height:4px;background:var(--line)} .progress>div{height:100%;background:var(--accent);transition:width .4s}
+
+nav.tabs{max-width:1040px;margin:0 auto;padding:8px 12px 0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:10px 10px 0 0;font-size:14px;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a.active{color:var(--ink);font-weight:600;border-bottom-color:var(--accent)}
+nav.tabs a .tick{color:var(--good);margin-inline-start:4px}
+
+main{max-width:1040px;margin:0 auto;padding:18px 16px 80px}
+h2{margin:6px 0 4px;font-size:24px} h3{margin:18px 0 8px;font-size:18px}
+.lead{color:var(--muted);margin:0 0 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.stack>*+*{margin-top:14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel);padding:8px 14px;border-radius:10px;font-weight:500}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-2)}
+.btn.small{padding:4px 10px;font-size:13px}
+.play{border:none;background:var(--accent-soft);color:var(--accent-2);width:34px;height:34px;border-radius:50%;flex:none;display:inline-grid;place-items:center;font-size:14px}
+.play:hover{background:var(--accent);color:#fff}
+.play.speaking{background:var(--accent);color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.1)}}
+.banner{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:14px}
+.done-btn{margin-top:22px}
+
+/* overview */
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.hero .tk.big{font-size:38px;line-height:1.3;color:var(--accent-2)}
+.goals li{margin:4px 0}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.path a{text-decoration:none;color:var(--ink)}
+.path .step{padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);display:flex;gap:10px;align-items:center}
+.path .step.done{border-color:var(--good);background:var(--good-soft)}
+.path .num{width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent-2);display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.path .done .num{background:var(--good);color:#fff}
+
+/* dialogue */
+.dlg-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.dlg-head .tk{font-size:18px}
+.scene{display:flex;justify-content:center;gap:40px;margin:6px 0 4px}
+.scene figure{margin:0;text-align:center;font-size:13px}
+.scene figure figcaption{font-weight:600}
+.bubbles{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.bub{display:flex;gap:10px;align-items:flex-start;max-width:88%}
+.bub.right{align-self:flex-end;flex-direction:row-reverse}
+.bub .av{flex:none}
+.bub .body{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:8px 12px;cursor:pointer;transition:background .2s}
+.bub.right .body{text-align:left}
+.bub .who{font-size:12px;color:var(--muted)}
+.bub .tk.line{font-size:20px;display:block}
+.bub.active .body{background:var(--accent-soft);border-color:var(--accent)}
+.bub.m .who{color:var(--m)} .bub.f .who{color:var(--f)}
+.hidetext .bub .tk.line,.hidetext .bub .en,.hidetext .bub .arg{filter:blur(7px)} .hidetext .bub.revealed .tk.line,.hidetext .bub.revealed .en,.hidetext .bub.revealed .arg{filter:none}
+.shadow-cue{font-size:13px;color:var(--accent-2);font-weight:600;min-height:20px}
+
+/* family tree */
+.ftree{margin:12px 0;padding:12px;border-radius:12px;background:var(--bg);border:1px dashed var(--accent);text-align:center}
+.ftree .label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);font-weight:700;margin-bottom:8px}
+.flevel{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:rtl}
+.fline{width:2px;height:16px;background:var(--accent);margin:4px auto}
+.fnode{border:2px solid var(--line);background:var(--panel);border-radius:12px;padding:4px 12px;display:flex;flex-direction:column;align-items:center;line-height:1.3}
+.fnode .ar{font-size:20px}
+.fnode small{color:var(--muted);font-size:11px;direction:ltr}
+.fnode.m{border-color:var(--m)} .fnode.f{border-color:var(--f)}
+.fnode.me{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+
+/* vocab */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.vcard{display:flex;flex-direction:column;gap:2px;position:relative}
+.vcard .pic{font-size:30px;line-height:1.2}
+.vcard .tk{font-size:22px}
+.vcard .play{position:absolute;top:12px;right:12px}
+.vcard .box{position:absolute;top:54px;right:14px;font-size:11px;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;background:var(--accent-soft);color:var(--accent-2);border-radius:6px;padding:1px 6px;margin-top:4px;width:max-content}
+
+.flash-wrap{max-width:440px;margin:0 auto;text-align:center}
+.flash{perspective:1000px;height:260px;cursor:pointer;margin:10px 0}
+.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flash.flipped .flash-inner{transform:rotateY(180deg)}
+.flash .face{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:18px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow);padding:16px}
+.flash .back{transform:rotateY(180deg);background:var(--accent-soft)}
+.flash .tk{font-size:34px}
+.flash .pic{font-size:48px}
+
+/* grammar */
+.gblock h3{margin-top:0}
+.gblock p{margin:8px 0}
+
+table.g{border-collapse:collapse;width:100%;margin-top:10px}
+table.g td,table.g th{border-bottom:1px solid var(--line);padding:8px;text-align:left}
+table.g td.tkcell{font-size:19px;white-space:nowrap}
+.widget{margin-top:14px;padding:14px;border-radius:12px;background:var(--bg);border:1px dashed var(--accent)}
+.widget .label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);font-weight:700;margin-bottom:8px}
+.result{font-size:46px;text-align:center;margin:8px 0;min-height:80px}
+.sfx{color:var(--accent-2)}
+.sfx.m{color:var(--m)} .sfx.f{color:var(--f)}
+.ncard{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:10px;text-align:center;cursor:pointer;user-select:none}
+.ncard .flag{font-size:30px}
+.ncard .tk{font-size:21px;display:block}
+.ncard .stage{font-size:11px;color:var(--muted)}
+
+/* sounds */
+.letter{display:flex;gap:14px}
+.letter .glyph{font-size:52px;font-weight:700;line-height:1;width:80px;height:80px;display:grid;place-items:center;border-radius:16px;background:var(--accent-soft);color:var(--accent-2);flex:none;cursor:pointer}
+.ex{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:2px 4px 2px 12px;margin:3px;cursor:pointer;background:var(--panel)}
+.ex .tk{font-size:17px}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+.pair .side{text-align:center;padding:10px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:var(--panel)}
+.pair .side .tk{font-size:28px;display:block}
+.vs{color:var(--muted);font-size:12px;text-align:center}
+
+/* quiz */
+.quiz{max-width:640px;margin:0 auto}
+.qhead{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:8px}
+.qbar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-bottom:14px}.qbar>div{height:100%;background:var(--accent);transition:width .3s}
+.qtext{font-size:18px;font-weight:600;margin-bottom:10px}
+.qsentence{font-size:26px;text-align:center;margin:10px 0}
+.qsentence .blank{display:inline-block;min-width:70px;border-bottom:3px solid var(--accent);color:var(--accent-2)}
+.opts{display:grid;gap:8px}
+.opt{text-align:start;border:2px solid var(--line);background:var(--panel);border-radius:12px;padding:10px 14px;font-size:16px}
+
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.correct{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.feedback{margin-top:12px;padding:10px 14px;border-radius:12px;font-size:15px}
+.feedback.good{background:var(--good-soft);color:var(--good)} .feedback.bad{background:var(--bad-soft);color:var(--bad)}
+.feedback .ex-text{color:var(--ink);display:block;margin-top:4px}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:56px;padding:8px;border-radius:12px}
+.tiles.lines{flex-direction:column;align-items:stretch}.tiles.lines .tile{text-align:left;font-size:16px}
+.tiles.answer{border:2px dashed var(--line);margin-bottom:8px}
+.tile{font-size:19px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:2px 14px}
+.big-play{width:72px;height:72px;font-size:28px;margin:6px auto 14px;display:grid}
+.score{font-size:48px;font-weight:800;text-align:center;color:var(--accent-2)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.match .mi{border:2px solid var(--line);background:var(--panel);border-radius:10px;padding:8px;text-align:center;min-height:52px}
+.match .mi .tk{font-size:18px}
+.match .mi.sel{border-color:var(--accent);background:var(--accent-soft)}
+.match .mi.ok{border-color:var(--good);background:var(--good-soft);opacity:.55}
+.match .mi.no{border-color:var(--bad);background:var(--bad-soft)}
+
+/* speak */
+.rp{display:flex;flex-direction:column;gap:10px}
+.rec{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.rec .dot{width:10px;height:10px;border-radius:50%;background:var(--bad);animation:pulse 1s infinite}
+.tipcard{display:flex;gap:12px}
+.tipcard .ic{font-size:28px;flex:none}
+
+.muted{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 16px}
+
+/* tests */
+.sortgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
+.scol{border:2px dashed var(--line);border-radius:12px;padding:6px;min-height:170px;display:flex;flex-direction:column;gap:4px;cursor:pointer}
+.scol:hover{border-color:var(--accent)}
+.shead{text-align:center;border-bottom:1px solid var(--line);padding-bottom:4px;display:flex;flex-direction:column}
+.shead .ar{font-size:20px;font-weight:700} .shead small{color:var(--muted);font-size:11px}
+.sitem{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:0 6px;text-align:center;display:flex;flex-direction:column}
+.sitem .ar{font-size:19px} .sitem small{font-size:10px;color:var(--bad);direction:ltr}
+.sitem.ex{opacity:.55;border-style:dashed}
+.tile.sel{border-color:var(--accent);background:var(--accent-soft)}
+.tile.x{border-color:var(--bad);background:var(--bad-soft);text-decoration:line-through}
+.tile.ok,.sitem.ok{border-color:var(--good);background:var(--good-soft)}
+.tile.no,.sitem.no{border-color:var(--bad);background:var(--bad-soft)}
+.titems{padding-inline-start:22px;margin:6px 0} .titems li{margin:10px 0}
+.qsent .tk{font-size:18px}
+.qsent select{font-size:16px;max-width:100%;padding:2px 6px;border-radius:8px;border:2px solid var(--accent);background:var(--panel);color:var(--ink);margin:0 4px}
+.qsent select.ok{border-color:var(--good);background:var(--good-soft)} .qsent select.no{border-color:var(--bad);background:var(--bad-soft)}
+.blank{display:inline-block;min-width:60px;border-bottom:2px solid var(--accent);color:var(--accent-2);text-align:center}
+.wrongw{text-decoration-color:var(--bad);text-decoration-thickness:2px}
+.bank{background:var(--accent-soft);border-radius:10px;padding:8px 12px;text-align:center}
+.bank .ar{font-size:20px}
+.fb{font-size:14px;margin-top:2px}
+.markbox{border:2px solid var(--accent);border-radius:10px;min-width:56px;text-align:center;display:flex;flex-direction:column;line-height:1.2;padding:4px}
+.markbox .got{font-weight:800;font-size:18px;color:var(--accent-2);border-bottom:1px solid var(--line)} .markbox .of{font-size:13px;color:var(--muted)}
+.tsec.full{border-color:var(--good)} .tsec.part{border-color:var(--accent)}
+.test-link .n{font-size:22px}
+@media (max-width:700px){.sortgrid{grid-template-columns:repeat(3,1fr)}}
+
+/* index */
+.book{margin-top:22px}
+.lesson-link{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink)}
+.lesson-link .n{font-size:22px;font-weight:800;color:var(--accent-2);width:44px;text-align:center}
+.lesson-link .tk{font-size:18px;color:var(--accent-2)}
+.soon{opacity:.5}
+@media (max-width:600px){
+  .hero{grid-template-columns:1fr}
+  .bub{max-width:100%}
+  .bub .tk.line{font-size:18px}
+  .flash{height:230px}
+}
+
+/* Turkish additions */
+u.lv{text-decoration-color:var(--accent);text-decoration-thickness:3px;font-weight:800}
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:6px}
+.abtn{border:2px solid var(--line);background:var(--panel);border-radius:10px;padding:6px 0;font-size:20px;font-weight:700}
+.abtn.kv,.kv{border-color:var(--m);background:var(--m-soft);color:var(--m)}
+.abtn.iv,.iv{border-color:var(--f);background:var(--f-soft);color:var(--f)}
+.label .kv,.label .iv{border:1px solid;border-radius:6px;padding:0 6px;margin:0 2px}
+.abtn.sel{outline:3px solid var(--accent)}
+.dscene{display:flex;align-items:flex-end;margin:12px 0;padding:8px 12px;border-bottom:3px solid var(--line);min-height:60px}
+.tin{font:inherit;font-size:18px;padding:8px 10px;border-radius:10px;border:2px solid var(--accent);background:var(--panel);color:var(--ink);min-width:120px}
+.tin.ok{border-color:var(--good);background:var(--good-soft)} .tin.no{border-color:var(--bad);background:var(--bad-soft)}
+.trkeys{margin:8px 0}.trkeys .chip{font-size:16px;font-weight:700;padding:4px 12px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 20px}
+.mini{background:var(--bg);border-radius:10px;padding:8px 12px;border:1px solid var(--line)}
+.opt-l{font-size:16px;text-align:left}
+details.note summary{cursor:pointer;font-size:17px}
+details.note p{margin:10px 0}
+.goals li .say{font-weight:600}
+.tgrid .qsent{display:flex;gap:6px;align-items:center}
+.tgrid .tin{min-width:0;width:100%;flex:1}
+</style></head>
+<body><main style="max-width:820px">
+<div class="card hero" style="margin-top:10px"><div><div class="tk big" style="font-size:34px;color:var(--accent-2)">İstanbul · Yabancılar İçin Türkçe</div>
+<h2>Turkish A1: interactive course</h2>
+<p class="lead">Interactive lessons for the <i>İstanbul Yabancılar İçin Türkçe A1</i> coursebook (Arabic edition), following the <a href="https://www.youtube.com/playlist?list=PLrwS96DaM7OEcN2imsuUzuf2Wlhd6Jsz-" target="_blank" rel="noopener">video series</a>. Each lesson has dialogues with audio, vocabulary flashcards, vowel-harmony builders, pronunciation drills, listening and dictation games, quizzes, speaking role-plays and the teacher's notes in English.</p></div></div>
+<section class="book"><h2>Ünite 1 · MERHABA <span class="muted" style="font-size:16px;font-weight:400">· Hello · book pp. 7–20</span></h2><a class="card lesson-link" href="u1-01.html" style="margin-bottom:10px" data-id="u1-01"><span class="n">1.1</span><span style="flex:1"><b>Hello! Meeting &amp; Greeting</b><br><span class="tk">Tanışma, selamlaşma, dilekler</span><br><span class="muted" style="font-size:13px">Book pp. 7–11 · Hazırlık, Okuma (Tanışma), exercises 1–9</span> <span class="tag">🎬 video notes</span></span><span class="prog muted"></span></a><a class="card lesson-link" href="u1-02.html" style="margin-bottom:10px" data-id="u1-02"><span class="n">1.2</span><span style="flex:1"><b>The Turkish Alphabet</b><br><span class="tk">Türk alfabesi</span><br><span class="muted" style="font-size:13px">Book pp. 12–13 · Dil bilgisi, exercises 1–4, Dinleme 2 · plus Sınıf dili (p. 18)</span> </span><span class="prog muted"></span></a><a class="card lesson-link" href="u1-03.html" style="margin-bottom:10px" data-id="u1-03"><span class="n">1.3</span><span style="flex:1"><b>What&#x27;s this? Who&#x27;s that?</b><br><span class="tk">Bu ne? O kim?</span><br><span class="muted" style="font-size:13px">Book pp. 14–18 · bu/şu/o, Kim?/Ne?, plural -lAr, question mI, Burası neresi?, Kapalıçarşı</span> </span><span class="prog muted"></span></a><a class="card lesson-link test-link" href="u1-t1.html" style="margin-bottom:10px;border-color:var(--accent);background:var(--accent-soft)" data-test="u1-t1"><span class="n">📝</span><span style="flex:1"><b>Unit 1 test · What have we learned?</b><br><span class="tk">Neler öğrendik?</span><br><span class="muted" style="font-size:13px">Book p. 19 · book test + mastery test</span></span><span class="prog muted"></span></a></section><section class="book"><h2>Ünite 2 · NEREDE? <span class="muted" style="font-size:16px;font-weight:400">· Where? · book pp. 21–36</span></h2><div class="card soon">Coming soon</div></section><section class="book"><h2>Ünite 3 · NE YAPIYORSUN? <span class="muted" style="font-size:16px;font-weight:400">· What are you doing? · book pp. 37–50</span></h2><div class="card soon">Coming soon</div></section><section class="book"><h2>Ünite 4 · BENİM DÜNYAM <span class="muted" style="font-size:16px;font-weight:400">· My world · book pp. 51–66</span></h2><div class="card soon">Coming soon</div></section><section class="book"><h2>Ünite 5 · ZAMAN ZAMAN <span class="muted" style="font-size:16px;font-weight:400">· Time to time · book pp. 67–80</span></h2><div class="card soon">Coming soon</div></section><section class="book"><h2>Ünite 6 · ÇEVREMİZ VE BİZ <span class="muted" style="font-size:16px;font-weight:400">· Our surroundings and us · book pp. 81–93</span></h2><div class="card soon">Coming soon</div></section></main>
+<script>
+try{const S=JSON.parse(localStorage.getItem("turkish-course-v1")||"{}");
+document.querySelectorAll("[data-id]").forEach(a=>{const l=(S.lessons||{})[a.dataset.id];if(!l)return;const n=Object.keys(l.done||{}).length;
+a.querySelector(".prog").textContent=(n>=9?"✓ ":"")+n+"/9"+(l.best&&l.best.practice!=null?" · quiz "+l.best.practice+"%":"");});
+document.querySelectorAll("[data-test]").forEach(a=>{const t=(S.tests||{})[a.dataset.test];if(!t||!t.attempts.length)return;const b=m=>{const x=t.attempts.filter(y=>y.mode===m);return x.length?Math.max(...x.map(y=>y.pct))+"%":"—"};
+a.querySelector(".prog").textContent="book "+b("book")+" · mastery "+b("mastery");});}catch(e){}
+</script></body></html>

@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 1 test · What have we learned? · Turkish A1</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet"><style>:root{
+  --bg:#faf7f5; --panel:#ffffff; --ink:#2b2118; --muted:#7a6a58; --line:#ecdfcc;
+  --accent:#d62839; --accent-2:#a4161a; --accent-soft:#fde2e4;
+  --good:#2f8a4f; --good-soft:#dff3e5; --bad:#c2402a; --bad-soft:#fbe3de;
+  --m:#2f6db5; --m-soft:#e2eefb; --f:#a3407e; --f-soft:#f8e3f0;
+  --radius:14px; --shadow:0 1px 2px rgba(60,40,10,.06),0 4px 14px rgba(60,40,10,.06);
+  --ar:"Noto Naskh Arabic","Amiri","Traditional Arabic",serif;
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#1a1611; --panel:#241e17; --ink:#f3e9dc; --muted:#b4a28c; --line:#3a3027;
+  --accent:#ef5b67; --accent-2:#ff8a93; --accent-soft:#3d1c20;
+  --good:#5cc27f; --good-soft:#1d3324; --bad:#ef7a64; --bad-soft:#3d221d;
+  --m:#7fb0ef; --m-soft:#1e2b3b; --f:#e38bc0; --f-soft:#3a2032;
+  --shadow:none;
+}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);line-height:1.5}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--accent-2)}
+.ar{font-family:var(--ar);direction:rtl;unicode-bidi:isolate;line-height:1.9}
+.tk{font-weight:600;line-height:1.4}
+.pr{color:var(--muted);font-style:italic;font-size:14px}
+.en{color:var(--muted)}
+.arg{display:none;font-family:var(--ar);direction:rtl;color:var(--accent-2);font-size:18px;line-height:1.7}
+body.show-ar .arg{display:block}
+body.no-pr .pr{display:none} body.no-en .en{display:none}
+b.say{color:var(--accent-2);cursor:pointer;border-bottom:1px dotted var(--accent)}
+b.say:hover{background:var(--accent-soft)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-inner{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1}
+.brand small{color:var(--muted);font-size:12px}
+.brand b{font-size:17px}
+.toggles{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 11px;font-size:13px;display:inline-flex;gap:6px;align-items:center}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-2);font-weight:600}
+.progress{height:4px;background:var(--line)} .progress>div{height:100%;background:var(--accent);transition:width .4s}
+
+nav.tabs{max-width:1040px;margin:0 auto;padding:8px 12px 0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:10px 10px 0 0;font-size:14px;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a.active{color:var(--ink);font-weight:600;border-bottom-color:var(--accent)}
+nav.tabs a .tick{color:var(--good);margin-inline-start:4px}
+
+main{max-width:1040px;margin:0 auto;padding:18px 16px 80px}
+h2{margin:6px 0 4px;font-size:24px} h3{margin:18px 0 8px;font-size:18px}
+.lead{color:var(--muted);margin:0 0 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.stack>*+*{margin-top:14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel);padding:8px 14px;border-radius:10px;font-weight:500}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-2)}
+.btn.small{padding:4px 10px;font-size:13px}
+.play{border:none;background:var(--accent-soft);color:var(--accent-2);width:34px;height:34px;border-radius:50%;flex:none;display:inline-grid;place-items:center;font-size:14px}
+.play:hover{background:var(--accent);color:#fff}
+.play.speaking{background:var(--accent);color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.1)}}
+.banner{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:14px}
+.done-btn{margin-top:22px}
+
+/* overview */
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.hero .tk.big{font-size:38px;line-height:1.3;color:var(--accent-2)}
+.goals li{margin:4px 0}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.path a{text-decoration:none;color:var(--ink)}
+.path .step{padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);display:flex;gap:10px;align-items:center}
+.path .step.done{border-color:var(--good);background:var(--good-soft)}
+.path .num{width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent-2);display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.path .done .num{background:var(--good);color:#fff}
+
+/* dialogue */
+.dlg-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.dlg-head .tk{font-size:18px}
+.scene{display:flex;justify-content:center;gap:40px;margin:6px 0 4px}
+.scene figure{margin:0;text-align:center;font-size:13px}
+.scene figure figcaption{font-weight:600}
+.bubbles{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.bub{display:flex;gap:10px;align-items:flex-start;max-width:88%}
+.bub.right{align-self:flex-end;flex-direction:row-reverse}
+.bub .av{flex:none}
+.bub .body{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:8px 12px;cursor:pointer;transition:background .2s}
+.bub.right .body{text-align:left}
+.bub .who{font-size:12px;color:var(--muted)}
+.bub .tk.line{font-size:20px;display:block}
+.bub.active .body{background:var(--accent-soft);border-color:var(--accent)}
+.bub.m .who{color:var(--m)} .bub.f .who{color:var(--f)}
+.hidetext .bub .tk.line,.hidetext .bub .en,.hidetext .bub .arg{filter:blur(7px)} .hidetext .bub.revealed .tk.line,.hidetext .bub.revealed .en,.hidetext .bub.revealed .arg{filter:none}
+.shadow-cue{font-size:13px;color:var(--accent-2);font-weight:600;min-height:20px}
+
+/* family tree */
+.ftree{margin:12px 0;padding:12px;border-radius:12px;background:var(--bg);border:1px dashed var(--accent);text-align:center}
+.ftree .label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);font-weight:700;margin-bottom:8px}
+.flevel{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:rtl}
+.fline{width:2px;height:16px;background:var(--accent);margin:4px auto}
+.fnode{border:2px solid var(--line);background:var(--panel);border-radius:12px;padding:4px 12px;display:flex;flex-direction:column;align-items:center;line-height:1.3}
+.fnode .ar{font-size:20px}
+.fnode small{color:var(--muted);font-size:11px;direction:ltr}
+.fnode.m{border-color:var(--m)} .fnode.f{border-color:var(--f)}
+.fnode.me{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+
+/* vocab */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.vcard{display:flex;flex-direction:column;gap:2px;position:relative}
+.vcard .pic{font-size:30px;line-height:1.2}
+.vcard .tk{font-size:22px}
+.vcard .play{position:absolute;top:12px;right:12px}
+.vcard .box{position:absolute;top:54px;right:14px;font-size:11px;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;background:var(--accent-soft);color:var(--accent-2);border-radius:6px;padding:1px 6px;margin-top:4px;width:max-content}
+
+.flash-wrap{max-width:440px;margin:0 auto;text-align:center}
+.flash{perspective:1000px;height:260px;cursor:pointer;margin:10px 0}
+.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flash.flipped .flash-inner{transform:rotateY(180deg)}
+.flash .face{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:18px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow);padding:16px}
+.flash .back{transform:rotateY(180deg);background:var(--accent-soft)}
+.flash .tk{font-size:34px}
+.flash .pic{font-size:48px}
+
+/* grammar */
+.gblock h3{margin-top:0}
+.gblock p{margin:8px 0}
+
+table.g{border-collapse:collapse;width:100%;margin-top:10px}
+table.g td,table.g th{border-bottom:1px solid var(--line);padding:8px;text-align:left}
+table.g td.tkcell{font-size:19px;white-space:nowrap}
+.widget{margin-top:14px;padding:14px;border-radius:12px;background:var(--bg);border:1px dashed var(--accent)}
+.widget .label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);font-weight:700;margin-bottom:8px}
+.result{font-size:46px;text-align:center;margin:8px 0;min-height:80px}
+.sfx{color:var(--accent-2)}
+.sfx.m{color:var(--m)} .sfx.f{color:var(--f)}
+.ncard{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:10px;text-align:center;cursor:pointer;user-select:none}
+.ncard .flag{font-size:30px}
+.ncard .tk{font-size:21px;display:block}
+.ncard .stage{font-size:11px;color:var(--muted)}
+
+/* sounds */
+.letter{display:flex;gap:14px}
+.letter .glyph{font-size:52px;font-weight:700;line-height:1;width:80px;height:80px;display:grid;place-items:center;border-radius:16px;background:var(--accent-soft);color:var(--accent-2);flex:none;cursor:pointer}
+.ex{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:2px 4px 2px 12px;margin:3px;cursor:pointer;background:var(--panel)}
+.ex .tk{font-size:17px}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+.pair .side{text-align:center;padding:10px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:var(--panel)}
+.pair .side .tk{font-size:28px;display:block}
+.vs{color:var(--muted);font-size:12px;text-align:center}
+
+/* quiz */
+.quiz{max-width:640px;margin:0 auto}
+.qhead{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:8px}
+.qbar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-bottom:14px}.qbar>div{height:100%;background:var(--accent);transition:width .3s}
+.qtext{font-size:18px;font-weight:600;margin-bottom:10px}
+.qsentence{font-size:26px;text-align:center;margin:10px 0}
+.qsentence .blank{display:inline-block;min-width:70px;border-bottom:3px solid var(--accent);color:var(--accent-2)}
+.opts{display:grid;gap:8px}
+.opt{text-align:start;border:2px solid var(--line);background:var(--panel);border-radius:12px;padding:10px 14px;font-size:16px}
+
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.correct{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.feedback{margin-top:12px;padding:10px 14px;border-radius:12px;font-size:15px}
+.feedback.good{background:var(--good-soft);color:var(--good)} .feedback.bad{background:var(--bad-soft);color:var(--bad)}
+.feedback .ex-text{color:var(--ink);display:block;margin-top:4px}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:56px;padding:8px;border-radius:12px}
+.tiles.lines{flex-direction:column;align-items:stretch}.tiles.lines .tile{text-align:left;font-size:16px}
+.tiles.answer{border:2px dashed var(--line);margin-bottom:8px}
+.tile{font-size:19px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:2px 14px}
+.big-play{width:72px;height:72px;font-size:28px;margin:6px auto 14px;display:grid}
+.score{font-size:48px;font-weight:800;text-align:center;color:var(--accent-2)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.match .mi{border:2px solid var(--line);background:var(--panel);border-radius:10px;padding:8px;text-align:center;min-height:52px}
+.match .mi .tk{font-size:18px}
+.match .mi.sel{border-color:var(--accent);background:var(--accent-soft)}
+.match .mi.ok{border-color:var(--good);background:var(--good-soft);opacity:.55}
+.match .mi.no{border-color:var(--bad);background:var(--bad-soft)}
+
+/* speak */
+.rp{display:flex;flex-direction:column;gap:10px}
+.rec{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.rec .dot{width:10px;height:10px;border-radius:50%;background:var(--bad);animation:pulse 1s infinite}
+.tipcard{display:flex;gap:12px}
+.tipcard .ic{font-size:28px;flex:none}
+
+.muted{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 16px}
+
+/* tests */
+.sortgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
+.scol{border:2px dashed var(--line);border-radius:12px;padding:6px;min-height:170px;display:flex;flex-direction:column;gap:4px;cursor:pointer}
+.scol:hover{border-color:var(--accent)}
+.shead{text-align:center;border-bottom:1px solid var(--line);padding-bottom:4px;display:flex;flex-direction:column}
+.shead .ar{font-size:20px;font-weight:700} .shead small{color:var(--muted);font-size:11px}
+.sitem{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:0 6px;text-align:center;display:flex;flex-direction:column}
+.sitem .ar{font-size:19px} .sitem small{font-size:10px;color:var(--bad);direction:ltr}
+.sitem.ex{opacity:.55;border-style:dashed}
+.tile.sel{border-color:var(--accent);background:var(--accent-soft)}
+.tile.x{border-color:var(--bad);background:var(--bad-soft);text-decoration:line-through}
+.tile.ok,.sitem.ok{border-color:var(--good);background:var(--good-soft)}
+.tile.no,.sitem.no{border-color:var(--bad);background:var(--bad-soft)}
+.titems{padding-inline-start:22px;margin:6px 0} .titems li{margin:10px 0}
+.qsent .tk{font-size:18px}
+.qsent select{font-size:16px;max-width:100%;padding:2px 6px;border-radius:8px;border:2px solid var(--accent);background:var(--panel);color:var(--ink);margin:0 4px}
+.qsent select.ok{border-color:var(--good);background:var(--good-soft)} .qsent select.no{border-color:var(--bad);background:var(--bad-soft)}
+.blank{display:inline-block;min-width:60px;border-bottom:2px solid var(--accent);color:var(--accent-2);text-align:center}
+.wrongw{text-decoration-color:var(--bad);text-decoration-thickness:2px}
+.bank{background:var(--accent-soft);border-radius:10px;padding:8px 12px;text-align:center}
+.bank .ar{font-size:20px}
+.fb{font-size:14px;margin-top:2px}
+.markbox{border:2px solid var(--accent);border-radius:10px;min-width:56px;text-align:center;display:flex;flex-direction:column;line-height:1.2;padding:4px}
+.markbox .got{font-weight:800;font-size:18px;color:var(--accent-2);border-bottom:1px solid var(--line)} .markbox .of{font-size:13px;color:var(--muted)}
+.tsec.full{border-color:var(--good)} .tsec.part{border-color:var(--accent)}
+.test-link .n{font-size:22px}
+@media (max-width:700px){.sortgrid{grid-template-columns:repeat(3,1fr)}}
+
+/* index */
+.book{margin-top:22px}
+.lesson-link{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink)}
+.lesson-link .n{font-size:22px;font-weight:800;color:var(--accent-2);width:44px;text-align:center}
+.lesson-link .tk{font-size:18px;color:var(--accent-2)}
+.soon{opacity:.5}
+@media (max-width:600px){
+  .hero{grid-template-columns:1fr}
+  .bub{max-width:100%}
+  .bub .tk.line{font-size:18px}
+  .flash{height:230px}
+}
+
+/* Turkish additions */
+u.lv{text-decoration-color:var(--accent);text-decoration-thickness:3px;font-weight:800}
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:6px}
+.abtn{border:2px solid var(--line);background:var(--panel);border-radius:10px;padding:6px 0;font-size:20px;font-weight:700}
+.abtn.kv,.kv{border-color:var(--m);background:var(--m-soft);color:var(--m)}
+.abtn.iv,.iv{border-color:var(--f);background:var(--f-soft);color:var(--f)}
+.label .kv,.label .iv{border:1px solid;border-radius:6px;padding:0 6px;margin:0 2px}
+.abtn.sel{outline:3px solid var(--accent)}
+.dscene{display:flex;align-items:flex-end;margin:12px 0;padding:8px 12px;border-bottom:3px solid var(--line);min-height:60px}
+.tin{font:inherit;font-size:18px;padding:8px 10px;border-radius:10px;border:2px solid var(--accent);background:var(--panel);color:var(--ink);min-width:120px}
+.tin.ok{border-color:var(--good);background:var(--good-soft)} .tin.no{border-color:var(--bad);background:var(--bad-soft)}
+.trkeys{margin:8px 0}.trkeys .chip{font-size:16px;font-weight:700;padding:4px 12px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 20px}
+.mini{background:var(--bg);border-radius:10px;padding:8px 12px;border:1px solid var(--line)}
+.opt-l{font-size:16px;text-align:left}
+details.note summary{cursor:pointer;font-size:17px}
+details.note p{margin:10px 0}
+.goals li .say{font-weight:600}
+.tgrid .qsent{display:flex;gap:6px;align-items:center}
+.tgrid .tin{min-width:0;width:100%;flex:1}
+</style></head>
+<body><script>window.LESSONS=[];window.COURSE_HOME="index.html";</script><script>// Unit 1 · Lesson 1 — 1A Tanışma, selamlaşma, dilekler (book pp. 7–11) · Video 1
+// Source: İstanbul Yabancılar İçin Türkçe A1 (Arabic edition) + the teacher's video commentary (lesson 1 transcript, translated from Arabic)
+LESSONS.push({
+  id: "u1-01",
+  unit: 1,
+  num: 1,
+  unitEn: "Ünite 1 · MERHABA (Hello) · A. Meeting, greeting, wishes",
+  title: "Hello! Meeting & Greeting",
+  titleTr: "Tanışma, selamlaşma, dilekler",
+  covers: "Book pp. 7–11 · Hazırlık, Okuma (Tanışma), exercises 1–9",
+  video: "https://www.youtube.com/watch?v=1x563pddmQk&list=PLrwS96DaM7OEcN2imsuUzuf2Wlhd6Jsz-",
+  goals: [
+    "Greet people at different times of day: [[Merhaba]], [[Günaydın]], [[İyi akşamlar]]",
+    "Ask someone's name and say your own: [[Senin adın ne?]] · [[Benim adım …|Benim adım …]]",
+    "Ask “how are you?” informally and politely: [[Nasılsın?]] / [[Nasılsınız?]]",
+    "Ask where someone is from and answer: [[Nerelisin?]] · [[Türkiyeliyim]]",
+    "Say goodbye the right way: [[Hoşça kal]] (the one leaving) / [[Güle güle]] (the one staying)",
+    "Use everyday wishes: [[Afiyet olsun]], [[Geçmiş olsun]], [[Çok yaşa]], [[İyi yolculuklar]]…"
+  ],
+
+  dialogues: [
+    {
+      id: "d1", title: "Ali & Murat", titleTr: "Tanışma", note: "Two young men meet for the first time. (p. 8)",
+      people: { "Ali": "m1", "Murat": "m2" },
+      lines: [
+        ["Ali", "Merhaba, benim adım Ali. Senin adın ne?", "Hello, my name is Ali. What's your name?", "مرحبًا، اسمي علي. ما اسمك؟"],
+        ["Murat", "Benim adım Murat.", "My name is Murat.", "اسمي مراد."],
+        ["Ali", "Memnun oldum.", "Pleased to meet you.", "تشرّفت."],
+        ["Murat", "Ben de memnun oldum.", "Pleased to meet you too. (lit. I too was pleased)", "وأنا أيضًا تشرّفت."]
+      ]
+    },
+    {
+      id: "d2", title: "Dilek & Zeynep", note: "Two friends. [[Selam]] is the short, friendly “hi”. (p. 8)",
+      people: { "Dilek": "f1", "Zeynep": "f2" },
+      lines: [
+        ["Dilek", "Selam Zeynep! Nasılsın?", "Hi Zeynep! How are you?", "سلام يا زينب! كيف حالك؟"],
+        ["Zeynep", "İyiyim, teşekkür ederim. Sen nasılsın?", "I'm fine, thank you. How are you?", "أنا بخير، شكرًا. وأنتِ كيف حالك؟"],
+        ["Dilek", "Teşekkürler, ben de iyiyim.", "Thanks, I'm fine too.", "شكرًا، وأنا أيضًا بخير."]
+      ]
+    },
+    {
+      id: "d3", title: "Hannah & Austin", note: "Where are you from? Add -lI to the country, then -(y)Im for “I am”. (p. 8)",
+      people: { "Hannah": "f3", "Austin": "m3" },
+      lines: [
+        ["Hannah", "Nerelisin?", "Where are you from?", "من أين أنت؟"],
+        ["Austin", "Nijeryalıyım. Sen nerelisin?", "I'm from Nigeria. Where are you from?", "أنا من نيجيريا. وأنتِ من أين؟"],
+        ["Hannah", "Ben Almanyalıyım.", "I'm from Germany.", "أنا من ألمانيا."]
+      ]
+    },
+    {
+      id: "d4", title: "Can & the teacher", note: "A pupil greets his teacher politely with [[nasılsınız]]; the teacher answers with the friendly [[sen]]. (p. 8)",
+      people: { "Can": "m5", "Öğretmen": "f4" },
+      lines: [
+        ["Can", "Günaydın öğretmenim, nasılsınız?", "Good morning, teacher (lit. my teacher), how are you?", "صباح الخير يا معلّمتي، كيف حال حضرتك؟"],
+        ["Öğretmen", "Günaydın Can, iyiyim, sen nasılsın?", "Good morning Can, I'm fine, how are you?", "صباح الخير يا جان، أنا بخير، وأنت كيف حالك؟"],
+        ["Can", "Teşekkür ederim, ben de iyiyim.", "Thank you, I'm fine too.", "شكرًا، وأنا أيضًا بخير."]
+      ]
+    },
+    {
+      id: "d5", title: "Pınar Hanım & Levent Bey", note: "A formal conversation: [[Hanım]] and [[Bey]] go after the first name, and both speakers use [[siz]]. (p. 9)",
+      people: { "Pınar Hanım": "f5", "Levent Bey": "m4" },
+      lines: [
+        ["Pınar Hanım", "Nasılsınız Levent Bey?", "How are you, Mr Levent?", "كيف حال حضرتك يا سيد لَوَنت؟"],
+        ["Levent Bey", "Teşekkür ederim, iyiyim. Siz nasılsınız?", "Thank you, I'm fine. How are you?", "شكرًا، أنا بخير. وحضرتكِ كيف حالك؟"],
+        ["Pınar Hanım", "Teşekkürler, ben de iyiyim.", "Thanks, I'm fine too.", "شكرًا، وأنا أيضًا بخير."]
+      ]
+    },
+    {
+      id: "d6", title: "Öznur & Sinem", note: "Casual: [[Ne haber?]] “what's the news?” → [[İyilik]] “all good”. (p. 9)",
+      people: { "Öznur": "f1", "Sinem": "f3" },
+      lines: [
+        ["Öznur", "Ne haber Sinem?", "What's new, Sinem? / How's it going?", "ما الأخبار يا سينَم؟"],
+        ["Sinem", "İyilik, senden ne haber?", "All good. What's new with you?", "بخير، وأنتِ ما أخبارك؟"],
+        ["Öznur", "Sağ ol, benden de iyilik.", "Thanks, all good with me too.", "تسلمي، وأنا أيضًا بخير."]
+      ]
+    },
+    {
+      id: "d7", title: "Nihan & Mete", note: "[[Ne var ne yok?]] is literally “what is there, what isn't?” = what's up? (p. 9)",
+      people: { "Nihan": "f2", "Mete": "m2" },
+      lines: [
+        ["Nihan", "Ne var ne yok Mete?", "What's up, Mete?", "ما الجديد يا مِتِه؟"],
+        ["Mete", "Eh işte, fena değil. Sende ne var ne yok?", "So-so, not bad. What's up with you?", "ماشي الحال، لا بأس. وأنتِ ما الجديد عندك؟"],
+        ["Nihan", "İyilik sağlık.", "All well, all healthy.", "الصحة والعافية."]
+      ]
+    },
+    {
+      id: "d8", title: "Aysel & Leyla", note: "Saying goodbye: the one leaving says [[Hoşça kal]], the one staying answers [[Güle güle]]. (p. 9)",
+      people: { "Aysel": "f4", "Leyla": "f5" },
+      lines: [
+        ["Aysel", "Hoşça kal Leyla.", "Bye, Leyla. (lit. stay well)", "ابقَي بخير يا ليلى."],
+        ["Leyla", "Güle güle. Sonra görüşürüz.", "Bye-bye (lit. go smiling). See you later.", "مع السلامة. نلتقي لاحقًا."],
+        ["Aysel", "Görüşürüz.", "See you.", "نلتقي."]
+      ]
+    },
+    {
+      id: "d9", title: "The teacher & Martin", note: "Everything together: name, how are you, where from, and the welcome pair [[Hoş geldin]] → [[Hoş bulduk]]. (p. 9)",
+      people: { "Öğretmen": "f2", "Martin": "m1" },
+      lines: [
+        ["Öğretmen", "Merhaba! Senin adın ne?", "Hello! What's your name?"],
+        ["Martin", "Merhaba! Benim adım Martin. Sizin adınız ne?", "Hello! My name is Martin. What's your name? (polite)"],
+        ["Öğretmen", "Benim adım Filiz. Memnun oldum.", "My name is Filiz. Pleased to meet you."],
+        ["Martin", "Ben de memnun oldum.", "Pleased to meet you too."],
+        ["Öğretmen", "Nasılsın?", "How are you?"],
+        ["Martin", "Teşekkür ederim, iyiyim. Siz nasılsınız?", "Thank you, I'm fine. How are you? (polite)"],
+        ["Öğretmen", "Teşekkürler, ben de iyiyim. Nerelisin Martin?", "Thanks, I'm fine too. Where are you from, Martin?"],
+        ["Martin", "İspanyalıyım.", "I'm from Spain."],
+        ["Öğretmen", "Hoş geldin.", "Welcome."],
+        ["Martin", "Hoş bulduk.", "Glad to be here. (the fixed reply to Hoş geldin)"]
+      ]
+    },
+    {
+      id: "d10", title: "Ümit & Aslı (exercise 1, in order)", note: "The book's exercise 1 asks you to put this dialogue in order. Try it first in the Quiz tab, then check it here. (p. 9)",
+      people: { "Ümit": "m3", "Aslı": "f1" },
+      lines: [
+        ["Ümit", "Merhaba! Benim adım Ümit, senin adın ne?", "Hello! My name is Ümit, what's yours?"],
+        ["Aslı", "Merhaba! Benim adım Aslı.", "Hello! My name is Aslı."],
+        ["Ümit", "Memnun oldum.", "Pleased to meet you."],
+        ["Aslı", "Ben de memnun oldum.", "Pleased to meet you too."],
+        ["Ümit", "Nasılsın Aslı?", "How are you, Aslı?"],
+        ["Aslı", "Teşekkürler, iyiyim, sen nasılsın?", "Thanks, I'm fine, how are you?"],
+        ["Ümit", "Sağ ol, ben de iyiyim.", "Thanks, I'm fine too."],
+        ["Aslı", "Görüşmek üzere. Hoşça kal.", "See you soon. Bye."],
+        ["Ümit", "Görüşürüz. Güle güle.", "See you. Bye-bye."]
+      ]
+    }
+  ],
+
+  // t: Turkish · pr: say-it hint (CAPS = stressed syllable) · ar: gloss from the book's Arabic edition
+  vocab: [
+    { t: "Merhaba", pr: "mer-ha-BA", en: "hello", ar: "مرحبًا", pic: "👋", cat: "Greetings" },
+    { t: "Selam", pr: "se-LAM", en: "hi (casual)", ar: "سلام", pic: "✋", cat: "Greetings", extra: true },
+    { t: "Günaydın", pr: "gyoo-nai-DUN", en: "good morning", ar: "صباح الخير", pic: "🌅", cat: "Greetings" },
+    { t: "İyi günler", pr: "ee-YEE gyoon-LER", en: "good day / have a nice day", ar: "نهارك سعيد", pic: "☀️", cat: "Greetings" },
+    { t: "İyi akşamlar", pr: "ee-YEE ak-sham-LAR", en: "good evening", ar: "مساء الخير", pic: "🌆", cat: "Greetings" },
+    { t: "İyi geceler", pr: "ee-YEE ge-je-LER", en: "good night", ar: "تصبح على خير", pic: "🌙", cat: "Greetings" },
+    { t: "Hoş geldin", pr: "HOSH gel-DEEN", en: "welcome", ar: "أهلًا وسهلًا", pic: "🏡", cat: "Greetings" },
+    { t: "Hoş bulduk", pr: "HOSH bul-DUK", en: "glad to be here (reply to “welcome”)", ar: "أهلًا بك (ردّ)", pic: "🧳", cat: "Greetings" },
+
+    { t: "Senin adın ne?", pr: "se-NEEN a-DUN ne", en: "what's your name?", ar: "ما اسمك؟", pic: "🏷️", cat: "Meeting" },
+    { t: "Benim adım …", pr: "be-NEEM a-DUM", en: "my name is …", ar: "اسمي …", pic: "🙋", cat: "Meeting" },
+    { t: "Sizin adınız ne?", pr: "si-ZEEN a-du-NUZ ne", en: "what's your name? (polite)", ar: "ما اسم حضرتك؟", pic: "🎩", cat: "Meeting" },
+    { t: "Memnun oldum", pr: "mem-NUN ol-DUM", en: "pleased to meet you", ar: "تشرّفت", pic: "🤝", cat: "Meeting" },
+    { t: "Ben de", pr: "BEN de", en: "me too", ar: "وأنا أيضًا", pic: "🙌", cat: "Meeting" },
+    { t: "Nerelisin?", pr: "ne-re-LEE-sin", en: "where are you from?", ar: "من أين أنت؟", pic: "🧭", cat: "Meeting" },
+    { t: "ad", pr: "ad", en: "name", ar: "اسم", pic: "📛", cat: "Meeting" },
+
+    { t: "Nasılsın?", pr: "NA-sul-sun", en: "how are you?", ar: "كيف حالك؟", pic: "🙂", cat: "How are you" },
+    { t: "Nasılsınız?", pr: "NA-sul-su-nuz", en: "how are you? (polite / to several people)", ar: "كيف حالكم / حال حضرتك؟", pic: "🙂🎩", cat: "How are you" },
+    { t: "İyiyim", pr: "ee-YEE-yim", en: "I'm fine / I'm well", ar: "أنا بخير", pic: "👍", cat: "How are you" },
+    { t: "Teşekkür ederim", pr: "te-shek-KYUR e-de-RIM", en: "thank you", ar: "شكرًا", pic: "🙏", cat: "How are you" },
+    { t: "Teşekkürler", pr: "te-shek-kyur-LER", en: "thanks", ar: "شكرًا", pic: "🙏", cat: "How are you" },
+    { t: "Sağ ol", pr: "SAA ol", en: "thanks (casual; lit. be healthy)", ar: "تسلم / شكرًا", pic: "😊", cat: "How are you" },
+    { t: "Ne haber?", pr: "NE ha-ber", en: "what's new? / how's it going?", ar: "ما الأخبار؟", pic: "📰", cat: "How are you" },
+    { t: "İyilik", pr: "ee-yee-LEEK", en: "all good (lit. goodness)", ar: "بخير", pic: "😌", cat: "How are you" },
+    { t: "Ne var ne yok?", pr: "NE var NE yok", en: "what's up? (lit. what is there, what isn't)", ar: "ما الجديد؟", pic: "🤷", cat: "How are you" },
+    { t: "Eh işte", pr: "EH eesh-te", en: "so-so", ar: "ماشي الحال", pic: "😐", cat: "How are you" },
+    { t: "Fena değil", pr: "fe-NA de-YEEL", en: "not bad", ar: "ليس سيئًا", pic: "👌", cat: "How are you" },
+    { t: "İyilik sağlık", pr: "ee-yee-LEEK saa-LUK", en: "all well, all healthy", ar: "الصحة والعافية", pic: "💪", cat: "How are you" },
+
+    { t: "Hoşça kal", pr: "HOSH-cha kal", en: "goodbye (said by the person leaving; lit. stay well)", ar: "ابقَ بخير / مع السلامة", pic: "🚶", cat: "Goodbye" },
+    { t: "Güle güle", pr: "gyoo-LE gyoo-LE", en: "goodbye (said to the person leaving; lit. go smiling)", ar: "مع السلامة", pic: "👋😄", cat: "Goodbye" },
+    { t: "Görüşürüz", pr: "gyo-ryu-shyu-RYUZ", en: "see you", ar: "نلتقي", pic: "👀", cat: "Goodbye" },
+    { t: "Sonra görüşürüz", pr: "SON-ra gyo-ryu-shyu-RYUZ", en: "see you later", ar: "نلتقي لاحقًا", pic: "⏰", cat: "Goodbye" },
+    { t: "Görüşmek üzere", pr: "gyo-ryush-MEK yu-ze-RE", en: "see you soon", ar: "إلى اللقاء", pic: "🔜", cat: "Goodbye" },
+
+    { t: "Afiyet olsun", pr: "a-fee-YET ol-SUN", en: "enjoy your meal", ar: "بالهناء والشفاء", pic: "🍽️", cat: "Wishes" },
+    { t: "İyi dersler", pr: "ee-YEE ders-LER", en: "have a good lesson", ar: "درسًا موفّقًا", pic: "📚", cat: "Wishes" },
+    { t: "Bol şanslar", pr: "BOL shans-LAR", en: "good luck", ar: "حظًّا سعيدًا", pic: "🍀", cat: "Wishes" },
+    { t: "Tebrikler", pr: "teb-reek-LER", en: "congratulations", ar: "مبروك", pic: "🎓", cat: "Wishes" },
+    { t: "Çok yaşa", pr: "CHOK ya-SHA", en: "bless you (after a sneeze; lit. live long)", ar: "يرحمك الله", pic: "🤧", cat: "Wishes" },
+    { t: "Lütfen", pr: "LYUT-fen", en: "please", ar: "من فضلك", pic: "🥺", cat: "Wishes" },
+    { t: "Özür dilerim", pr: "o-ZYUR dee-le-RIM", en: "I'm sorry / I apologise", ar: "أعتذر", pic: "💐", cat: "Wishes" },
+    { t: "Geçmiş olsun", pr: "gech-MEESH ol-SUN", en: "get well soon (lit. may it be past)", ar: "سلامتك", pic: "🏥", cat: "Wishes" },
+    { t: "Mutlu yıllar", pr: "mut-LU yul-LAR", en: "happy birthday / happy new year (lit. happy years)", ar: "كل عام وأنت بخير", pic: "🎂", cat: "Wishes" },
+    { t: "Tamam", pr: "ta-MAM", en: "OK", ar: "حسنًا", pic: "👍", cat: "Wishes" },
+    { t: "İyi yolculuklar", pr: "ee-YEE yol-ju-luk-LAR", en: "have a good trip", ar: "رحلة سعيدة", pic: "🧳✈️", cat: "Wishes" },
+    { t: "Rica ederim", pr: "ree-JA e-de-RIM", en: "you're welcome (reply to thanks)", ar: "عفوًا", pic: "🤗", cat: "Wishes" },
+
+    { t: "ben", en: "I", ar: "أنا", pic: "🙋", cat: "People" },
+    { t: "sen", en: "you (one friend)", ar: "أنتَ / أنتِ", pic: "👉", cat: "People" },
+    { t: "siz", en: "you (polite, or more than one)", ar: "أنتم / حضرتك", pic: "👉🎩", cat: "People" },
+    { t: "öğretmen", pr: "o-ret-MEN", en: "teacher", ar: "معلّم", pic: "👩‍🏫", cat: "People" },
+    { t: "öğretmenim", pr: "o-ret-me-NEEM", en: "my teacher (how pupils address a teacher)", ar: "معلّمي", pic: "🧑‍🎓", cat: "People", extra: true },
+    { t: "Hanım", pr: "ha-NUM", en: "Mrs / Ms (after a woman's first name)", ar: "السيدة", pic: "👩", cat: "People" },
+    { t: "Bey", pr: "BEY", en: "Mr (after a man's first name)", ar: "السيد", pic: "👨", cat: "People" },
+
+    { t: "Türkiye", pr: "TYUR-kee-ye", en: "Turkey", ar: "تركيا", pic: "🇹🇷", cat: "Countries" },
+    { t: "Almanya", pr: "al-MAN-ya", en: "Germany", ar: "ألمانيا", pic: "🇩🇪", cat: "Countries" },
+    { t: "Japonya", pr: "zha-PON-ya", en: "Japan", ar: "اليابان", pic: "🇯🇵", cat: "Countries" },
+    { t: "Nijerya", pr: "nee-ZHER-ya", en: "Nigeria", ar: "نيجيريا", pic: "🇳🇬", cat: "Countries" },
+    { t: "İspanya", pr: "ees-PAN-ya", en: "Spain", ar: "إسبانيا", pic: "🇪🇸", cat: "Countries" },
+    { t: "Çin", pr: "cheen", en: "China", ar: "الصين", pic: "🇨🇳", cat: "Countries" },
+    { t: "Fransa", pr: "FRAN-sa", en: "France", ar: "فرنسا", pic: "🇫🇷", cat: "Countries" },
+    { t: "Avusturya", pr: "a-vus-TUR-ya", en: "Austria", ar: "النمسا", pic: "🇦🇹", cat: "Countries" },
+    { t: "Türkiyeliyim", pr: "tyur-kee-ye-LEE-yim", en: "I'm from Turkey", ar: "أنا من تركيا", pic: "🇹🇷🙋", cat: "Countries" },
+    { t: "Türk", pr: "tyurk", en: "Turkish (nationality)", ar: "تركي", pic: "🇹🇷", cat: "Countries" }
+  ],
+
+  grammar: [
+    {
+      id: "g-ad",
+      title: "My name, your name: [[Benim adım]] · [[Senin adın]]",
+      body: [
+        "Turkish says <i>my</i> and <i>your</i> twice: once with a word in front (<b>benim</b> = my, <b>senin</b> = your) and once with an ending on the noun. [[ad]] (name) → [[adım]] (my name) → [[adın]] (your name).",
+        "Because the ending already tells you whose name it is, the front word is often dropped: [[Adın ne?]] is just as correct as [[Senin adın ne?]].",
+        "There is <b>no word for “is”</b> in [[Senin adın ne?]]. Word for word it is <i>your name what?</i> The question word [[ne]] (what) sits where the answer goes: <i>Benim adım <b>Ali</b>.</i>",
+        "Speaking politely or to more than one person, use [[sizin]] + -ınız ([[adınız]]): [[Sizin adınız ne?]]"
+      ],
+      table: { head: ["", "Turkish", "Meaning", "Arabic"], say: 1, rows: [
+        ["🙋", "Benim adım Ali.", "My name is Ali.", "اسمي علي"],
+        ["👉", "Senin adın ne?", "What's your name?", "ما اسمك؟"],
+        ["🎩", "Sizin adınız ne?", "What's your name? (polite)", "ما اسم حضرتك؟"]
+      ] }
+    },
+    {
+      id: "g-sensiz",
+      title: "Friendly [[sen]] or polite [[siz]]?",
+      body: [
+        "Turkish has two words for <i>you</i>. [[sen]] is for one friend, a child, a classmate or family. [[siz]] is for someone you don't know well, someone older, your teacher, or <b>more than one person</b>.",
+        "The verb ending follows: [[Nasılsın?]] (sen) → [[Nasılsınız?]] (siz). The teacher in the video: “The -nız ending is plural, but used to one person it is a sign of respect, like saying <i>ḥaḍratak</i> (your honour) in Arabic.”",
+        "With [[siz]] you often add a title <b>after</b> the first name: [[Pınar Hanım]] (Mrs Pınar), [[Levent Bey]] (Mr Levent). Never use them with the surname alone.",
+        "Pupils call their teacher [[öğretmenim]], literally <i>my teacher</i>, and use [[siz]] with them."
+      ],
+      widget: {
+        type: "combo", label: "Choose who you're talking to, then what you want to say",
+        rows: [{ k: "sen", label: "🧑 sen · a friend" }, { k: "siz", label: "🎩 siz · polite / several people" }],
+        cols: [{ k: "how", label: "How are you?" }, { k: "name", label: "What's your name?" }, { k: "from", label: "Where are you from?" }, { k: "bye", label: "Welcome!" }],
+        out: {
+          "sen|how": ["Nasılsın?", "How are you?", "nasıl (how) + -sın (you are)"],
+          "siz|how": ["Nasılsınız?", "How are you? (polite / plural)", "nasıl + -sınız"],
+          "sen|name": ["Senin adın ne?", "What's your name?", "senin … -ın"],
+          "siz|name": ["Sizin adınız ne?", "What's your name? (polite)", "sizin … -ınız"],
+          "sen|from": ["Nerelisin?", "Where are you from?", "nere (where) + -li (from) + -sin (you are)"],
+          "siz|from": ["Nerelisiniz?", "Where are you from? (polite)", "nere + -li + -siniz"],
+          "sen|bye": ["Hoş geldin!", "Welcome!", "Reply: Hoş bulduk!"],
+          "siz|bye": ["Hoş geldiniz!", "Welcome! (polite / plural)", "Reply: Hoş bulduk!"]
+        }
+      }
+    },
+    {
+      id: "g-im",
+      title: "“I am …” is an ending: [[iyi|iyi]] → [[iyiyim]]",
+      body: [
+        "Turkish has no separate verb <i>to be</i> in the present. You add a personal ending to the word itself: [[iyi]] (good) + <b>-(y)Im</b> → [[iyiyim]] (I am good / I'm fine).",
+        "The capital <b>I</b> in -(y)Im means the vowel changes to match the word's <b>last vowel</b>. This is <b>vowel harmony</b>, the most important rule in Turkish: <b>a/ı → ı · e/i → i · o/u → u · ö/ü → ü</b>.",
+        "The <b>(y)</b> is a buffer: it only appears when the word ends in a vowel, so two vowels never touch: [[iyi]] → iyi<b>y</b>im, but [[Alman]] → Alman<b>ım</b>.",
+        "The same harmony makes <i>you are</i>: <b>-sIn</b>. That is exactly what [[Nasılsın?]] is: [[nasıl]] (how) + <b>sın</b> (you are) = <i>how are you?</i>"
+      ],
+      widget: {
+        type: "harmony", label: "Build it yourself · pick a word, then “I am” or “you are”",
+        suffixes: ["im", "sin"],
+        words: [
+          { t: "iyi", en: "good, well" }, { t: "nasıl", en: "how" }, { t: "Türk", en: "Turkish" },
+          { t: "Alman", en: "German" }, { t: "öğretmen", en: "teacher" }, { t: "öğrenci", en: "student" },
+          { t: "doktor", en: "doctor" }, { t: "Japonyalı", en: "from Japan" }, { t: "Türkiyeli", en: "from Turkey" }
+        ]
+      }
+    },
+    {
+      id: "g-li",
+      title: "Where from? [[-lI|-li]]: [[Nijerya]] → [[Nijeryalıyım]]",
+      body: [
+        "Add <b>-lI</b> to a place to make <i>a person from there</i>: [[Japonya]] → [[Japonyalı]] (someone from Japan). The vowel follows harmony again: <b>-lı, -li, -lu, -lü</b>: [[Çinli]], [[İstanbullu]], [[Ürdünlü]].",
+        "Then add <b>-(y)Im</b> for <i>I am</i>: [[Japonyalı]] + yım → [[Japonyalıyım]] (I'm from Japan). With the buffer <b>y</b> because -lı ends in a vowel.",
+        "The question uses the same pieces: [[nere]] (where) + <b>li</b> + <b>sin</b> → [[Nerelisin?]] <i>Where are you from?</i>",
+        "Some countries also have a nationality word: [[Türk]], [[Alman]], [[Fransız]]. So <i>Ben Almanyalıyım ve Almanım</i> means “I'm from Germany and I'm German” (exercise 6, p. 11). The teacher's examples from the video are marked <i>bonus</i>: tap them too!"
+      ],
+      widget: {
+        type: "origin",
+        items: [
+          { flag: "🇹🇷", c: "Türkiye", en: "Turkey", nat: ["Türk", "Turkish"] },
+          { flag: "🇩🇪", c: "Almanya", en: "Germany", nat: ["Alman", "German"] },
+          { flag: "🇯🇵", c: "Japonya", en: "Japan", nat: ["Japon", "Japanese"] },
+          { flag: "🇳🇬", c: "Nijerya", en: "Nigeria" },
+          { flag: "🇪🇸", c: "İspanya", en: "Spain", nat: ["İspanyol", "Spanish"] },
+          { flag: "🇨🇳", c: "Çin", en: "China" },
+          { flag: "🇫🇷", c: "Fransa", en: "France", nat: ["Fransız", "French"] },
+          { flag: "🇦🇹", c: "Avusturya", en: "Austria" },
+          { flag: "🇸🇾", c: "Suriye", en: "Syria", bonus: true },
+          { flag: "🇰🇪", c: "Kenya", en: "Kenya", bonus: true },
+          { flag: "🇺🇸", c: "Amerika", en: "America", bonus: true },
+          { flag: "🇵🇸", c: "Filistin", en: "Palestine", bonus: true },
+          { flag: "🇯🇴", c: "Ürdün", en: "Jordan", bonus: true },
+          { flag: "🏙️", c: "İstanbul", en: "Istanbul", bonus: true }
+        ]
+      }
+    },
+    {
+      id: "g-bye",
+      title: "Two goodbyes: [[Hoşça kal]] and [[Güle güle]]",
+      body: [
+        "Turkish goodbyes depend on <b>who is leaving</b>. The person who leaves says [[Hoşça kal]] (<i>stay well</i>). The person who stays answers [[Güle güle]] (<i>go smiling</i>).",
+        "[[Görüşürüz]] (<i>we'll see each other</i>) works for both sides, and so do [[Sonra görüşürüz]] and [[Görüşmek üzere]].",
+        "Several greetings come in fixed pairs. Learn them together: [[Hoş geldin]] → [[Hoş bulduk]] · [[Memnun oldum]] → [[Ben de memnun oldum]] · [[Teşekkür ederim]] → [[Rica ederim]] · [[Ne haber?]] → [[İyilik]]."
+      ],
+      table: { head: ["When", "Turkish", "Meaning", "Reply"], say: 1, rows: [
+        ["🌅 morning", "Günaydın!", "Good morning!", "Günaydın!"],
+        ["☀️ daytime", "İyi günler!", "Good day!", "İyi günler!"],
+        ["🌆 evening", "İyi akşamlar!", "Good evening!", "İyi akşamlar!"],
+        ["🌙 bedtime", "İyi geceler!", "Good night!", "İyi geceler!"],
+        ["🚪 arriving", "Hoş geldin!", "Welcome!", "Hoş bulduk!"],
+        ["🚶 leaving", "Hoşça kal!", "Stay well!", "Güle güle!"]
+      ] }
+    }
+  ],
+
+  sounds: {
+    intro: "Turkish is written exactly as it is spoken: one letter, one sound. Most letters are easy for English speakers, but these are the ones that appear in this lesson and need practice. Tap each one, listen, and repeat.",
+    letters: [
+      { l: "ı", name: "dotless ı", tip: "No English equivalent. Say “ee” but pull your lips back and relax them, like the e in “taken” said quickly. Never confuse it with i (with a dot).", ex: ["Nasılsın", "adım", "Nijeryalıyım", "yıllar"] },
+      { l: "ş", name: "ş (şe)", tip: "Like English sh in “show”.", ex: ["teşekkür", "akşam", "Görüşürüz", "Bol şanslar"] },
+      { l: "ç", name: "ç (çe)", tip: "Like English ch in “church”.", ex: ["Hoşça kal", "Çin", "Çok yaşa", "Geçmiş olsun"] },
+      { l: "c", name: "c (ce)", tip: "Careful! Turkish c is like English j in “jam”, never like k or s.", ex: ["geceler", "Can", "Rica ederim"] },
+      { l: "ğ", name: "yumuşak ge (soft g)", tip: "Not pronounced as a g at all. It lengthens the vowel before it: Sağ ol sounds like “saa-ol”, öğretmen like “ööretmen”. The teacher: treat it almost as if it isn't there.", ex: ["Sağ ol", "öğretmen", "değil"] },
+      { l: "ü", name: "ü", tip: "Say “ee” and round your lips as if for “oo”. Like German ü or French u.", ex: ["Günaydın", "Güle güle", "Görüşürüz", "Mutlu yıllar"] },
+      { l: "ö", name: "ö", tip: "Say “e” (as in “bed”) and round your lips. Like German ö.", ex: ["öğretmen", "Görüşürüz", "Özür dilerim"] },
+      { l: "j", name: "j (je)", tip: "Like the s in “measure” or the French j. It appears mostly in foreign words.", ex: ["Japonya", "Nijerya"] }
+    ],
+    pairs: [
+      { a: ["kır", "countryside"], b: ["kir", "dirt"], note: "ı vs i" },
+      { a: ["üç", "three"], b: ["uç", "tip, end"], note: "ü vs u" },
+      { a: ["göl", "lake"], b: ["gol", "goal"], note: "ö vs o" },
+      { a: ["çam", "pine"], b: ["cam", "glass"], note: "ç vs c" },
+      { a: ["şu", "that"], b: ["su", "water"], note: "ş vs s" },
+      { a: ["Nasılsın?", "how are you? (sen)"], b: ["Nasılsınız?", "how are you? (siz)"], note: "sen vs siz" },
+      { a: ["adım", "my name"], b: ["adın", "your name"], note: "-m vs -n" }
+    ]
+  },
+
+  // Listening game: is the line friendly (sen) or polite/plural (siz)? rules are tried in order
+  classify: {
+    label: "🎩 sen or siz?",
+    q: "Is this line friendly (sen) or polite / plural (siz)?",
+    options: ["Polite / plural (siz)", "Friendly (sen)"],
+    rules: ["nasılsınız|sizin|adınız|siz |geldiniz", "nasılsın|senin|sen |nerelisin|geldin|sende |senden"]
+  },
+
+  tips: [
+    { icon: "🔁", t: "Repeat after me", d: "The teacher's method is <i>talqīn</i>: repeat every word aloud right after you hear it. In this app, press 🔁 Shadow on any dialogue and copy each line in the pause." },
+    { icon: "🔤", t: "Master the alphabet first", d: "“If you learn the letters well, you will learn quickly and pronounce correctly.” Turkish has <b>29 letters</b>: <b>8 vowels</b> (ünlü) and <b>21 consonants</b> (ünsüz). The next lesson covers them all." },
+    { icon: "⚖️", t: "Kalın and ince vowels", d: "The vowels split into two families: <b>kalın</b> (thick, back): a ı o u, and <b>ince</b> (thin, front): e i ö ü. Almost every ending in Turkish chooses its vowel from the same family as the word. You'll see this in [[Nasılsın]], [[iyiyim]], [[Japonyalıyım]]." },
+    { icon: "🤫", t: "ğ is (almost) silent", d: "The soft g ([[yumuşak ge]]) is not pronounced. It only lengthens the vowel before it: [[Sağ ol]] → “saa-ol”, [[öğretmen]] → “ööretmen”." },
+    { icon: "🌸", t: "Hoşça kal = stay well", d: "[[hoş]] means nice or pleasant, like [[güzel]]. [[Hoşça kal]] is a wish: <i>stay well</i>. The traveller says it; the one who stays replies [[Güle güle]]." },
+    { icon: "🎩", t: "Respect with -nız", d: "[[Nasılsınız?]] is plural, but to one person it shows respect, just as you might say <i>ḥaḍratak</i> in Arabic. Use it with teachers and with [[Hanım]] / [[Bey]]." },
+    { icon: "👤", t: "Names have meanings too", d: "[[Dilek]] means <i>wish</i> (the same word as [[dilekler]], wishes) and is a girl's name. [[Can]] means <i>soul, life</i> (rūḥ) and is a boy's name. [[Zeynep]] is the Turkish form of Zaynab." },
+    { icon: "🕌", t: "Selam comes from Arabic", d: "[[Selam]] is short for <i>es-selâmü aleyküm</i>. It's a casual “hi” between friends." },
+    { icon: "😄", t: "Ne haber? İyilik!", d: "[[Ne haber?]] (what news?) gets the reply [[İyilik]] (goodness). The teacher compares it to answering “al-ḥamdu lillāh”. [[Ne var ne yok?]] (what is there, what isn't?) is the same idea; answer [[Eh işte]] (so-so, Syrian <i>māshī l-ḥāl</i>) or [[Fena değil]] (not bad)." },
+    { icon: "🙏", t: "Three ways to say thanks", d: "[[Teşekkür ederim]] (full, polite) · [[Teşekkürler]] (shorter) · [[Sağ ol]] (casual, like colloquial Arabic <i>tislam</i>)." }
+  ],
+
+  // Custom practice items (vocabulary quizzes are generated automatically)
+  practice: [
+    { type: "mcq", q: "Your friend is leaving your house. What do YOU say?", options: ["Hoşça kal", "Güle güle", "Hoş geldin"], answer: 1, explain: "The one who stays says [[Güle güle]]. The one who leaves says [[Hoşça kal]].", sayAnswer: true },
+    { type: "mcq", q: "You are leaving your teacher's office. What do you say?", options: ["Güle güle", "Hoşça kal", "Hoş bulduk"], answer: 1, sayAnswer: true },
+    { type: "mcq", q: "Someone says “Hoş geldin!”. You reply…", options: ["Hoş bulduk!", "Güle güle!", "Memnun oldum!"], answer: 0, sayAnswer: true },
+    { type: "mcq", q: "Someone says “Memnun oldum.” You reply…", options: ["Teşekkürler.", "Ben de memnun oldum.", "Benim adım memnun."], answer: 1, sayAnswer: true },
+    { type: "mcq", q: "Which question do you ask your TEACHER?", options: ["Nasılsın?", "Nasılsınız?", "Ne haber?"], answer: 1, explain: "Use the polite [[siz]] form, -nız, with a teacher.", sayAnswer: true },
+    { type: "mcq", q: "It's 8 a.m. You greet your colleague with…", options: ["İyi geceler!", "Günaydın!", "İyi akşamlar!"], answer: 1, sayAnswer: true },
+    { type: "mcq", q: "Your friend sneezes. You say…", options: ["Afiyet olsun!", "Çok yaşa!", "Tebrikler!"], answer: 1, explain: "[[Çok yaşa]] = live long! (like <i>yarḥamuka llāh</i>).", sayAnswer: true },
+    { type: "mcq", q: "Your friend is ill in hospital. You say…", options: ["Geçmiş olsun!", "Bol şanslar!", "İyi yolculuklar!"], answer: 0, sayAnswer: true },
+    { type: "mcq", q: "Your friend passed an exam. You say…", options: ["Özür dilerim!", "Tebrikler!", "Lütfen!"], answer: 1, sayAnswer: true },
+    { type: "mcq", q: "Someone is about to eat. You say…", options: ["Afiyet olsun!", "Mutlu yıllar!", "İyi dersler!"], answer: 0, sayAnswer: true },
+    { type: "mcq", q: "Which one is a MAN's title?", options: ["Hanım", "Bey", "Öğretmen"], answer: 1 },
+    { type: "mcq", q: "How do you say “I'm from Nigeria”?", options: ["Nijeryalıyım.", "Nijeryalısın.", "Nijeryayım."], answer: 0, explain: "Nijerya + lı (from) + yım (I am).", sayAnswer: true },
+    { type: "mcq", q: "Which ending is correct? Türk___ (I am Turkish)", options: ["Türkım", "Türküm", "Türkyim"], answer: 1, explain: "Last vowel ü → ü. No buffer y after a consonant." },
+    { type: "fill", sentence: "Benim ___ Ali.", en: "My name is Ali.", options: ["adım", "adın", "ad"], answer: 0 },
+    { type: "fill", sentence: "Senin ___ ne?", en: "What's your name?", options: ["adım", "adın", "adınız"], answer: 1 },
+    { type: "fill", sentence: "İyiyim, teşekkür ederim. ___ nasılsın?", en: "I'm fine, thank you. How are YOU?", options: ["Ben", "Sen", "Siz"], answer: 1 },
+    { type: "fill", sentence: "Teşekkürler, ben ___ iyiyim.", en: "Thanks, I'm fine too.", options: ["de", "ne", "mi"], answer: 0 },
+    { type: "fill", sentence: "Ne var ne ___?", en: "What's up?", options: ["yok", "var", "haber"], answer: 0 },
+    { type: "fill", sentence: "Nasılsınız Levent ___?", en: "How are you, Mr Levent?", options: ["Bey", "Hanım", "öğretmenim"], answer: 0 },
+    { type: "order", words: ["Benim", "adım", "Murat."], en: "My name is Murat." },
+    { type: "order", words: ["Senin", "adın", "ne?"], en: "What's your name?" },
+    { type: "order", words: ["Ben", "de", "memnun", "oldum."], en: "Pleased to meet you too." },
+    { type: "order", words: ["Teşekkür", "ederim,", "iyiyim."], en: "Thank you, I'm fine." },
+    { type: "order", lines: true, q: "Exercise 1 (p. 9): put Ümit and Aslı's dialogue in order", words: [
+      "Ümit: Merhaba! Benim adım Ümit, senin adın ne?", "Aslı: Merhaba! Benim adım Aslı.", "Ümit: Memnun oldum.", "Aslı: Ben de memnun oldum.",
+      "Ümit: Nasılsın Aslı?", "Aslı: Teşekkürler, iyiyim, sen nasılsın?", "Ümit: Sağ ol, ben de iyiyim.", "Aslı: Görüşmek üzere. Hoşça kal.", "Ümit: Görüşürüz. Güle güle."
+    ], explain: "Name → pleased to meet you → how are you → goodbye. The teacher set lines 3–9 as homework." },
+    { type: "reply", prompt: "Nerelisin?", en: "Choose a logical reply", options: ["Japonyalıyım.", "Benim adım Ali.", "Güle güle."], answer: 0 },
+    { type: "reply", prompt: "Ne haber?", en: "Choose a logical reply", options: ["İyilik, senden ne haber?", "Hoş bulduk.", "Tebrikler."], answer: 0 },
+    { type: "reply", prompt: "Teşekkür ederim.", en: "Choose a logical reply", options: ["Rica ederim.", "Görüşürüz.", "Merhaba."], answer: 0 },
+    { type: "reply", prompt: "Ne var ne yok?", en: "Choose a logical reply", options: ["Eh işte, fena değil.", "Benim adım Mete.", "Lütfen."], answer: 0 },
+    { type: "type", q: "Type the Turkish: “Good morning”", answers: ["Günaydın"], explain: "Use the ü and ı buttons if your keyboard has no Turkish letters." },
+    { type: "type", q: "Type the Turkish: “How are you?” (to a friend)", answers: ["Nasılsın", "Nasılsın?"] },
+    { type: "type", q: "Make it “I am …”: iyi → ?", answers: ["iyiyim"], explain: "iyi ends in a vowel → buffer y → [[iyiyim]]." }
+  ],
+
+  roleplayIntro: "Your new classmate speaks and you answer out loud with your own name and country. Then reveal the model answer and compare. Afterwards, do it again as if your partner were your teacher: use [[siz]] and [[Nasılsınız?]].",
+  roleplay: [
+    { them: "Merhaba!", themEn: "Hello!", you: "Merhaba!", youEn: "Hello!", hint: "Greet them back" },
+    { them: "Benim adım Murat. Senin adın ne?", themEn: "My name is Murat. What's your name?", you: "Benim adım … (your name)", youEn: "My name is …", hint: "Say your name" },
+    { them: "Memnun oldum.", themEn: "Pleased to meet you.", you: "Ben de memnun oldum.", youEn: "Pleased to meet you too.", hint: "Say “me too, pleased to meet you”" },
+    { them: "Nasılsın?", themEn: "How are you?", you: "Teşekkür ederim, iyiyim. Sen nasılsın?", youEn: "Thank you, I'm fine. How are you?", hint: "Say you're fine and ask back" },
+    { them: "Ben de iyiyim. Nerelisin?", themEn: "I'm fine too. Where are you from?", you: "… -lıyım / -liyim (e.g. Nijeryalıyım). Sen nerelisin?", youEn: "I'm from … Where are you from?", hint: "Say where you're from with -lI + -(y)Im, then ask back" },
+    { them: "Ben Türkiyeliyim. Hoş geldin!", themEn: "I'm from Turkey. Welcome!", you: "Hoş bulduk!", youEn: "Glad to be here!", hint: "Give the fixed reply to “welcome”" },
+    { them: "Hoşça kal!", themEn: "Bye! (I'm leaving)", you: "Güle güle! Görüşürüz.", youEn: "Bye-bye! See you.", hint: "They are leaving and you stay" }
+  ],
+
+  // English translation of the teacher's video (from the Arabic auto-transcript). Full text: transcripts/en/u1-01.md
+  notes: {
+    intro: "An English translation of the teacher's commentary in <a href=\"https://www.youtube.com/watch?v=1x563pddmQk\" target=\"_blank\" rel=\"noopener\">Video 1</a>. The video is in Arabic; the source is YouTube's automatic Arabic transcript, which often mangles the Turkish words, so the Turkish has been restored from the book. Tap any bold Turkish word to hear it.",
+    summary: [
+      "The course is the <i>İstanbul</i> A1 book. The teacher will go through it flexibly: conversation, grammar, practice and lots of repetition.",
+      "Unit 1 (<b>Merhaba</b>) covers greetings, wishes, the alphabet, [[bu]] / [[şu]] / [[o]], the plural [[-lAr|-lar]], the question particle [[mı]] and [[Burası neresi?]].",
+      "Turkish has <b>29 letters: 8 vowels and 21 consonants</b>. Vowels are <b>kalın</b> (a ı o u) or <b>ince</b> (e i ö ü). The soft [[ğ]] is practically silent.",
+      "Key phrases: [[Merhaba]], [[Günaydın]], [[Nasılsın?]], [[İyiyim]], [[Nerelisin?]], [[Hoşça kal]], [[Güle güle]], [[Memnun oldum]], [[Teşekkür ederim]].",
+      "Homework: put the Ümit–Aslı dialogue (exercise 1, p. 9) in order."
+    ],
+    sections: [
+      { h: "1. Welcome and how the course works", ref: "start of video", p: [
+        "Dear students, I am your teacher, and I will be explaining the <i>İstanbul</i> book to you. This is the introduction, and it is the first lesson of the İstanbul book.",
+        "As we said, we will take things flexibly. God willing, we will hold conversations, apply the grammar rules, do exercises and all of that. Are you ready?"
+      ] },
+      { h: "2. What's in Unit 1", ref: "book p. 7", p: [
+        "Each unit has a title and a topic, and God willing we will cover every one. Unit 1 is about [[selamlaşma]], greeting. It means two people greeting each other: a greeting always happens between at least two people. Then there are some [[dilekler]], wishes. Then we have the vocabulary, and then we start the reading of Unit 1.",
+        "The skills (<b>beceriler</b>) are: [[tanışma]], getting to know someone; [[dilekler]], wishes; and recognising people and things. [[kişi]] means a person, and a “thing” means something that isn't a person, an object.",
+        "Dear students, I hope you repeat after me as you take the lesson. Take it from the beginning: we teach by repetition (<i>talqīn</i>), God willing.",
+        "The grammar (<b>dil bilgisi</b>) of the unit: the Turkish alphabet; then [[bu]], [[şu]], [[o]], which mean <i>this</i> and <i>that</i>: [[bu]] is for something near, [[şu]] for something further away, and [[o]] for something even further. Then the plural suffix [[-lAr|-lar / -ler]]. Then the question particle [[mı]], which works like <i>hal</i> in Arabic. Then [[Burası neresi?]], “where is this place?”: [[burası]] means <i>here, this place</i>.",
+        "Then the vocabulary: the classroom ([[sınıf]]), jobs ([[meslekler]]) and the home ([[ev]])."
+      ] },
+      { h: "3. The Turkish alphabet", ref: "book p. 12", p: [
+        "The first and most important thing to look at is the letters. We are on page 12. We are studying the introduction to the Turkish language. There was a first lesson like this one about spelling and reading correctly, so I hope you watch the videos on the Turkish alphabet.",
+        "The grammar: as we said, the Turkish language has <b>29 letters</b>.",
+        "Among them are the vowels: in Turkish there are letters with a voice and letters without one. There are <b>eight vowels</b>. And the other twenty-one? They are <b>consonants</b>, silent letters.",
+        "Then there's this letter, [[ğ]], the soft g. We drop it or ignore it within the word, mostly as if it weren't there.",
+        "So what's left? The consonants: we take out these green letters, the consonants. And what do we call them in Turkish? We call them [[ünsüz]], meaning “without a voice”. The other group, the vowels, are called [[ünlü]].",
+        "The vowels are divided into two groups. One group is called [[kalın]], meaning thick: <b>a, ı, o, u</b>. The other group is called [[ince]], meaning thin or delicate. We also call these the soft letters: <b>e, i, ö, ü</b>. [[kalın]] is thick and [[ince]] is the opposite. Do you see the difference between the two groups? They are opposites."
+      ] },
+      { h: "4. Greetings and wishes", ref: "book p. 8, top box", p: [
+        "Now let's do the reading, from the beginning of the unit. I hope you learn the letters well, because if you learn them well, you will learn quickly and pronounce correctly.",
+        "[[Tanışma]] means getting acquainted. Then names and [[selam]]: a greeting happens between at least two people. Then [[dilekler]], wishes. Let's speak:",
+        "[[Merhaba]]: hello. [[Günaydın]]: good morning. Repeat it: gün-ay-dın, [[Günaydın]].",
+        "[[Nasılsın?]]: how are you? [[İyiyim]]: I'm fine. [[Nerelisin?]]: where are you from?",
+        "[[Hoşça kal]]: stay well. That is, remain in good health; it's a wish. [[hoş]] is the nice, pleasant thing, like [[güzel]] (beautiful). So: stay well, stay nice. If someone is travelling, you hear [[Hoşça kal]], and the reply is [[Güle güle]]: goodbye, go smiling.",
+        "[[Memnun oldum]]: I'm honoured, pleased to meet you. [[Teşekkür ederim]]: thank you."
+      ] },
+      { h: "5. The example box: a short conversation", ref: "book p. 8", p: [
+        "Here is a dialogue between two people: [[Senin adın ne?]] What's your name? [[Benim adım Ali.]] My name is Ali.",
+        "[[Nasılsın?]] How are you? [[Teşekkür ederim, iyiyim.]] Thank you, I'm fine.",
+        "[[Nerelisin?]] Where are you from? [[Japonyalıyım.]] I'm from Japan.",
+        "[[Memnun oldum.]] Pleased to meet you. [[Ben de memnun oldum.]] [[Ben de]] means “me too”: me too, pleased to meet you. [[Hoşça kal.]] Stay well. [[Güle güle.]] Goodbye."
+      ] },
+      { h: "6. Preparation exercise (Hazırlık çalışması)", ref: "book p. 8, the photos", p: [
+        "[[Merhaba!]] Hello. [[Günaydın!]] Good morning.",
+        "[[İyi günler!]] Literally “good days”: may your days be good.",
+        "[[Hoş geldin!]] Welcome. [[İyi akşamlar!]] Good evening.",
+        "[[Hoşça kal!]] This is what we say when we want to say goodbye: look at the girl with the suitcase, she's leaving."
+      ] },
+      { h: "7. Reading: Ali and Murat", ref: "book p. 8", p: [
+        "This book is the core book if you want to learn Turkish. We'll go through it as flexibly as we can and practise reading again and again.",
+        "There is a dialogue here between Ali and Murat. What does Ali say? [[Merhaba, benim adım Ali. Senin adın ne?]] Hello, my name is Ali. What's your name? Murat answers: [[Benim adım Murat.]]",
+        "Ali: [[Memnun oldum.]] Pleased to meet you. Murat: [[Ben de memnun oldum.]] As I said a moment ago, [[ben de]] means “me too”: me too, I'm pleased."
+      ] },
+      { h: "8. Reading: Dilek and Zeynep", ref: "book p. 8", p: [
+        "[[Dilek]] is a girl's name. It means a wish, the same word as in [[dilekler]], wishes, but here it's a girl's name. [[Zeynep]] is Zaynab.",
+        "What does Dilek say? [[Selam Zeynep!]] [[Selam]] is short for <i>es-selâmü aleyküm</i>. [[Nasılsın?]] Hi Zeynep, how are you?",
+        "Zeynep: [[İyiyim, teşekkür ederim.]] I'm fine, thank you. [[Sen nasılsın?]] And how are you?",
+        "Dilek: [[Teşekkürler, ben de iyiyim.]] Thanks, I'm fine too."
+      ] },
+      { h: "9. Reading: Hannah and Austin", ref: "book p. 8", p: [
+        "Here we have a man and a woman. Hannah asks [[Nerelisin?]] Where are you from? Austin answers: [[Nijeryalıyım.]] I'm from Nigeria.",
+        "[[Sen nerelisin?]] And where are you from? Of course, you can say any country and adjust the ending to match the sound (vowel harmony): [[Suriyeliyim]] (I'm from Syria), [[Kenyalıyım]] (Kenya), [[Amerikalıyım]] (America), [[Filistinliyim]] (Palestine)…",
+        "Hannah answers: [[Ben Almanyalıyım.]] I'm from Germany."
+      ] },
+      { h: "10. Reading: Can and the teacher", ref: "book p. 8", p: [
+        "[[Can]] is a boy's name. In Turkish the word [[can]] means soul, life (<i>rūḥ</i>). He is a pupil. It's a man's name and doesn't suit a woman.",
+        "What does he say? [[Günaydın öğretmenim]]: good morning, my teacher. [[Nasılsınız?]]: how are you? This form is plural, but when it's said to one person it's a form of respect or formality. Good morning, teacher, how are you?",
+        "The teacher: [[Günaydın Can, iyiyim, sen nasılsın?]] Good morning Can, I'm fine, how are you? Can: [[Teşekkür ederim, ben de iyiyim.]] Thank you, I'm fine too."
+      ] },
+      { h: "11. Reading: Pınar Hanım and Levent Bey", ref: "book p. 9", p: [
+        "[[Hanım]] is a title for ladies. It's formal: we use it when we don't know the person well, when there isn't a close acquaintance. In the same way [[Bey]] is for men. We use them when there is formality and respect.",
+        "She says: [[Nasılsınız Levent Bey?]] How are you, Mr Levent? He answers: [[Teşekkür ederim, iyiyim.]] Thank you, I'm fine.",
+        "[[Siz nasılsınız?]] And how are you? Here [[siz]] is also the plural form, used for formality and respect, like saying <i>ḥaḍratak</i>, “your honour”: how is your honour?",
+        "Pınar Hanım: [[Teşekkürler, ben de iyiyim.]] Thank you, I'm fine too."
+      ] },
+      { h: "12. Reading: Öznur and Sinem", ref: "book p. 9", p: [
+        "Öznur and Sinem, two people. [[Ne haber Sinem?]] [[Ne haber]] means “what news?”: how are things, how are you?",
+        "[[İyilik]] means goodness: everything is fine, all is well. Sometimes we use [[iyilik]] the way we say <i>al-ḥamdu lillāh</i> (thank God).",
+        "[[Senden ne haber?]] And what's your news? How are you?",
+        "And the answer: [[Sağ ol]]: thanks, like colloquial Arabic <i>tislam</i>. [[Benden de iyilik.]] Me too, thank God, the same situation. All good."
+      ] },
+      { h: "13. Reading: Nihan and Mete", ref: "book p. 9", p: [
+        "Nihan says to Mete: [[Ne var ne yok?]] Literally: what is there and what isn't? You want to ask someone how things are going, what's new with them. In colloquial Arabic, as Syrians say, you'd answer <i>māshī l-ḥāl</i>, “it's going OK”.",
+        "Mete: [[Eh işte, fena değil.]] So-so, not bad: everything is OK. [[Sende ne var ne yok?]] And what's up with you, how are things?",
+        "Nihan: [[İyilik sağlık.]] Goodness and health. We shorten it to just that: all well, thank God."
+      ] },
+      { h: "14. Reading: Aysel and Leyla", ref: "book p. 9", p: [
+        "[[Hoşça kal Leyla.]] Stay well, Leyla. Leyla's answer: [[Güle güle.]] Goodbye.",
+        "[[Sonra görüşürüz.]] See you later, we'll meet afterwards. [[Görüşürüz.]] See you."
+      ] },
+      { h: "15. Exercise 1 and homework", ref: "book p. 9, exercise 1", p: [
+        "[[Aşağıdaki diyaloğu sıralayalım]]: let's put this dialogue in order. There's a number here: we have to order this dialogue.",
+        "It's a long dialogue, so the lesson is getting long: as much as I can fit into twenty-five minutes. But we're doing it flexibly, as we said, and the exercises are your homework.",
+        "The dialogue begins with number 1, Ümit: [[Merhaba! Benim adım Ümit, senin adın ne?]] If he says this, what is the second line, number 2? Which line goes in second place? [[Merhaba! Benim adım Aslı.]] And then lines 3 to 9: you read them and order them yourselves, dear students.",
+        "Don't forget to subscribe to the channel and like the video so we can keep bringing you information and lessons, and don't forget to share the channel. See you next time, God willing."
+      ] }
+    ],
+    source: "Source: the Arabic auto-generated transcript of Video 1 (kept unchanged in <code>transcripts/ar/u1-01.txt</code>), translated into English in <code>transcripts/en/u1-01.md</code>. A few words were unclear in the auto-transcript (for example the teacher's name) and have been left out rather than guessed."
+  }
+});
+</script><script>// Unit 1 · Lesson 2 — 1B Alfabe (book pp. 12–13) + Sınıf dili (p. 18)
+// Source: İstanbul Yabancılar İçin Türkçe A1 (Arabic edition). Video notes: add when the transcript is available.
+(function () {
+  const BACK = "aıou", V = "aeıioöuü";
+  const lastV = w => { const s = w.toLocaleLowerCase("tr"); for (let i = s.length - 1; i >= 0; i--) if (V.includes(s[i])) return s[i]; };
+  const vocab = [
+    // A–Z words from exercise 3 (p. 12)
+    { t: "arkadaş", pr: "ar-ka-DASH", en: "friend", ar: "صديق", pic: "🧑‍🤝‍🧑", cat: "A–Z words" },
+    { t: "baba", pr: "ba-BA", en: "father", ar: "أب", pic: "👨", cat: "A–Z words" },
+    { t: "ceviz", pr: "je-VEEZ", en: "walnut", ar: "جوز", pic: "🌰", cat: "A–Z words" },
+    { t: "çocuk", pr: "cho-JUK", en: "child", ar: "طفل", pic: "🧒", cat: "A–Z words" },
+    { t: "ders", pr: "ders", en: "lesson", ar: "درس", pic: "📖", cat: "A–Z words" },
+    { t: "ev", pr: "ev", en: "house, home", ar: "بيت", pic: "🏠", cat: "A–Z words" },
+    { t: "fare", pr: "fa-RE", en: "mouse", ar: "فأر", pic: "🐭", cat: "A–Z words" },
+    { t: "gül", pr: "gyul", en: "rose", ar: "وردة", pic: "🌹", cat: "A–Z words" },
+    { t: "ağaç", pr: "aa-ACH", en: "tree", ar: "شجرة", pic: "🌳", cat: "A–Z words" },
+    { t: "havuç", pr: "ha-VUCH", en: "carrot", ar: "جزر", pic: "🥕", cat: "A–Z words" },
+    { t: "ızgara", pr: "uz-ga-RA", en: "grill", ar: "مشواة", pic: "🍢", cat: "A–Z words" },
+    { t: "iş", pr: "eesh", en: "work, job", ar: "عمل", pic: "💼", cat: "A–Z words" },
+    { t: "jilet", pr: "zhee-LET", en: "razor blade", ar: "شفرة حلاقة", pic: "🪒", cat: "A–Z words" },
+    { t: "kalem", pr: "ka-LEM", en: "pen, pencil", ar: "قلم", pic: "✏️", cat: "A–Z words" },
+    { t: "lale", pr: "la-LE", en: "tulip", ar: "زهرة التوليب", pic: "🌷", cat: "A–Z words" },
+    { t: "masa", pr: "ma-SA", en: "table", ar: "طاولة", pic: "🪑", cat: "A–Z words" },
+    { t: "numara", pr: "nu-ma-RA", en: "number", ar: "رقم", pic: "🔢", cat: "A–Z words" },
+    { t: "otobüs", pr: "o-to-BYUS", en: "bus", ar: "حافلة", pic: "🚌", cat: "A–Z words" },
+    { t: "öğretmen", pr: "o-ret-MEN", en: "teacher", ar: "معلّم", pic: "👩‍🏫", cat: "A–Z words" },
+    { t: "para", pr: "pa-RA", en: "money", ar: "مال", pic: "💵", cat: "A–Z words" },
+    { t: "resim", pr: "re-SEEM", en: "picture", ar: "صورة", pic: "🖼️", cat: "A–Z words" },
+    { t: "saç", pr: "sach", en: "hair", ar: "شعر", pic: "💇", cat: "A–Z words" },
+    { t: "şişe", pr: "shee-SHE", en: "bottle", ar: "زجاجة", pic: "🍾", cat: "A–Z words" },
+    { t: "tahta", pr: "tah-TA", en: "board (blackboard), wood", ar: "سبّورة / خشب", pic: "🟫", cat: "A–Z words" },
+    { t: "uçurtma", pr: "u-churt-MA", en: "kite", ar: "طائرة ورقية", pic: "🪁", cat: "A–Z words" },
+    { t: "ütü", pr: "yu-TYU", en: "iron (for clothes)", ar: "مكواة", pic: "👔", cat: "A–Z words" },
+    { t: "vazo", pr: "va-ZO", en: "vase", ar: "مزهرية", pic: "🏺", cat: "A–Z words" },
+    { t: "yemek", pr: "ye-MEK", en: "food, meal", ar: "طعام", pic: "🍲", cat: "A–Z words" },
+    { t: "zeytin", pr: "zey-TEEN", en: "olive", ar: "زيتون", pic: "🫒", cat: "A–Z words" },
+    // exercise 4 (p. 12): unscramble
+    { t: "silgi", pr: "seel-GEE", en: "eraser", ar: "ممحاة", pic: "🧽", cat: "Classroom" },
+    { t: "sözlük", pr: "soz-LYUK", en: "dictionary", ar: "قاموس", pic: "📘", cat: "Classroom" },
+    { t: "kapı", pr: "ka-PU", en: "door", ar: "باب", pic: "🚪", cat: "Classroom" },
+    { t: "kitap", pr: "kee-TAP", en: "book", ar: "كتاب", pic: "📕", cat: "Classroom" },
+    { t: "defter", pr: "def-TER", en: "notebook", ar: "دفتر", pic: "📓", cat: "Classroom" },
+    { t: "çanta", pr: "chan-TA", en: "bag", ar: "حقيبة", pic: "🎒", cat: "Classroom" },
+    { t: "bilgisayar", pr: "beel-gee-sa-YAR", en: "computer", ar: "حاسوب", pic: "💻", cat: "Classroom" },
+    // talking about letters
+    { t: "alfabe", pr: "al-fa-BE", en: "alphabet", ar: "الأبجدية", pic: "🔤", cat: "Letters" },
+    { t: "harf", pr: "harf", en: "letter (of the alphabet)", ar: "حرف", pic: "🅰️", cat: "Letters" },
+    { t: "ünlü", pr: "yun-LYU", en: "vowel (lit. voiced)", ar: "حرف صوتي", pic: "🔊", cat: "Letters" },
+    { t: "ünsüz", pr: "yun-SYUZ", en: "consonant (lit. voiceless)", ar: "حرف ساكن", pic: "🔇", cat: "Letters" },
+    { t: "kalın", pr: "ka-LUN", en: "thick, back (vowel)", ar: "غليظ / ثقيل", pic: "🟦", cat: "Letters" },
+    { t: "ince", pr: "een-JE", en: "thin, front (vowel)", ar: "رقيق", pic: "🟪", cat: "Letters" },
+    // classroom language (Sınıf dili, p. 18)
+    { t: "Affedersiniz.", pr: "af-fe-DER-see-neez", en: "Excuse me.", ar: "عفوًا / المعذرة", pic: "🙋", cat: "Classroom language" },
+    { t: "… ne demek?", pr: "ne de-MEK", en: "what does … mean?", ar: "ماذا يعني …؟", pic: "❓", cat: "Classroom language" },
+    { t: "soru", pr: "so-RU", en: "question", ar: "سؤال", pic: "❔", cat: "Classroom language" },
+    { t: "cevap", pr: "je-VAP", en: "answer", ar: "جواب", pic: "💬", cat: "Classroom language" },
+    { t: "Anlamıyorum.", pr: "an-LA-mu-yo-rum", en: "I don't understand.", ar: "لا أفهم.", pic: "😕", cat: "Classroom language" },
+    { t: "Anladım.", pr: "an-la-DUM", en: "I understood. / Got it.", ar: "فهمت.", pic: "💡", cat: "Classroom language" },
+    { t: "Üzgünüm.", pr: "yuz-GYU-nyum", en: "I'm sorry.", ar: "آسف.", pic: "😔", cat: "Classroom language" },
+    { t: "Nasıl yazılıyor?", pr: "NA-sul ya-ZU-lu-yor", en: "how is it spelled / written?", ar: "كيف يُكتب؟", pic: "✍️", cat: "Classroom language" },
+    { t: "Tekrar lütfen.", pr: "tek-RAR LYUT-fen", en: "Again, please.", ar: "مرة أخرى من فضلك.", pic: "🔁", cat: "Classroom language", extra: true }
+  ];
+
+  LESSONS.push({
+    id: "u1-02",
+    unit: 1,
+    num: 2,
+    unitEn: "Ünite 1 · MERHABA (Hello) · B. The alphabet",
+    title: "The Turkish Alphabet",
+    titleTr: "Türk alfabesi",
+    covers: "Book pp. 12–13 · Dil bilgisi, exercises 1–4, Dinleme 2 · plus Sınıf dili (p. 18)",
+    video: "https://www.youtube.com/playlist?list=PLrwS96DaM7OEcN2imsuUzuf2Wlhd6Jsz-",
+    goals: [
+      "Say the 29 letters of the Turkish alphabet and their names",
+      "Tell the 8 vowels (<b>ünlü</b>) from the 21 consonants (<b>ünsüz</b>)",
+      "Sort the vowels into <b>kalın</b> (a ı o u) and <b>ince</b> (e i ö ü), the key to vowel harmony",
+      "Pronounce the special letters ç, ş, ğ, ı, ö, ü, c and j",
+      "Spell your name aloud: [[Mehmet]] → [[me, e, he, me, e, te|M–E–H–M–E–T]]",
+      "Use classroom language: [[Affedersiniz]], [[Soru ne demek?]], [[Anlamıyorum]], [[Anladım]]"
+    ],
+
+    dialogues: [
+      {
+        id: "d1", title: "Classroom language", titleTr: "Sınıf dili", note: "Magda doesn't understand a word and asks the teacher. (p. 18)",
+        people: { "Magda": "f3", "Öğretmen": "t" },
+        lines: [
+          ["Magda", "Affedersiniz.", "Excuse me.", "عفوًا."],
+          ["Öğretmen", "Evet, Magda.", "Yes, Magda.", "نعم يا ماغدا."],
+          ["Magda", "Soru ne demek?", "What does “soru” mean?", "ماذا تعني كلمة \"soru\"؟"],
+          ["Öğretmen", "Ben soru soruyorum. Sen cevap veriyorsun.", "I ask a question. You give an answer.", "أنا أسأل سؤالًا. أنتِ تجيبين."],
+          ["Magda", "Üzgünüm. Anlamıyorum.", "I'm sorry. I don't understand.", "آسفة. لا أفهم."],
+          ["Öğretmen", "Tamam. Soru: Senin adın ne? Cevap: Benim adım Magda.", "OK. Question: What's your name? Answer: My name is Magda.", "حسنًا. السؤال: ما اسمك؟ الجواب: اسمي ماغدا."],
+          ["Magda", "Tamam. Anladım. Teşekkürler.", "OK. I understand now. Thanks.", "حسنًا. فهمت. شكرًا."]
+        ]
+      },
+      {
+        id: "d2", title: "Spelling a name", titleTr: "Adımızın harfleri", note: "A practice dialogue made for this app from exercise 2 (p. 12): we say the letter names one by one.",
+        people: { "Öğretmen": "t", "Mehmet": "m2" },
+        lines: [
+          ["Öğretmen", "Merhaba! Adın ne?", "Hello! What's your name?", "مرحبًا! ما اسمك؟"],
+          ["Mehmet", "Benim adım Mehmet.", "My name is Mehmet.", "اسمي محمد."],
+          ["Öğretmen", "Nasıl yazılıyor?", "How is it spelled?", "كيف يُكتب؟"],
+          ["Mehmet", "Me, e, he, me, e, te.", "M – E – H – M – E – T.", "م – ي – ح – م – ي – ت"],
+          ["Öğretmen", "Teşekkürler Mehmet. Anladım.", "Thanks, Mehmet. Got it.", "شكرًا يا محمد. فهمت."]
+        ]
+      }
+    ],
+
+    vocab,
+
+    grammar: [
+      {
+        id: "g-abc",
+        title: "29 letters: [[Türkçede yirmi dokuz harf vardır.|Türkçede 29 harf vardır.]]",
+        body: [
+          "The Turkish alphabet uses Latin letters, but it has <b>29</b> of them: no <b>q, w, x</b>, and six extra letters: <b>ç, ğ, ı, ö, ş, ü</b>.",
+          "Of the 29 letters, <b>8 are vowels</b> ([[ünlü]], “voiced”) and <b>21 are consonants</b> ([[ünsüz]], “voiceless”).",
+          "<b>One letter = one sound</b>, always. Once you know the letters you can read any Turkish word aloud correctly, even if you don't know what it means.",
+          "Consonants are named with an <b>e</b>: [[be]], [[ce]], [[çe]], [[de]]… Vowels are just said: [[a]], [[ı]], [[o]]… The odd one out is ğ: [[yumuşak ge]] (soft g)."
+        ],
+        widget: {
+          type: "alphabet",
+          words: { A: ["arkadaş", "friend"], B: ["baba", "father"], C: ["ceviz", "walnut"], Ç: ["çocuk", "child"], D: ["ders", "lesson"], E: ["ev", "house"], F: ["fare", "mouse"], G: ["gül", "rose"], Ğ: ["ağaç", "tree"], H: ["havuç", "carrot"], I: ["ızgara", "grill"], İ: ["iş", "work"], J: ["jilet", "razor blade"], K: ["kalem", "pen"], L: ["lale", "tulip"], M: ["masa", "table"], N: ["numara", "number"], O: ["otobüs", "bus"], Ö: ["öğretmen", "teacher"], P: ["para", "money"], R: ["resim", "picture"], S: ["saç", "hair"], Ş: ["şişe", "bottle"], T: ["tahta", "board"], U: ["uçurtma", "kite"], Ü: ["ütü", "iron"], V: ["vazo", "vase"], Y: ["yemek", "food"], Z: ["zeytin", "olive"] },
+          tips: { C: "Like English <b>j</b> in “jam”.", Ç: "Like English <b>ch</b> in “church”.", Ğ: "Never starts a word. It's silent and lengthens the vowel before it: ağaç ≈ “aaach”.", I: "Dotless ı: a short, unrounded “uh”. Its capital is <b>I</b>.", İ: "Dotted i: like “ee”. Its capital keeps the dot: <b>İ</b>.", J: "Like the <b>s</b> in “measure”.", Ö: "Like German ö: say “e” with rounded lips.", Ş: "Like English <b>sh</b>.", Ü: "Like German ü: say “ee” with rounded lips.", R: "A tapped r, lightly rolled. At the end of a word it's soft and breathy.", Y: "Always a consonant, like y in “yes”.", V: "Softer than English v, between v and w.", H: "Always pronounced, like h in “hat”, even in the middle of a word." }
+        }
+      },
+      {
+        id: "g-vowels",
+        title: "The 8 vowels: [[kalın]] and [[ince]]",
+        body: [
+          "The teacher divides the vowels into two families. <b>Kalın</b> (thick, back) vowels are made at the back of the mouth: <b>a, ı, o, u</b>. <b>İnce</b> (thin, front) vowels are made at the front: <b>e, i, ö, ü</b>.",
+          "They come in matching pairs: <b>a ↔ e</b>, <b>ı ↔ i</b>, <b>o ↔ ö</b>, <b>u ↔ ü</b>. Each pair is the same mouth shape, moved from back to front.",
+          "Why it matters: endings copy the family of the word's <b>last vowel</b>. That's <b>vowel harmony</b>. You saw it in lesson 1 ([[Japonyalıyım]] / [[Türkiyeliyim]]) and you'll use it in lesson 3 for plurals and questions.",
+          "The second split is <b>unrounded</b> (lips flat: a, e, ı, i) vs <b>rounded</b> (lips round: o, ö, u, ü). The 4-way endings like -(y)Im and mI use both splits."
+        ],
+        table: { head: ["", "Unrounded (düz)", "", "Rounded (yuvarlak)", ""], say: -1, rows: [
+          ["<b>Kalın</b> · back", "<span class='kv' style='padding:0 6px;border-radius:6px'>a</span> ([[araba|araba]])", "<span class='kv' style='padding:0 6px;border-radius:6px'>ı</span> ([[ızgara]])", "<span class='kv' style='padding:0 6px;border-radius:6px'>o</span> ([[otobüs]])", "<span class='kv' style='padding:0 6px;border-radius:6px'>u</span> ([[uçurtma]])"],
+          ["<b>İnce</b> · front", "<span class='iv' style='padding:0 6px;border-radius:6px'>e</span> ([[ev]])", "<span class='iv' style='padding:0 6px;border-radius:6px'>i</span> ([[iş]])", "<span class='iv' style='padding:0 6px;border-radius:6px'>ö</span> ([[öğretmen]])", "<span class='iv' style='padding:0 6px;border-radius:6px'>ü</span> ([[ütü]])"]
+        ] }
+      },
+      {
+        id: "g-iI",
+        title: "Two i's: ı/I and i/İ",
+        body: [
+          "Turkish has two different letters that English writes as one: dotless <b>ı</b> (capital <b>I</b>) and dotted <b>i</b> (capital <b>İ</b>). The dot stays on the capital!",
+          "They are different sounds and change meaning: [[kır]] (countryside) vs [[kir]] (dirt). In names and places: [[Izgara]] but [[İstanbul]], [[İspanya]], [[İzmir]].",
+          "Typing tip: if your keyboard has no Turkish letters, the Quiz and Dictation pages have buttons for ç ğ ı İ ö ş ü."
+        ],
+        table: { head: ["", "Word", "Meaning"], say: 1, rows: [
+          ["ı / I", "ızgara", "grill"], ["i / İ", "iş", "work"], ["I (capital ı)", "Izgara", "Grill"], ["İ (capital i)", "İstanbul", "Istanbul"]
+        ] }
+      },
+      {
+        id: "g-spell",
+        title: "Spelling aloud: [[Nasıl yazılıyor?]]",
+        body: [
+          "To spell a word, say the letter <b>names</b>: [[Mehmet]] → <b>me – e – he – me – e – te</b>. To ask how something is written: [[Nasıl yazılıyor?]]",
+          "Turkish spelling is so regular that you rarely need to spell, except for names. Practise with your own name in the Speaking tab.",
+          "Exercise 1 (p. 12) asks you to fill the gaps in the alphabet in order. Try it in the Quiz tab."
+        ],
+        widget: {
+          type: "combo", label: "Pick a name and hear it spelled",
+          rows: [{ k: "spell", label: "🔤 spell it" }, { k: "say", label: "🗣️ say it" }],
+          cols: [{ k: "mehmet", label: "Mehmet" }, { k: "ayse", label: "Ayşe" }, { k: "cagri", label: "Çağrı" }, { k: "ozge", label: "Özge" }, { k: "ilker", label: "İlker" }],
+          out: {
+            "spell|mehmet": ["Me, e, he, me, e, te.", "M – E – H – M – E – T"], "say|mehmet": ["Mehmet", "Mehmet (boy's name)"],
+            "spell|ayse": ["A, ye, şe, e.", "A – Y – Ş – E"], "say|ayse": ["Ayşe", "Ayşe (girl's name)", "ş = sh"],
+            "spell|cagri": ["Çe, a, yumuşak ge, re, ı.", "Ç – A – Ğ – R – I"], "say|cagri": ["Çağrı", "Çağrı (name)", "ğ is silent: “chaa-ruh”"],
+            "spell|ozge": ["Ö, ze, ge, e.", "Ö – Z – G – E"], "say|ozge": ["Özge", "Özge (girl's name)"],
+            "spell|ilker": ["İ, le, ke, e, re.", "İ – L – K – E – R"], "say|ilker": ["İlker", "İlker (boy's name)", "capital İ keeps its dot"]
+          }
+        }
+      }
+    ],
+
+    sounds: {
+      intro: "Every Turkish letter has exactly one sound. Here are the eight vowels and the consonants that are new or different for English speakers. Tap, listen and repeat; then play the minimal-pairs game.",
+      letters: [
+        { l: "a · e", name: "a and e (kalın / ince pair)", tip: "a as in “father” (short); e as in “bed”.", ex: ["baba", "ev", "masa", "ders"] },
+        { l: "ı · i", name: "ı and i (kalın / ince pair)", tip: "ı is a relaxed, unrounded “uh” made at the back; i is “ee” made at the front.", ex: ["ızgara", "iş", "kapı", "silgi"] },
+        { l: "o · ö", name: "o and ö (kalın / ince pair)", tip: "o as in “more” (short); ö is the same with the tongue pushed forward, like German ö.", ex: ["otobüs", "öğretmen", "vazo", "sözlük"] },
+        { l: "u · ü", name: "u and ü (kalın / ince pair)", tip: "u as in “put”; ü is “ee” with rounded lips.", ex: ["uçurtma", "ütü", "çocuk", "gül"] },
+        { l: "c · ç", name: "c (j) and ç (ch)", tip: "c = j in “jam”; ç = ch in “church”.", ex: ["ceviz", "cevap", "çocuk", "havuç"] },
+        { l: "ş · j", name: "ş (sh) and j (zh)", tip: "ş = sh in “ship”; j = s in “measure”.", ex: ["şişe", "arkadaş", "jilet"] },
+        { l: "ğ", name: "yumuşak ge", tip: "Silent; it makes the vowel before it longer. Never at the start of a word.", ex: ["ağaç", "öğretmen", "Çağrı"] },
+        { l: "r", name: "r", tip: "A quick tap of the tongue. At the end of a word it fades into a soft hiss.", ex: ["resim", "numara", "bilgisayar"] }
+      ],
+      pairs: [
+        { a: ["kır", "countryside"], b: ["kir", "dirt"], note: "ı vs i" },
+        { a: ["kul", "servant"], b: ["kül", "ash"], note: "u vs ü" },
+        { a: ["ol", "be!"], b: ["öl", "die!"], note: "o vs ö" },
+        { a: ["acı", "bitter, pain"], b: ["açı", "angle"], note: "c vs ç" },
+        { a: ["şu", "that"], b: ["su", "water"], note: "ş vs s" },
+        { a: ["dağ", "mountain"], b: ["da", "also"], note: "ğ (long a) vs short a" },
+        { a: ["kalın", "thick"], b: ["kalem", "pen"], note: "ı vs e" }
+      ]
+    },
+
+    // Listening game: hear a word, decide whether its LAST vowel is kalın or ince
+    classify: {
+      label: "⚖️ kalın or ince?",
+      q: "Listen. Is the LAST vowel of this word kalın (a ı o u) or ince (e i ö ü)?",
+      options: ["Kalın (a ı o u)", "İnce (e i ö ü)"],
+      items: vocab.filter(v => v.cat === "A–Z words" || v.cat === "Classroom").map(v => ({ say: v.t, en: `${v.en} · last vowel: ${lastV(v.t)}`, a: BACK.includes(lastV(v.t)) ? 0 : 1 }))
+    },
+
+    tips: [
+      { icon: "🔤", t: "Learn the letters first", d: "The teacher's advice: “If you learn the letters well, you will learn quickly and pronounce correctly.” Spend a few days here before moving on." },
+      { icon: "8️⃣", t: "29 = 8 + 21", d: "<b>8 vowels</b> ([[ünlü]], with a voice) and <b>21 consonants</b> ([[ünsüz]], without a voice). [[ün]] is an old word for voice, so ün-<i>lü</i> is “with a voice” and ün-<i>süz</i> “without a voice”. The same pair of endings is everywhere: -lI = with (you met it in [[Japonyalı]]), -sIz = without." },
+      { icon: "⚖️", t: "Kalın vs ince", d: "Thick (back) <b>a ı o u</b>, thin (front) <b>e i ö ü</b>. Memorise these two groups of four: almost every ending in Turkish depends on them." },
+      { icon: "🤫", t: "ğ is (almost) silent", d: "Treat [[ğ]] as if it weren't there; just make the vowel before it a bit longer: [[ağaç]], [[öğretmen]]." },
+      { icon: "⚠️", t: "c is not k or s", d: "Turkish [[c]] is always the j-sound: [[ceviz]] = “jeviz”, [[cevap]] = “jevap”. Arabic speakers: it's ج as in standard Arabic, never the Egyptian g." },
+      { icon: "🔠", t: "The dot stays on İ", d: "Capital of i is <b>İ</b>; capital of ı is <b>I</b>. So it's [[İstanbul]], not Istanbul, in Turkish." },
+      { icon: "🎯", t: "Stress is usually on the last syllable", d: "Most Turkish words are stressed at the end: [[arkadaş]], [[öğretmen]], [[kalem]]. Many place names are the exception: [[Ankara]] (AN-ka-ra), [[Türkiye]] (TÜR-ki-ye)." },
+      { icon: "🙋", t: "Survival phrases", d: "[[Affedersiniz]] to get attention, [[… ne demek?|ne demek?]] to ask a meaning, [[Anlamıyorum]] when you're lost, [[Tekrar lütfen]] for “again, please”." }
+    ],
+
+    practice: [
+      { type: "mcq", q: "How many letters does the Turkish alphabet have?", options: ["26", "28", "29", "32"], answer: 2 },
+      { type: "mcq", q: "How many of them are vowels?", options: ["5", "6", "8", "10"], answer: 2 },
+      { type: "mcq", q: "Which letter is NOT in the Turkish alphabet?", options: ["ğ", "q", "ç", "j"], answer: 1, explain: "Turkish has no q, w or x." },
+      { type: "mcq", q: "Which group are the kalın (thick) vowels?", options: ["e i ö ü", "a ı o u", "a e ı i"], answer: 1 },
+      { type: "mcq", q: "Which group are the ince (thin) vowels?", options: ["e i ö ü", "a ı o u", "o ö u ü"], answer: 0 },
+      { type: "mcq", q: "What is the capital of “i”?", options: ["I", "İ", "Ī"], answer: 1, explain: "The dot stays: i → İ. Dotless ı → I." },
+      { type: "mcq", q: "How do you pronounce c in “ceviz”?", options: ["like k", "like s", "like j in “jam”", "like ch"], answer: 2 },
+      { type: "mcq", q: "What does ğ do in “ağaç”?", options: ["It sounds like g", "It's silent and lengthens the a", "It sounds like k"], answer: 1 },
+      { type: "mcq", q: "Which word starts with an ince vowel?", options: ["otobüs", "ütü", "araba", "ızgara"], answer: 1 },
+      { type: "mcq", q: "The last vowel of “öğretmen” is…", options: ["ö (ince)", "e (ince)", "a (kalın)"], answer: 1 },
+      { type: "mcq", q: "You don't understand. You say…", options: ["Anladım.", "Anlamıyorum.", "Affedersiniz."], answer: 1, sayAnswer: true },
+      { type: "mcq", q: "You want to ask what “soru” means. You say…", options: ["Soru nasıl?", "Soru ne demek?", "Soru nereli?"], answer: 1, sayAnswer: true },
+      { type: "fill", sentence: "a, b, c, ç, d, e, f, g, ___, h", en: "Exercise 1: which letter comes next?", options: ["ğ", "ı", "j"], answer: 0 },
+      { type: "fill", sentence: "h, ı, ___, j, k", en: "Exercise 1: which letter comes next?", options: ["i", "l", "g"], answer: 0 },
+      { type: "fill", sentence: "n, o, ___, p, r", en: "Exercise 1: which letter comes next?", options: ["ö", "q", "u"], answer: 0 },
+      { type: "fill", sentence: "s, ___, t, u, ü, v", en: "Exercise 1: which letter comes next?", options: ["ş", "w", "x"], answer: 0 },
+      { type: "fill", sentence: "u, ü, v, y, ___", en: "The last letter of the alphabet", options: ["z", "w", "x"], answer: 0 },
+      { type: "type", q: "Exercise 4 (p. 12): unscramble “lkema”", answers: ["kalem"], explain: "kalem = pen" },
+      { type: "type", q: "Exercise 4: unscramble “asam”", answers: ["masa"] },
+      { type: "type", q: "Exercise 4: unscramble “iglis”", answers: ["silgi"], explain: "silgi = eraser" },
+      { type: "type", q: "Exercise 4: unscramble “ükszlö”", answers: ["sözlük"], explain: "sözlük = dictionary" },
+      { type: "type", q: "Exercise 4: unscramble “pıka”", answers: ["kapı"] },
+      { type: "type", q: "Exercise 4: unscramble “athta”", answers: ["tahta"] },
+      { type: "type", q: "Exercise 4: unscramble “pikat”", answers: ["kitap"] },
+      { type: "type", q: "Exercise 4: unscramble “erdfte”", answers: ["defter"] },
+      { type: "type", q: "Exercise 4: unscramble “naçat”", answers: ["çanta"] },
+      { type: "type", q: "Exercise 4: unscramble “aslibraygi”", answers: ["bilgisayar"] },
+      { type: "type", q: "Dinleme 2 (p. 13): listen and write the word", say: "çocuk", answers: ["çocuk"] },
+      { type: "type", q: "Dinleme 2: listen and write the word", say: "şişe", answers: ["şişe"] },
+      { type: "type", q: "Dinleme 2: listen and write the word", say: "öğretmen", answers: ["öğretmen"] },
+      { type: "order", words: ["Ben", "soru", "soruyorum."], en: "I ask a question." },
+      { type: "order", words: ["Üzgünüm.", "Anlamıyorum."], en: "I'm sorry. I don't understand." },
+      { type: "reply", prompt: "Affedersiniz.", en: "Choose the teacher's logical reply", options: ["Evet?", "Güle güle.", "Hoş bulduk."], answer: 0 },
+      { type: "reply", prompt: "Nasıl yazılıyor?", en: "Your name is Ali. Choose a reply", options: ["A, le, i.", "Ali'yim.", "Anladım."], answer: 0 }
+    ],
+
+    roleplayIntro: "The teacher asks you questions in class. Answer out loud, then reveal the model answer. For the spelling turns, use the letter names: be, ce, çe…",
+    partner: "t",
+    roleplay: [
+      { them: "Merhaba! Adın ne?", themEn: "Hello! What's your name?", you: "Benim adım … (your name)", youEn: "My name is …", hint: "Say your name" },
+      { them: "Nasıl yazılıyor?", themEn: "How is it spelled?", you: "(spell your name: e.g. Me, e, he, me, e, te)", youEn: "Spell it with the letter names", hint: "Spell your name letter by letter" },
+      { them: "Teşekkürler. Bu harf ne?  Ş.", themEn: "Thanks. What's this letter? Ş.", you: "Şe.", youEn: "It's ş (sh).", hint: "Say the letter name" },
+      { them: "Ünlü mü, ünsüz mü? A.", themEn: "Vowel or consonant? A.", you: "Ünlü. Kalın ünlü.", youEn: "A vowel. A thick (back) vowel.", hint: "Vowel or consonant? Kalın or ince?" },
+      { them: "Ünlü mü, ünsüz mü? Ü.", themEn: "Vowel or consonant? Ü.", you: "Ünlü. İnce ünlü.", youEn: "A vowel. A thin (front) vowel.", hint: "Vowel or consonant? Kalın or ince?" },
+      { them: "Sözlük ne demek?", themEn: "What does “sözlük” mean?", you: "Üzgünüm, anlamıyorum. Tekrar lütfen.", youEn: "Sorry, I don't understand. Again, please.", hint: "Say you don't understand and ask again" },
+      { them: "Sözlük: dictionary.", themEn: "Sözlük: dictionary.", you: "Tamam. Anladım. Teşekkürler.", youEn: "OK. Got it. Thanks.", hint: "Say you understand and thank the teacher" }
+    ]
+  });
+})();
+</script><script>// Unit 1 · Lesson 3 — 1C Bu ne? O kim? (book pp. 14–18)
+// Source: İstanbul Yabancılar İçin Türkçe A1 (Arabic edition). Video notes: add when the transcript is available.
+LESSONS.push({
+  id: "u1-03",
+  unit: 1,
+  num: 3,
+  unitEn: "Ünite 1 · MERHABA (Hello) · C. What is this? Who is that?",
+  title: "What's this? Who's that?",
+  titleTr: "Bu ne? O kim?",
+  covers: "Book pp. 14–18 · bu/şu/o, Kim?/Ne?, plural -lAr, question mI, Burası neresi?, Kapalıçarşı",
+  video: "https://www.youtube.com/playlist?list=PLrwS96DaM7OEcN2imsuUzuf2Wlhd6Jsz-",
+  goals: [
+    "Point at things near and far: [[Bu]] / [[Şu]] / [[O]]",
+    "Ask about things with [[Ne?]] and about people with [[Kim?]]",
+    "Make plurals with -lar / -ler: [[kitaplar]], [[kediler]]",
+    "Ask yes/no questions with mı / mi / mu / mü: [[Bu kalem mi?]]",
+    "Answer yes or no: [[Evet, kalem.]] / [[Hayır, kalem değil.]]",
+    "Ask what a place is: [[Burası neresi?]] → [[Burası Kapalıçarşı.]]"
+  ],
+
+  dialogues: [
+    {
+      id: "d1", title: "In the classroom", titleTr: "Sınıf", note: "The speech bubbles from the classroom photo (p. 14), as a teacher–student exchange.",
+      people: { "Öğretmen": "t", "Öğrenci": "f4" },
+      lines: [
+        ["Öğretmen", "O ne?", "What's that (over there)?", "ما ذلك؟"],
+        ["Öğrenci", "O klima.", "That's an air conditioner.", "ذلك مكيّف."],
+        ["Öğretmen", "O tahta mı?", "Is that the board?", "هل تلك سبّورة؟"],
+        ["Öğrenci", "Evet, o tahta.", "Yes, that's the board.", "نعم، تلك سبّورة."],
+        ["Öğretmen", "Onlar kim?", "Who are they?", "من هم؟"],
+        ["Öğrenci", "Onlar öğrenci.", "They're students.", "هم طلاب."],
+        ["Öğretmen", "Onlar ne?", "What are those?", "ما تلك؟"],
+        ["Öğrenci", "Kitaplar.", "Books.", "كتب."],
+        ["Öğretmen", "Şu ne?", "What's that?", "ما ذاك؟"],
+        ["Öğrenci", "Şu bilgisayar.", "That's a computer.", "ذاك حاسوب."],
+        ["Öğretmen", "Bu kalem mi?", "Is this a pen?", "هل هذا قلم؟"],
+        ["Öğrenci", "Hayır, bu kalem değil. Bu defter.", "No, this isn't a pen. It's a notebook.", "لا، هذا ليس قلمًا. هذا دفتر."],
+        ["Öğretmen", "Bu ne?", "What's this?", "ما هذا؟"],
+        ["Öğrenci", "Bu sıra.", "This is a desk.", "هذا مقعد دراسي."]
+      ]
+    },
+    {
+      id: "d2", title: "The Grand Bazaar", titleTr: "Kapalıçarşı", note: "Listening text 3 (p. 17) with the gaps filled in. A visitor asks a local about Istanbul's covered bazaar.",
+      people: { "A": "m1", "B": "f2" },
+      lines: [
+        ["A", "Burası neresi?", "What place is this?", "ما هذا المكان؟"],
+        ["B", "Burası Kapalıçarşı.", "This is the Grand Bazaar.", "هذا هو السوق المسقوف."],
+        ["A", "Şunlar kim?", "Who are those people?", "من أولئك؟"],
+        ["B", "Onlar turist.", "They're tourists.", "هم سيّاح."],
+        ["A", "Kapalıçarşı büyük mü?", "Is the Grand Bazaar big?", "هل السوق المسقوف كبير؟"],
+        ["B", "Evet, burası büyük bir çarşı.", "Yes, this is a big market.", "نعم، هذا سوق كبير."],
+        ["A", "Şurası kafe mi?", "Is that place a café?", "هل ذاك المكان مقهى؟"],
+        ["B", "Hayır, orası kafe değil. Mağaza.", "No, that's not a café. It's a shop.", "لا، ذلك ليس مقهى. إنه متجر."]
+      ]
+    },
+    {
+      id: "d3", title: "Where is this?", titleTr: "Burası neresi?", note: "The examples from p. 17, plus Ayasofya (exercise 8).",
+      people: { "Deniz": "f1", "Emre": "m3" },
+      lines: [
+        ["Deniz", "Burası neresi?", "What is this place?", "ما هذا المكان؟"],
+        ["Emre", "Burası ev.", "This is a house.", "هذا بيت."],
+        ["Deniz", "Şurası neresi?", "What's that place?", "ما ذاك المكان؟"],
+        ["Emre", "Şurası bahçe.", "That's a garden.", "ذاك حديقة."],
+        ["Deniz", "Orası neresi?", "What's that place over there?", "ما ذلك المكان؟"],
+        ["Emre", "Orası sokak.", "That's a street.", "ذلك شارع."],
+        ["Deniz", "Burası Ankara mı?", "Is this Ankara?", "هل هذه أنقرة؟"],
+        ["Emre", "Hayır, burası Ankara değil, İstanbul.", "No, this isn't Ankara, it's Istanbul.", "لا، هذه ليست أنقرة، إنها إسطنبول."],
+        ["Deniz", "Burası Ayasofya mı?", "Is this Hagia Sophia?", "هل هذه آيا صوفيا؟"],
+        ["Emre", "Evet, burası Ayasofya. Burası büyük ve çok güzel.", "Yes, this is Hagia Sophia. It's big and very beautiful.", "نعم، هذه آيا صوفيا. إنها كبيرة وجميلة جدًا."]
+      ]
+    },
+    {
+      id: "d4", title: "Is it a …?", titleTr: "Bu dolap mı?", note: "The question-particle examples from p. 16. Notice mı / mi changing with the last vowel.",
+      people: { "Selin": "f5", "Can": "m5" },
+      lines: [
+        ["Selin", "Bu dolap mı?", "Is this a cupboard?", "هل هذه خزانة؟"],
+        ["Can", "Evet, dolap.", "Yes, it's a cupboard.", "نعم، خزانة."],
+        ["Selin", "Bu masa mı?", "Is this a table?", "هل هذه طاولة؟"],
+        ["Can", "Hayır, masa değil, koltuk.", "No, it's not a table, it's an armchair.", "لا، ليست طاولة، إنها كنبة."],
+        ["Selin", "Bunlar köpek mi?", "Are these dogs?", "هل هذه كلاب؟"],
+        ["Can", "Evet, köpek.", "Yes, dogs.", "نعم، كلاب."],
+        ["Selin", "Bu kim?", "Who is this?", "من هذا؟"],
+        ["Can", "Bu öğretmen.", "This is the teacher.", "هذا المعلّم."]
+      ]
+    }
+  ],
+
+  vocab: [
+    { t: "bu", en: "this (near me)", ar: "هذا / هذه", pic: "👇", cat: "Pointing" },
+    { t: "şu", en: "that (a little way off)", ar: "ذاك / تلك", pic: "👉", cat: "Pointing" },
+    { t: "o", en: "that (far away); also he / she / it", ar: "ذلك / هو / هي", pic: "👉🏔️", cat: "Pointing" },
+    { t: "bunlar", pr: "bun-LAR", en: "these", ar: "هؤلاء / هذه", pic: "👇👇", cat: "Pointing" },
+    { t: "şunlar", pr: "shun-LAR", en: "those", ar: "أولئك", pic: "👉👉", cat: "Pointing" },
+    { t: "onlar", pr: "on-LAR", en: "those (far); also they", ar: "أولئك / هم", pic: "👥", cat: "Pointing" },
+    { t: "burası", pr: "BU-ra-su", en: "here, this place", ar: "هنا / هذا المكان", pic: "📍", cat: "Pointing" },
+    { t: "şurası", pr: "SHU-ra-su", en: "there, that place", ar: "هناك / ذاك المكان", pic: "📌", cat: "Pointing" },
+    { t: "orası", pr: "O-ra-su", en: "over there, that place (far)", ar: "هنالك / ذلك المكان", pic: "🗺️", cat: "Pointing" },
+
+    { t: "Ne?", en: "what? (things)", ar: "ما؟ / ماذا؟", pic: "❓", cat: "Questions" },
+    { t: "Kim?", en: "who? (people)", ar: "مَن؟", pic: "🧑❓", cat: "Questions" },
+    { t: "Neresi?", pr: "NE-re-si", en: "which place? where?", ar: "أيّ مكان؟", pic: "🧭", cat: "Questions" },
+    { t: "evet", pr: "E-vet", en: "yes", ar: "نعم", pic: "✅", cat: "Questions" },
+    { t: "hayır", pr: "HA-yur", en: "no", ar: "لا", pic: "❌", cat: "Questions" },
+    { t: "değil", pr: "de-YEEL", en: "not (is not)", ar: "ليس", pic: "🚫", cat: "Questions" },
+
+    { t: "kitap", pr: "kee-TAP", en: "book", ar: "كتاب", pic: "📕", cat: "Classroom" },
+    { t: "kalem", pr: "ka-LEM", en: "pen, pencil", ar: "قلم", pic: "✏️", cat: "Classroom" },
+    { t: "defter", pr: "def-TER", en: "notebook", ar: "دفتر", pic: "📓", cat: "Classroom" },
+    { t: "çanta", pr: "chan-TA", en: "bag", ar: "حقيبة", pic: "🎒", cat: "Classroom" },
+    { t: "cetvel", pr: "jet-VEL", en: "ruler", ar: "مسطرة", pic: "📏", cat: "Classroom" },
+    { t: "pergel", pr: "per-GEL", en: "compasses", ar: "فرجار", pic: "📐", cat: "Classroom" },
+    { t: "harita", pr: "ha-ree-TA", en: "map", ar: "خريطة", pic: "🗺️", cat: "Classroom" },
+    { t: "tahta", pr: "tah-TA", en: "board", ar: "سبّورة", pic: "🟫", cat: "Classroom" },
+    { t: "saat", pr: "sa-AT", en: "clock, watch; hour", ar: "ساعة", pic: "⏰", cat: "Classroom" },
+    { t: "bilgisayar", pr: "beel-gee-sa-YAR", en: "computer", ar: "حاسوب", pic: "💻", cat: "Classroom" },
+    { t: "hesap makinesi", pr: "he-SAP ma-kee-ne-SEE", en: "calculator", ar: "آلة حاسبة", pic: "🧮", cat: "Classroom" },
+    { t: "fincan", pr: "feen-JAN", en: "cup", ar: "فنجان", pic: "☕", cat: "Classroom" },
+    { t: "elma", pr: "el-MA", en: "apple", ar: "تفاحة", pic: "🍎", cat: "Classroom" },
+    { t: "sıra", pr: "su-RA", en: "school desk", ar: "مقعد دراسي", pic: "🪑", cat: "Classroom" },
+    { t: "klima", pr: "KLEE-ma", en: "air conditioner", ar: "مكيّف", pic: "❄️", cat: "Classroom" },
+    { t: "dolap", pr: "do-LAP", en: "cupboard, wardrobe", ar: "خزانة", pic: "🗄️", cat: "Classroom" },
+    { t: "koltuk", pr: "kol-TUK", en: "armchair", ar: "كنبة / مقعد", pic: "🛋️", cat: "Classroom" },
+    { t: "sandalye", pr: "san-DAL-ye", en: "chair", ar: "كرسي", pic: "🪑", cat: "Classroom" },
+    { t: "pencere", pr: "pen-je-RE", en: "window", ar: "نافذة", pic: "🪟", cat: "Classroom" },
+    { t: "kapı", pr: "ka-PU", en: "door", ar: "باب", pic: "🚪", cat: "Classroom" },
+
+    { t: "öğrenci", pr: "o-ren-JEE", en: "student", ar: "طالب", pic: "🧑‍🎓", cat: "People (Kim?)" },
+    { t: "polis", pr: "po-LEES", en: "police officer", ar: "شرطي", pic: "👮", cat: "People (Kim?)" },
+    { t: "postacı", pr: "pos-ta-JU", en: "postman", ar: "ساعي البريد", pic: "📮", cat: "People (Kim?)" },
+    { t: "şarkıcı", pr: "shar-ku-JU", en: "singer", ar: "مغنٍّ", pic: "🎤", cat: "People (Kim?)" },
+    { t: "avukat", pr: "a-vu-KAT", en: "lawyer", ar: "محامٍ", pic: "⚖️", cat: "People (Kim?)" },
+    { t: "garson", pr: "gar-SON", en: "waiter", ar: "نادل", pic: "🤵", cat: "People (Kim?)" },
+    { t: "mühendis", pr: "myu-hen-DEES", en: "engineer", ar: "مهندس", pic: "👷", cat: "People (Kim?)" },
+    { t: "hemşire", pr: "hem-shee-RE", en: "nurse", ar: "ممرّضة", pic: "🧑‍⚕️", cat: "People (Kim?)" },
+    { t: "doktor", pr: "dok-TOR", en: "doctor", ar: "طبيب", pic: "🩺", cat: "People (Kim?)" },
+    { t: "turist", pr: "tu-REEST", en: "tourist", ar: "سائح", pic: "📸", cat: "People (Kim?)" },
+
+    { t: "kedi", pr: "ke-DEE", en: "cat", ar: "قطة", pic: "🐱", cat: "Animals & things (Ne?)" },
+    { t: "köpek", pr: "ko-PEK", en: "dog", ar: "كلب", pic: "🐶", cat: "Animals & things (Ne?)" },
+    { t: "kuş", pr: "kush", en: "bird", ar: "طائر", pic: "🐦", cat: "Animals & things (Ne?)" },
+    { t: "telefon", pr: "te-le-FON", en: "telephone", ar: "هاتف", pic: "📱", cat: "Animals & things (Ne?)" },
+    { t: "çay", pr: "chai", en: "tea", ar: "شاي", pic: "🍵", cat: "Animals & things (Ne?)" },
+    { t: "bardak", pr: "bar-DAK", en: "glass (for drinking)", ar: "كوب", pic: "🥛", cat: "Animals & things (Ne?)" },
+    { t: "yüzük", pr: "yu-ZYUK", en: "ring", ar: "خاتم", pic: "💍", cat: "Animals & things (Ne?)" },
+
+    { t: "ev", en: "house, home", ar: "بيت", pic: "🏠", cat: "Places" },
+    { t: "bahçe", pr: "bah-CHE", en: "garden", ar: "حديقة", pic: "🌳", cat: "Places" },
+    { t: "sokak", pr: "so-KAK", en: "street", ar: "شارع", pic: "🛣️", cat: "Places" },
+    { t: "çarşı", pr: "char-SHU", en: "market, bazaar", ar: "سوق", pic: "🛍️", cat: "Places" },
+    { t: "Kapalıçarşı", pr: "ka-pa-LU-char-shu", en: "the Grand Bazaar (lit. covered market)", ar: "السوق المسقوف", pic: "🏛️", cat: "Places" },
+    { t: "kafe", pr: "ka-FE", en: "café", ar: "مقهى", pic: "☕", cat: "Places" },
+    { t: "mağaza", pr: "maa-ZA", en: "shop, store", ar: "متجر", pic: "🏬", cat: "Places" },
+    { t: "sınıf", pr: "su-NUF", en: "classroom, class", ar: "صف", pic: "🏫", cat: "Places" },
+    { t: "okul", pr: "o-KUL", en: "school", ar: "مدرسة", pic: "🏫", cat: "Places" },
+    { t: "Ayasofya", pr: "a-ya-SOF-ya", en: "Hagia Sophia", ar: "آيا صوفيا", pic: "🕌", cat: "Places" },
+
+    { t: "büyük", pr: "byu-YUK", en: "big", ar: "كبير", pic: "🐘", cat: "Describing" },
+    { t: "güzel", pr: "gyu-ZEL", en: "beautiful, nice", ar: "جميل", pic: "🌸", cat: "Describing" },
+    { t: "çok", pr: "chok", en: "very; many, a lot", ar: "جدًا / كثير", pic: "➕", cat: "Describing" },
+    { t: "kalabalık", pr: "ka-la-ba-LUK", en: "crowded", ar: "مزدحم", pic: "👥👥", cat: "Describing" },
+    { t: "temiz", pr: "te-MEEZ", en: "clean", ar: "نظيف", pic: "✨", cat: "Describing" }
+  ],
+
+  grammar: [
+    {
+      id: "g-busuo",
+      title: "[[Bu]] · [[Şu]] · [[O]]: near, further, far",
+      body: [
+        "Turkish has <b>three</b> pointing words where English has two: [[bu]] = this (near me), [[şu]] = that (a little further, often pointing), [[o]] = that (far away, or out of sight). The teacher: <i>bu</i> is near, <i>şu</i> is further, <i>o</i> is even further.",
+        "<b>No gender!</b> The book's Arabic note points out that unlike Arabic (هذا / هذه), Turkish demonstratives don't change for masculine or feminine. And [[o]] also means <i>he, she</i> and <i>it</i>.",
+        "There's no word for <i>is</i>: [[Bu masa.]] = <i>This (is a) table.</i> No word for <i>a</i> or <i>the</i> either.",
+        "Plural: [[bunlar]] (these), [[şunlar]] (those), [[onlar]] (those far / they). After them the noun can stay singular: [[Bunlar köpek.]] = These are dogs.",
+        "In more formal or written Turkish you may see the ending -dIr (is): [[Bu ne(dir)?|Bu nedir?]] → [[Bu dolaptır.]] It's optional; in speech it's usually left out."
+      ],
+      widget: {
+        type: "demo",
+        objects: [{ t: "kitap", pic: "📕", en: "book" }, { t: "kalem", pic: "✏️", en: "pen" }, { t: "masa", pic: "🪑", en: "table" }, { t: "kedi", pic: "🐱", en: "cat" }, { t: "elma", pic: "🍎", en: "apple" }, { t: "saat", pic: "⏰", en: "clock" }]
+      }
+    },
+    {
+      id: "g-kimne",
+      title: "[[Kim?]] for people, [[Ne?]] for things",
+      body: [
+        "Use [[Kim?]] (who?) for people and [[Ne?]] (what?) for everything else: objects, animals, food. [[Bu kim?]] → [[Bu öğretmen.]] · [[Bu ne?]] → [[Bu kalem.]]",
+        "Like in Arabic, the question word stands where the answer will go: [[O kim?]] → <i>O <b>polis</b>.</i>",
+        "Exercise 4 (p. 15) asks you to sort words into <i>Kim?</i> and <i>Ne?</i>. Try the builder below, then the Quiz."
+      ],
+      widget: {
+        type: "combo", label: "Pick a word and a pointing word · the engine asks the right question",
+        rows: [{ k: "bu", label: "bu (near)" }, { k: "su", label: "şu (further)" }, { k: "o", label: "o (far)" }],
+        cols: [{ k: "polis", label: "👮 polis" }, { k: "kedi", label: "🐱 kedi" }, { k: "hemsire", label: "🧑‍⚕️ hemşire" }, { k: "telefon", label: "📱 telefon" }, { k: "garson", label: "🤵 garson" }, { k: "kus", label: "🐦 kuş" }],
+        out: {
+          "bu|polis": ["Bu kim? Bu polis.", "Who is this? This is a police officer.", "polis is a person → [[Kim?]]"],
+          "su|polis": ["Şu kim? Şu polis.", "Who is that? That's a police officer.", "polis is a person → [[Kim?]]"],
+          "o|polis": ["O kim? O polis.", "Who is that? He/she is a police officer.", "[[o]] can mean he or she, too"],
+          "bu|kedi": ["Bu ne? Bu kedi.", "What is this? This is a cat.", "animals are not people → [[Ne?]]"],
+          "su|kedi": ["Şu ne? Şu kedi.", "What is that? That's a cat.", "animals → [[Ne?]]"],
+          "o|kedi": ["O ne? O kedi.", "What is that? That's a cat.", "animals → [[Ne?]]"],
+          "bu|hemsire": ["Bu kim? Bu hemşire.", "Who is this? This is a nurse.", "person → [[Kim?]]"],
+          "su|hemsire": ["Şu kim? Şu hemşire.", "Who is that? That's a nurse.", "person → [[Kim?]]"],
+          "o|hemsire": ["O kim? O hemşire.", "Who is she? She's a nurse.", "person → [[Kim?]]"],
+          "bu|telefon": ["Bu ne? Bu telefon.", "What is this? This is a phone.", "thing → [[Ne?]]"],
+          "su|telefon": ["Şu ne? Şu telefon.", "What is that? That's a phone.", "thing → [[Ne?]]"],
+          "o|telefon": ["O ne? O telefon.", "What is that? That's a phone.", "thing → [[Ne?]]"],
+          "bu|garson": ["Bu kim? Bu garson.", "Who is this? This is a waiter.", "person → [[Kim?]]"],
+          "su|garson": ["Şu kim? Şu garson.", "Who is that? That's a waiter.", "person → [[Kim?]]"],
+          "o|garson": ["O kim? O garson.", "Who is he? He's a waiter.", "person → [[Kim?]]"],
+          "bu|kus": ["Bu ne? Bu kuş.", "What is this? This is a bird.", "animal → [[Ne?]]"],
+          "su|kus": ["Şu ne? Şu kuş.", "What is that? That's a bird.", "animal → [[Ne?]]"],
+          "o|kus": ["O ne? O kuş.", "What is that? That's a bird.", "animal → [[Ne?]]"]
+        }
+      }
+    },
+    {
+      id: "g-plural",
+      title: "Plural: [[-lar|-lar]] / [[-ler|-ler]]",
+      body: [
+        "Add <b>-lAr</b> to make a plural. This is <b>2-way harmony</b>: if the last vowel is kalın (<b>a, ı, o, u</b>) → <b>-lar</b>; if it's ince (<b>e, i, ö, ü</b>) → <b>-ler</b>. [[kitap]] → [[kitaplar]] · [[pencere]] → [[pencereler]] · [[köy]] → [[köyler]].",
+        "<b>Note 1 (p. 16):</b> after a number or a word of quantity, the noun stays <b>singular</b>: [[üç çocuk]] (three children), [[iki kalem]], [[beş bardak]], [[az kişi]] (few people), [[çok insan]] (many people), [[birkaç öğrenci]] (a few students). Never <s>üç çocuklar</s>.",
+        "<b>Note 2 (p. 16):</b> some words borrowed from Arabic or French end in a, o or u but take <b>-ler</b>, because their last vowel is pronounced “thin”: [[saatler]], [[roller]], [[haller]], [[seyahatler]], [[kalpler]], [[idealler]]. Tap them in the builder: they're marked as exceptions. Arabic speakers will recognise many: ساعة، حال، مثال."
+      ],
+      widget: {
+        type: "harmony", label: "Make it plural · watch the last vowel",
+        suffixes: ["pl"],
+        words: [
+          { t: "kitap", en: "book" }, { t: "kız", en: "girl" }, { t: "kutu", en: "box" }, { t: "televizyon", en: "television" },
+          { t: "pencere", en: "window" }, { t: "kedi", en: "cat" }, { t: "köy", en: "village" }, { t: "üzüm", en: "grape" },
+          { t: "öğrenci", en: "student" }, { t: "masa", en: "table" },
+          { t: "saat", en: "clock", exc: { pl: "saatler" }, why: "saat comes from Arabic سَاعَة; its last a is “thin”, so it takes -ler (note 2, p. 16)." },
+          { t: "rol", en: "role", exc: { pl: "roller" }, why: "rol comes from French rôle; the l is “thin”, so it takes -ler (note 2)." },
+          { t: "hal", en: "state", exc: { pl: "haller" }, why: "hâl comes from Arabic حال; it takes -ler (note 2)." }
+        ]
+      }
+    },
+    {
+      id: "g-mi",
+      title: "Yes/no questions: [[mı|mı]] · [[mi|mi]] · [[mu|mu]] · [[mü|mü]]",
+      body: [
+        "To ask a yes/no question, put <b>mI</b> after the word you're asking about. It's the Turkish version of Arabic <i>hal</i> (هل), but it comes <b>after</b> the word, not at the start: [[Bu kalem mi?]] = <i>Is this a pen?</i>",
+        "It's written as a <b>separate word</b> but follows <b>4-way harmony</b>: <b>a, ı → mı</b> · <b>e, i → mi</b> · <b>o, u → mu</b> · <b>ö, ü → mü</b>. [[Bu dolap mı?]] · [[Bu kedi mi?]] · [[Bu kutu mu?]] · [[Bunlar yüzük mü?]]",
+        "Answers: [[Evet, kalem.]] (Yes, a pen.) or [[Hayır, kalem değil.]] (No, not a pen.) [[değil]] (not) is also a separate word, and it never changes.",
+        "Pronunciation: the stress falls on the syllable <b>just before</b> mI: bu ka<b>LEM</b> mi? The particle itself is never stressed."
+      ],
+      widget: {
+        type: "harmony", label: "Ask the question, then answer “no”",
+        suffixes: ["q", "neg"],
+        words: [
+          { t: "dolap", en: "cupboard" }, { t: "masa", en: "table" }, { t: "köpek", en: "dog" }, { t: "öğrenci", en: "student" },
+          { t: "sınıf", en: "classroom" }, { t: "kutu", en: "box" }, { t: "postacı", en: "postman" }, { t: "yüzük", en: "ring" },
+          { t: "kalabalık", en: "crowded" }, { t: "temiz", en: "clean" }, { t: "okul", en: "school" }, { t: "göz", en: "eye" }
+        ]
+      }
+    },
+    {
+      id: "g-burasi",
+      title: "Places: [[Burası neresi?]]",
+      body: [
+        "For places, Turkish has special pointing words: [[burası]] (this place, here), [[şurası]] (that place), [[orası]] (that place over there). They're built from [[bu]], [[şu]], [[o]] + <i>-ra</i> (place) + <i>-sı</i>.",
+        "The question word for a place is [[neresi?]] (which place?): [[Burası neresi?]] → [[Burası sınıf.]]",
+        "Combine with mI: [[Burası Ankara mı?]] → [[Evet, burası Ankara.]] / [[Hayır, burası Ankara değil, İstanbul.]]"
+      ],
+      table: { head: ["", "Question", "Answer"], say: 1, rows: [
+        ["📍", "Burası neresi?", "[[Burası ev.]] This is a house."],
+        ["📌", "Şurası neresi?", "[[Şurası bahçe.]] That's a garden."],
+        ["🗺️", "Orası neresi?", "[[Orası sokak.]] That's a street."],
+        ["❓", "Burası Ankara mı?", "[[Evet, burası Ankara.]] / [[Hayır, İstanbul.]]"],
+        ["❓", "Şurası İzmir mi?", "[[Evet, şurası İzmir.]] / [[Hayır, Bursa.]]"]
+      ] }
+    }
+  ],
+
+  sounds: {
+    intro: "This lesson's new sounds are mostly in the endings. Practise the four question forms, the two plural endings and the stress before mI. Tap, listen, repeat.",
+    letters: [
+      { l: "mı", name: "mı (after a, ı)", tip: "Dotless ı: a relaxed “muh”. Unstressed: put the stress on the word before.", ex: ["Bu masa mı?", "Bu dolap mı?", "Sınıf mı?"] },
+      { l: "mi", name: "mi (after e, i)", tip: "“mee”, short.", ex: ["Bu kalem mi?", "Bu kedi mi?", "Köpek mi?"] },
+      { l: "mu", name: "mu (after o, u)", tip: "“moo”, short.", ex: ["Bu kutu mu?", "Okul mu?", "Doktor mu?"] },
+      { l: "mü", name: "mü (after ö, ü)", tip: "“mee” with rounded lips.", ex: ["Yüzük mü?", "Büyük mü?", "Göz mü?"] },
+      { l: "-lar", name: "-lar (after a, ı, o, u)", tip: "Plural ending for kalın words. Plurals are stressed on the ending: kitap-LAR.", ex: ["kitaplar", "kızlar", "onlar"] },
+      { l: "-ler", name: "-ler (after e, i, ö, ü)", tip: "Plural ending for ince words.", ex: ["kalemler", "kediler", "köyler"] },
+      { l: "ğ", name: "değil", tip: "The ğ between two e/i vowels sounds like a light y: “de-yil”.", ex: ["değil", "kalem değil", "Ankara değil"] }
+    ],
+    pairs: [
+      { a: ["bu", "this"], b: ["şu", "that"], note: "b vs ş" },
+      { a: ["şu", "that"], b: ["su", "water"], note: "ş vs s" },
+      { a: ["kim", "who"], b: ["kum", "sand"], note: "i vs u" },
+      { a: ["masa mı?", "a table?"], b: ["kedi mi?", "a cat?"], note: "mı vs mi" },
+      { a: ["kutu mu?", "a box?"], b: ["yüzük mü?", "a ring?"], note: "mu vs mü" },
+      { a: ["kitaplar", "books"], b: ["kalemler", "pens"], note: "-lar vs -ler" }
+    ]
+  },
+
+  // Listening game: is the speaker pointing near, further or far?
+  classify: {
+    label: "📏 bu, şu or o?",
+    q: "Listen. Is the speaker pointing at something near (bu), further (şu) or far (o)?",
+    options: ["Near · bu / burası", "Further · şu / şurası", "Far · o / orası"],
+    rules: ["^(bu|bunlar|burası)(?=[\\s.,?!]|$)", "^(şu|şunlar|şurası)(?=[\\s.,?!]|$)", "^(o|onlar|orası)(?=[\\s.,?!]|$)"]
+  },
+
+  tips: [
+    { icon: "📏", t: "Three distances", d: "[[bu]] = near, [[şu]] = further, [[o]] = even further. The teacher's tip: point with your hand as you say them, close, middle, far." },
+    { icon: "🚻", t: "No gender in Turkish", d: "Arabic has هذا and هذه; Turkish has only [[bu]]. And [[o]] is he, she, it and that. One less thing to learn!" },
+    { icon: "❓", t: "mI is the Turkish “hal”", d: "The teacher compares the question particle mI to Arabic هل (<i>hal</i>). The difference: هل comes first, mI comes <b>after</b> the word in question: [[Bu kalem mi?]]" },
+    { icon: "🔁", t: "Harmony again", d: "Plural: 2 forms (-lar / -ler). Question: 4 forms (mı / mi / mu / mü). Both follow the <b>last vowel</b> of the word, as in lesson 2's kalın/ince table." },
+    { icon: "🔢", t: "No plural after numbers", d: "[[iki kitap]], not <s>iki kitaplar</s>. The number already tells you there's more than one. Same after [[çok]], [[az]], [[birkaç]]." },
+    { icon: "🕰️", t: "saat → saatler", d: "A few borrowed words break the harmony rule: [[saatler]], [[roller]], [[haller]]. Learn them as you meet them." },
+    { icon: "🚫", t: "değil = not", d: "[[değil]] is a separate word that negates a noun or adjective: [[Bu kalem değil.]] It never changes form." },
+    { icon: "🏛️", t: "Kapalıçarşı", d: "The Grand Bazaar in Istanbul is one of the oldest and largest covered markets in the world. [[kapalı]] = covered, closed; [[çarşı]] = market." }
+  ],
+
+  practice: [
+    { type: "mcq", q: "The book is right in front of you. You say: “___ kitap.”", options: ["Bu", "Şu", "O"], answer: 0, sayAnswer: true },
+    { type: "mcq", q: "The mountain is very far away. “___ dağ.”", options: ["Bu", "Şu", "O"], answer: 2 },
+    { type: "mcq", q: "Ask about a person: “Bu ___?”", options: ["ne", "kim", "neresi"], answer: 1 },
+    { type: "mcq", q: "Ask about an animal: “Bu ___?”", options: ["ne", "kim", "neresi"], answer: 0, explain: "Animals are not people, so use [[Ne?]]" },
+    { type: "mcq", q: "Ask about a place: “Burası ___?”", options: ["ne", "kim", "neresi"], answer: 2 },
+    { type: "mcq", q: "Plural of “kalem”:", options: ["kalemlar", "kalemler", "kalemlır"], answer: 1, explain: "Last vowel e (ince) → -ler." },
+    { type: "mcq", q: "Plural of “kız”:", options: ["kızlar", "kızler", "kızlır"], answer: 0 },
+    { type: "mcq", q: "Plural of “saat”:", options: ["saatlar", "saatler"], answer: 1, explain: "Exception (note 2): [[saatler]]." },
+    { type: "mcq", q: "Which is correct?", options: ["üç kalemler", "üç kalem", "üç kalemlar"], answer: 1, explain: "No plural after a number (note 1)." },
+    { type: "mcq", q: "Choose the right particle: “Bu kutu ___?”", options: ["mı", "mi", "mu", "mü"], answer: 2, explain: "Last vowel u → mu." },
+    { type: "mcq", q: "Choose the right particle: “Bunlar yüzük ___?”", options: ["mı", "mi", "mu", "mü"], answer: 3 },
+    { type: "mcq", q: "Choose the right particle: “İstanbul kalabalık ___?”", options: ["mı", "mi", "mu", "mü"], answer: 0 },
+    { type: "mcq", q: "Choose the right particle: “Ev temiz ___?”", options: ["mı", "mi", "mu", "mü"], answer: 1 },
+    { type: "mcq", q: "“Bu masa mı?” — “No, it's not a table.”", options: ["Hayır, masa değil.", "Hayır, masa mı.", "Evet, masa değil."], answer: 0, sayAnswer: true },
+    { type: "fill", sentence: "Bu öğrenci ___? Evet, öğrenci.", en: "Is this a student? Yes. (exercise 6)", options: ["mi", "mı", "mu"], answer: 0 },
+    { type: "fill", sentence: "Bu sınıf ___? Hayır, sınıf değil.", en: "Is this a classroom? No. (exercise 6)", options: ["mi", "mı", "mü"], answer: 1 },
+    { type: "fill", sentence: "O postacı ___? Evet, postacı.", en: "Is he the postman? Yes. (exercise 6)", options: ["mı", "mu", "mi"], answer: 0 },
+    { type: "fill", sentence: "Hayır, o gözlük ___.", en: "No, those aren't glasses. (exercise 7)", options: ["değil", "mi", "evet"], answer: 0 },
+    { type: "fill", sentence: "___ neresi? Burası sınıf.", en: "What place is this? It's the classroom.", options: ["Burası", "Bu", "Bunlar"], answer: 0 },
+    { type: "fill", sentence: "Kapalıçarşı büyük ___?", en: "Is the Grand Bazaar big?", options: ["mü", "mu", "mi"], answer: 0 },
+    { type: "order", words: ["Bu", "kalem", "mi?"], en: "Is this a pen?" },
+    { type: "order", words: ["Hayır,", "bu", "kalem", "değil."], en: "No, this isn't a pen." },
+    { type: "order", words: ["Burası", "büyük", "ve", "çok", "güzel."], en: "This place is big and very beautiful." },
+    { type: "order", words: ["Şurası", "kafe", "mi?"], en: "Is that place a café?" },
+    { type: "reply", prompt: "Bu kim?", en: "Choose a logical reply", options: ["Bu öğretmen.", "Bu kalem.", "Burası okul."], answer: 0 },
+    { type: "reply", prompt: "Onlar ne?", en: "Choose a logical reply", options: ["Kitaplar.", "Öğrenciler.", "Evet."], answer: 0 },
+    { type: "reply", prompt: "Şurası kafe mi?", en: "Choose a logical reply", options: ["Hayır, orası kafe değil. Mağaza.", "Hayır, kafe mi.", "Onlar turist."], answer: 0 },
+    { type: "type", q: "Exercise 5 (p. 16): plural of “defter”", answers: ["defterler"] },
+    { type: "type", q: "Exercise 5: plural of “oda” (room)", answers: ["odalar"] },
+    { type: "type", q: "Exercise 5: plural of “ev”", answers: ["evler"] },
+    { type: "type", q: "Exercise 5: plural of “kadın” (woman)", answers: ["kadınlar"] },
+    { type: "type", q: "Exercise 5: plural of “otel”", answers: ["oteller"] },
+    { type: "type", q: "Exercise 5: plural of “balık” (fish)", answers: ["balıklar"] },
+    { type: "type", q: "Exercise 5: plural of “büro” (office)", answers: ["bürolar"] },
+    { type: "type", q: "Exercise 5: plural of “patates”", answers: ["patatesler"] }
+  ],
+
+  roleplayIntro: "You're showing a visitor around your classroom and the city. Answer each question out loud, then reveal the model answer.",
+  roleplay: [
+    { them: "Merhaba! Burası neresi?", themEn: "Hello! What is this place?", you: "Burası sınıf.", youEn: "This is the classroom.", hint: "Say this is the classroom" },
+    { them: "Bu ne?", themEn: "What's this?", you: "Bu tahta.", youEn: "This is the board.", hint: "Name the object near you (tahta)" },
+    { them: "Şu kalem mi?", themEn: "Is that a pen?", you: "Hayır, şu kalem değil. Şu cetvel.", youEn: "No, that's not a pen. That's a ruler.", hint: "Say no, it's a ruler (cetvel)" },
+    { them: "Onlar kim?", themEn: "Who are they?", you: "Onlar öğrenci.", youEn: "They're students.", hint: "Say they're students" },
+    { them: "Sınıf büyük mü?", themEn: "Is the classroom big?", you: "Evet, sınıf büyük.", youEn: "Yes, the classroom is big.", hint: "Say yes, it's big" },
+    { them: "Orası neresi?", themEn: "What's that place over there?", you: "Orası Kapalıçarşı. Orası çok güzel.", youEn: "That's the Grand Bazaar. It's very beautiful.", hint: "Name the Grand Bazaar and say it's beautiful" }
+  ]
+});
+</script><script>// Unit 1 · Test — "Neler Öğrendik?" (What have we learned?), book p. 19
+// One mark per item. Answers checked against the book and lessons u1-01 … u1-03.
+window.TEST = {
+  id: "u1-t1",
+  unit: 1,
+  after: 3, // shown after Lesson 3 on the course home
+  title: "Unit 1 test · What have we learned?",
+  titleTr: "Neler öğrendik?",
+  covers: ["u1-01", "u1-02", "u1-03"],
+  pages: "Book p. 19",
+  intro: "Do the whole page first without looking anything up, then check each section. If you lose marks, the results list the lessons to revise before you start Unit 2.",
+  sections: [
+    {
+      id: "s1", type: "match", marks: 5,
+      instr: "Aşağıdaki cümleleri eşleştirelim.",
+      instrEn: "Match each sentence with the right reply.",
+      items: [
+        { a: "Nasılsın?", b: "İyiyim.", why: "How are you? → I'm fine.", lesson: "u1-01" },
+        { a: "Nerelisin?", b: "Ankaralıyım.", why: "Where are you from? → I'm from Ankara (Ankara + lı + yım).", lesson: "u1-01" },
+        { a: "Görüşürüz.", b: "Görüşmek üzere.", why: "See you. → See you soon.", lesson: "u1-01" },
+        { a: "Ne iş yapıyorsun?", b: "Ben öğrenciyim.", why: "What do you do (lit. what work are you doing)? → I'm a student. (öğrenci + y + im)", lesson: "u1-01" },
+        { a: "Merhaba!", b: "Merhaba!", why: "Hello! → Hello!", lesson: "u1-01" }
+      ]
+    },
+    {
+      id: "s2", type: "dialogue", marks: 5,
+      instr: "Doğru seçeneği işaretleyelim.",
+      instrEn: "Choose the line that fits the gap.",
+      items: [
+        { lines: [["Ahmet", "___"], ["Lale", "İyiyim. Teşekkür ederim."]], o: ["Adınız ne?", "Merhaba!", "Nasılsın?"], a: 2, why: "Lale answers “I'm fine”, so Ahmet asked how she is.", lesson: "u1-01" },
+        { lines: [["Serkan", "Adınız ne?"], ["Fatma", "___"]], o: ["Teşekkür ederim.", "Benim adım Fatma.", "Memnun oldum."], a: 1, lesson: "u1-01" },
+        { lines: [["İrem", "Memnun oldum."], ["Hande", "___"]], o: ["Ben de memnun oldum.", "İyiyim.", "Almanyalıyım."], a: 0, why: "The fixed reply: Ben de memnun oldum.", lesson: "u1-01" },
+        { lines: [["Özcan", "Benim adım Özcan. Senin adın ne?"], ["Sena", "___"], ["Özcan", "Memnun oldum."], ["Sena", "___"]], o: ["Senin adın Sena. / Görüşürüz.", "Benim adım Sena. / Ben de memnun oldum.", "Teşekkür ederim. / Benim adım Sena."], a: 1, lesson: "u1-01" },
+        { lines: [["İlker", "Nasılsın?"], ["Selma", "___"], ["İlker", "Ben de iyiyim. Teşekkür ederim."]], o: ["İyiyim. Sen?", "İyiyim.", "Sen?"], a: 0, why: "İlker says “I'm fine too”, so Selma must have asked him back: Sen?", lesson: "u1-01" }
+      ]
+    },
+    {
+      id: "s3", type: "type", marks: 12,
+      instr: "Aşağıdaki kelimeleri çoğul yapalım.",
+      instrEn: "Make each word plural (-lar / -ler).",
+      items: [
+        { p: "masa", a: "masalar", lesson: "u1-03" }, { p: "kalem", a: "kalemler", lesson: "u1-03" },
+        { p: "sandalye", a: "sandalyeler", lesson: "u1-03" }, { p: "vazo", a: "vazolar", lesson: "u1-03" },
+        { p: "öğrenci", a: "öğrenciler", lesson: "u1-03" }, { p: "öğretmen", a: "öğretmenler", lesson: "u1-03" },
+        { p: "saat", a: "saatler", why: "Exception (note 2, p. 16): saat takes -ler.", lesson: "u1-03" }, { p: "kitap", a: "kitaplar", lesson: "u1-03" },
+        { p: "silgi", a: "silgiler", lesson: "u1-03" }, { p: "sözlük", a: "sözlükler", lesson: "u1-03" },
+        { p: "okul", a: "okullar", lesson: "u1-03" }, { p: "sınıf", a: "sınıflar", lesson: "u1-03" }
+      ],
+      explain: "Last vowel a ı o u → -lar; e i ö ü → -ler. Watch out for saat → saatler."
+    },
+    {
+      id: "s4", type: "tf", marks: 9,
+      instr: "Doğru ise “D”, yanlış ise “Y” koyalım.",
+      instrEn: "Mark each one D (doğru, correct) or Y (yanlış, wrong).",
+      items: [
+        { s: "Bu ne? Bu öğretmen.", ok: false, why: "A teacher is a person: Bu kim? Bu öğretmen.", lesson: "u1-03" },
+        { s: "Saatler", ok: true, why: "saat is an exception and takes -ler.", lesson: "u1-03" },
+        { s: "Üç kalemler", ok: false, why: "No plural after a number: üç kalem.", lesson: "u1-03" },
+        { s: "Burası okul.", ok: true, lesson: "u1-03" },
+        { s: "Bu sınıf mu?", ok: false, why: "Last vowel ı → mı: Bu sınıf mı?", lesson: "u1-03" },
+        { s: "Bunlar kitap.", ok: true, why: "After bunlar the noun can stay singular.", lesson: "u1-03" },
+        { s: "Nasılsın? Fransalıyım.", ok: false, why: "“How are you?” isn't answered with “I'm from France”.", lesson: "u1-01" },
+        { s: "Bu kim? Bu Ali.", ok: true, lesson: "u1-03" },
+        { s: "Şunlar masalar.", ok: true, why: "Correct: the plural noun is also possible after şunlar.", lesson: "u1-03" }
+      ]
+    },
+    {
+      id: "s5", type: "type", marks: 6,
+      instr: "Ülkeleri yazalım.",
+      instrEn: "Unscramble the countries. Example: ürTikey → Türkiye. The capital letter is the first letter.",
+      items: [
+        { p: "İatlay", a: "İtalya", why: "Italy", lesson: "u1-02" },
+        { p: "uRsay", a: "Rusya", why: "Russia", lesson: "u1-02" },
+        { p: "ırMsı", a: "Mısır", why: "Egypt (from Arabic مصر)", lesson: "u1-02" },
+        { p: "ngeİlitre", a: "İngiltere", why: "England", lesson: "u1-02" },
+        { p: "oKer", a: "Kore", why: "Korea", lesson: "u1-02" },
+        { p: "anyaAlm", a: "Almanya", why: "Germany", lesson: "u1-01" }
+      ]
+    },
+    {
+      id: "s6", type: "choose", marks: 4,
+      instr: "Nerede, ne zaman, ne söylüyoruz? İşaretleyelim.",
+      instrEn: "Where and when do we say what? Choose the right wish.",
+      items: [
+        { s: "LOKANTA", en: "restaurant", o: ["Afiyet olsun!", "Geçmiş olsun!", "Görüşürüz."], a: 0, lesson: "u1-01" },
+        { s: "GECE", en: "night", o: ["Günaydın!", "Tebrikler!", "İyi geceler!"], a: 2, lesson: "u1-01" },
+        { s: "HASTANE", en: "hospital", o: ["Güle güle!", "Geçmiş olsun!", "Bol şanslar!"], a: 1, lesson: "u1-01" },
+        { s: "DOĞUM GÜNÜ", en: "birthday", o: ["Mutlu yıllar!", "Afiyet olsun!", "Geçmiş olsun!"], a: 0, lesson: "u1-01" }
+      ]
+    }
+  ],
+  selfCheck: [
+    ["Bir kişiyle tanışabilirim.", "I can introduce myself to someone."],
+    ["Adımı, soyadımı, ülkemi söyleyebilirim.", "I can say my name, surname and country."],
+    ["Nesneleri ve kişileri sorabilirim.", "I can ask about objects and people."],
+    ["Nesnelerin yerini sorabilirim ve söyleyebilirim.", "I can ask and say where things are."]
+  ]
+};
+</script><script>/* Turkish lesson engine — renders any lesson object in window.LESSONS.
+   Shared by every lesson page of the İstanbul A1 course (and by the unit test pages). */
+(function () {
+  "use strict";
+  const T = window.TEST || null;
+  const L = T ? testLesson(T) : window.LESSONS[window.LESSONS.length - 1];
+  // A test page loads the lessons it covers; merge them into one pseudo-lesson (items keep their source lesson id)
+  function testLesson(t) {
+    const ls = window.LESSONS, seen = new Set(), tag = (arr, id) => (arr || []).map(x => Object.assign({ src: id }, x));
+    return {
+      id: t.id, title: t.title, unit: t.unit, num: 0,
+      vocab: ls.flatMap(l => tag(l.vocab, l.id)).filter(v => !seen.has(v.t) && seen.add(v.t)),
+      practice: ls.flatMap(l => tag(l.practice, l.id)),
+      dialogues: ls.flatMap(l => (l.dialogues || []).map(d => Object.assign({ src: l.id }, d))),
+      lessons: ls.map(l => ({ id: l.id, num: l.num, title: l.title }))
+    };
+  }
+  const $ = (s, el = document) => el.querySelector(s);
+  const h = (html) => { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+  const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const BOOK = "İstanbul Yabancılar İçin Türkçe A1";
+
+  /* ---------- storage (best-effort) ---------- */
+  const KEY = "turkish-course-v1";
+  const DEF = { en: true, ar: false, pr: true, rate: 0.85 };
+  let S = { lessons: {}, words: {}, prefs: Object.assign({}, DEF) };
+  try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch (e) {}
+  S.prefs = Object.assign({}, DEF, S.prefs);
+  const LS = S.lessons[L.id] = S.lessons[L.id] || { done: {}, best: {} };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+
+  /* ---------- text helpers ---------- */
+  const tk = (txt, cls = "") => `<span class="tk ${cls}" lang="tr">${esc(txt)}</span>`;
+  const gl = (txt) => txt ? `<span class="arg" lang="ar" dir="rtl">${esc(txt)}</span>` : "";
+  // [[Merhaba]] or [[Merhaba|shown text]] inside prose → bold Turkish that speaks when tapped
+  const tz = (html) => String(html).replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (m, say, show) => `<b class="say" lang="tr" data-say="${esc(say)}">${show || say}</b>`);
+  const tlow = (s) => s.toLocaleLowerCase("tr");
+  const norm = (s) => tlow(s).replace(/[.,!?¿;:"“”'’()…\-–]/g, " ").replace(/\s+/g, " ").trim();
+
+  /* ---------- vowel harmony ---------- */
+  const VOWELS = "aeıioöuü", BACK = "aıou";
+  const lastV = (w) => { const s = tlow(w); for (let i = s.length - 1; i >= 0; i--) if (VOWELS.includes(s[i])) return s[i]; return "e"; };
+  const two = (w) => BACK.includes(lastV(w)) ? "a" : "e";
+  const four = (w) => ({ a: "ı", ı: "ı", e: "i", i: "i", o: "u", u: "u", ö: "ü", ü: "ü" })[lastV(w)];
+  const endsV = (w) => VOWELS.includes(tlow(w).slice(-1));
+  const SUFFIX = {
+    pl: { name: "plural -lAr", rule: "2-way", make: w => w + "l" + two(w) + "r" },
+    q: { name: "question mI", rule: "4-way", make: w => w + " m" + four(w) + "?" },
+    neg: { name: "değil (not)", rule: "none", make: w => w + " değil" },
+    li: { name: "from -lI", rule: "4-way", make: w => w + "l" + four(w) },
+    im: { name: "I am -(y)Im", rule: "4-way", make: w => w + (endsV(w) ? "y" : "") + four(w) + "m" },
+    sin: { name: "you are -sIn", rule: "4-way", make: w => w + "s" + four(w) + "n" },
+    liyim: { name: "I'm from -lIyIm", rule: "4-way", make: w => { const x = w + "l" + four(w); return x + "y" + four(x) + "m"; } },
+    lisin: { name: "you're from? -lIsIn", rule: "4-way", make: w => { const x = w + "l" + four(w); return x + "s" + four(x) + "n"; } }
+  };
+
+  /* ---------- speech ---------- */
+  let voice = null; const synth = window.speechSynthesis;
+  function pickVoice() {
+    if (!synth) return;
+    const vs = synth.getVoices().filter(v => /^tr/i.test(v.lang));
+    voice = vs.find(v => /Google|Microsoft|Yelda|Emel|Tolga|Filiz|Seda|Cem/i.test(v.name)) || vs[0] || null;
+    const b = $("#voice-banner"); if (b) b.style.display = voice ? "none" : "block";
+  }
+  if (synth) { pickVoice(); synth.onvoiceschanged = pickVoice; }
+  function cleanForTTS(t) { return String(t).replace(/\(.*?\)/g, "").replace(/…+|\.{3,}/g, " ").replace(/[\/←→]/g, ", ").replace(/\s–\s/g, ", ").trim(); }
+  function speak(text, btn, rate) {
+    return new Promise(res => {
+      if (!synth) { res(); return; }
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(cleanForTTS(text));
+      u.lang = voice ? voice.lang : "tr-TR"; if (voice) u.voice = voice;
+      u.rate = rate || S.prefs.rate;
+      document.querySelectorAll(".speaking").forEach(e => e.classList.remove("speaking"));
+      if (btn) btn.classList.add("speaking");
+      const end = () => { if (btn) btn.classList.remove("speaking"); res(); };
+      u.onend = end; u.onerror = end;
+      synth.speak(u);
+      setTimeout(end, 15000);
+    });
+  }
+  const playBtn = (txt, extra = "") => `<button class="play ${extra}" data-say="${esc(txt)}" title="Listen" aria-label="Listen">🔊</button>`;
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-say]"); if (b) { e.stopPropagation(); speak(b.dataset.say, b.classList.contains("play") ? b : b.querySelector(".play")); }
+  });
+
+  /* ---------- avatars (simple SVG illustrations) ---------- */
+  const PAL = { m1: ["#2f6db5", "#3b2a1e"], m2: ["#1f8a8a", "#1b1b1b"], m3: ["#5b4fb5", "#6b4a2b"], m4: ["#2c3e50", "#2c2c2c"], m5: ["#b5563a", "#d9b36c"], f1: ["#a3407e", "#7a2a5c"], f2: ["#6b4e9b", "#3e2a63"], f3: ["#c0392b", "#d9a74a"], f4: ["#3f7a5a", "#245039"], f5: ["#d35400", "#5a3a22"], t: ["#7f8c8d", "#555"] };
+  function avatar(kind, size = 46) {
+    const [c1, c2] = PAL[kind] || ["#888", "#555"];
+    const male = kind[0] === "m" || kind === "t";
+    const head = male
+      ? `<path d="M15 21 Q24 9 33 21 L33 23 L15 23Z" fill="${c2}"/><circle cx="24" cy="24" r="8" fill="#e9b98f"/>${kind === "t" ? `<rect x="18" y="22" width="5" height="3" rx="1" fill="none" stroke="#333"/><rect x="25" y="22" width="5" height="3" rx="1" fill="none" stroke="#333"/>` : ""}`
+      : `<path d="M12 30 Q10 10 24 9 Q38 10 36 30 Q30 36 24 36 Q18 36 12 30Z" fill="${c2}"/><circle cx="24" cy="23" r="7.5" fill="#e9b98f"/>`;
+    return `<svg class="av" width="${size}" height="${size}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="${c1}22"/><path d="M8 48 Q8 34 24 34 Q40 34 40 48Z" fill="${c1}"/>${head}</svg>`;
+  }
+
+  /* ---------- sections ---------- */
+  const SECTIONS = [
+    ["overview", "Overview", "🏠"], ["dialogues", "Dialogues", "💬"], ["vocabulary", "Vocabulary", "🗂️"],
+    ["grammar", "Grammar", "🧩"], ["sounds", "Pronunciation", "🗣️"], ["listening", "Listening", "🎧"],
+    ["practice", "Quiz", "✍️"], ["speaking", "Speaking", "🎙️"], ["tips", "Teacher's tips", "💡"],
+    ["notes", "Teacher's notes", "📝"], ["review", "Review", "🔁"]
+  ];
+  const learnable = SECTIONS.filter(s => !["overview", "review"].includes(s[0]));
+
+  function renderShell() {
+    document.title = `${L.title} · Turkish A1`;
+    document.body.innerHTML = `
+    <header class="top">
+      <div class="top-inner">
+        <div class="brand"><small>${window.COURSE_HOME ? `<a href="${window.COURSE_HOME}">← Course</a> · ` : ""}${BOOK} · Unit ${L.unit} · Lesson ${L.num}</small><b>${esc(L.title)}</b></div>
+        <div class="toggles">
+          <button class="chip" id="t-en">EN Meaning</button>
+          <button class="chip" id="t-pr">🔤 Say-it hints</button>
+          <button class="chip" id="t-ar">ع Arabic</button>
+          <button class="chip" id="t-rate">🐢 Speed</button>
+        </div>
+      </div>
+      <div class="progress"><div id="pbar"></div></div>
+      <nav class="tabs" id="tabs">${SECTIONS.map(([id, n, ic]) => `<a href="#${id}" data-tab="${id}">${ic} ${n}<span class="tick"></span></a>`).join("")}</nav>
+    </header>
+    <main id="main"></main>
+    <footer>Based on <i>${BOOK}</i> (İstanbul Üniversitesi) and the teacher's video commentary · Audio is your device's Turkish text-to-speech voice, so check pronunciation against the video.</footer>`;
+    wirePrefs();
+  }
+  function wirePrefs() {
+    const setChips = () => {
+      [["#t-en", "en"], ["#t-pr", "pr"], ["#t-ar", "ar"]].forEach(([s, k]) => { const b = $(s); if (b) b.classList.toggle("on", S.prefs[k]); });
+      $("#t-rate").textContent = S.prefs.rate < 0.75 ? "🐢 Slow" : S.prefs.rate < 0.95 ? "🚶 Normal" : "🐇 Fast";
+      document.body.classList.toggle("no-en", !S.prefs.en);
+      document.body.classList.toggle("no-pr", !S.prefs.pr);
+      document.body.classList.toggle("show-ar", S.prefs.ar);
+    };
+    [["#t-en", "en"], ["#t-pr", "pr"], ["#t-ar", "ar"]].forEach(([s, k]) => { const b = $(s); if (b) b.onclick = () => { S.prefs[k] = !S.prefs[k]; save(); setChips(); }; });
+    $("#t-rate").onclick = () => { S.prefs.rate = S.prefs.rate < 0.75 ? 0.85 : S.prefs.rate < 0.95 ? 1.0 : 0.6; save(); setChips(); };
+    setChips();
+  }
+  function updateProgress() {
+    const n = learnable.filter(s => LS.done[s[0]]).length;
+    $("#pbar").style.width = (100 * n / learnable.length) + "%";
+    document.querySelectorAll("#tabs a").forEach(a => { $(".tick", a).textContent = LS.done[a.dataset.tab] ? "✓" : ""; });
+  }
+  function doneButton(id, next) {
+    const el = h(`<div class="row done-btn"><button class="btn primary">${LS.done[id] ? "✓ Completed" : "Mark as complete"} → ${next ? "next: " + SECTIONS.find(s => s[0] === next)[1] : ""}</button></div>`);
+    $("button", el).onclick = () => { LS.done[id] = true; save(); updateProgress(); if (next) location.hash = next; };
+    return el;
+  }
+  const nextOf = id => { const i = SECTIONS.findIndex(s => s[0] === id); return SECTIONS[i + 1] && SECTIONS[i + 1][0]; };
+  const voiceBanner = () => h(`<details class="banner" id="voice-banner" style="display:none"><summary>🔈 <b>No Turkish voice found on this device</b>, so audio won't play. Tap for how to add one.</summary><p style="margin:8px 0 0">You can still read and do the quizzes. <b>Windows:</b> Settings → Time &amp; language → Speech → Add voices → Turkish. <b>Android:</b> install Google Speech Services and add Turkish. <b>iPhone/Mac:</b> Settings → Accessibility → Spoken Content → Voices → Turkish. Chrome and Edge on a desktop usually include one already.</p></details>`);
+
+  const views = {};
+  function route() {
+    const id = (location.hash || "#overview").slice(1);
+    const view = views[id] ? id : "overview";
+    document.querySelectorAll("#tabs a").forEach(a => a.classList.toggle("active", a.dataset.tab === view));
+    const a = $(`#tabs a[data-tab="${view}"]`); if (a) a.scrollIntoView({ block: "nearest", inline: "center" });
+    if (synth) synth.cancel();
+    const main = $("#main"); main.innerHTML = "";
+    main.appendChild(voiceBanner()); pickVoice();
+    views[view](main);
+    if (!["overview", "review"].includes(view)) main.appendChild(doneButton(view, nextOf(view)));
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------- Overview ---------- */
+  views.overview = (m) => {
+    m.appendChild(h(`<div class="stack">
+      <div class="card hero"><div>
+        <div class="muted">${esc(L.unitEn)}</div>
+        <div>${tk(L.titleTr, "big")}</div>
+        <h2>${esc(L.title)}</h2>
+        <p class="lead">${esc(L.covers)} · <a href="${L.video}" target="_blank" rel="noopener">Watch the video ↗</a></p>
+      </div><div style="display:flex;gap:4px">${avatar("m1", 70)}${avatar("f1", 70)}</div></div>
+      <div class="card"><h3 style="margin-top:0">By the end of this lesson you can…</h3><ul class="goals">${L.goals.map(g => `<li>${tz(g)}</li>`).join("")}</ul></div>
+      <div><h3>Your path</h3><div class="path">${learnable.map(([id, n, ic], i) => `<a href="#${id}"><div class="step ${LS.done[id] ? "done" : ""}"><span class="num">${LS.done[id] ? "✓" : i + 1}</span><span>${ic} ${n}</span></div></a>`).join("")}</div></div>
+      <div class="card muted" style="font-size:14px">💡 <b>How to use this page:</b> watch the video first, then work through the tabs in order. Tap any 🔊 or Turkish line to hear it. Use the chips at the top to hide the English, hide the pronunciation hints, or show the Arabic glosses from the book's Arabic edition. Your progress is saved in this browser.</div>
+    </div>`));
+  };
+
+  /* ---------- Dialogues ---------- */
+  views.dialogues = (m) => {
+    m.appendChild(h(`<div><h2>Dialogues</h2><p class="lead">Listen, then read along. <b>▶ Play</b> reads the whole conversation. <b>🔁 Shadow</b> pauses after each line so you can repeat it, as the teacher asks. <b>🙈 Hide text</b> turns it into a listening test.</p></div>`));
+    if (!L.dialogues.length) m.appendChild(h(`<div class="card muted">This lesson has no dialogue.</div>`));
+    L.dialogues.forEach(d => {
+      const names = Object.keys(d.people);
+      const card = h(`<div class="card" style="margin-bottom:16px">
+        <div class="dlg-head"><div><b>${esc(d.title)}</b>${d.titleTr ? " · " + tk(d.titleTr) : ""}<div class="muted" style="font-size:14px">${tz(esc(d.note || ""))}</div></div>
+          <div class="row"><button class="btn small" data-act="play">▶ Play</button><button class="btn small" data-act="shadow">🔁 Shadow</button><button class="btn small" data-act="hide">🙈 Hide text</button></div></div>
+        <div class="scene">${names.map(n => `<figure>${avatar(d.people[n], 64)}<figcaption>${esc(n)}</figcaption></figure>`).join(`<div style="font-size:30px;align-self:center">🤝</div>`)}</div>
+        <div class="shadow-cue"></div>
+        <div class="bubbles">${d.lines.map((ln, i) => {
+          const side = names.indexOf(ln[0]) === 0 ? "left" : "right"; const g = d.people[ln[0]][0];
+          return `<div class="bub ${side} ${g}" data-i="${i}">${avatar(d.people[ln[0]], 38)}<div class="body"><div class="who">${esc(ln[0])}</div>${tk(ln[1], "line")}<div class="en">${esc(ln[2])}</div>${gl(ln[3])}</div></div>`;
+        }).join("")}</div></div>`);
+      const bubs = [...card.querySelectorAll(".bub")]; const cue = $(".shadow-cue", card);
+      let runId = 0;
+      bubs.forEach((b, i) => b.querySelector(".body").onclick = () => { runId++; b.classList.add("revealed"); highlight(i); speak(d.lines[i][1]); });
+      const highlight = i => bubs.forEach((b, j) => b.classList.toggle("active", j === i));
+      async function run(shadow) {
+        const my = ++runId;
+        for (let i = 0; i < d.lines.length; i++) {
+          if (my !== runId) return;
+          highlight(i); cue.textContent = shadow ? "Listen…" : "";
+          await speak(d.lines[i][1]);
+          if (my !== runId) return;
+          if (shadow) {
+            const secs = Math.max(2, Math.round(d.lines[i][1].length / 10));
+            for (let s = secs; s > 0; s--) { if (my !== runId) return; cue.textContent = `🎤 Your turn: repeat it (${s})`; await new Promise(r => setTimeout(r, 1000)); }
+          } else await new Promise(r => setTimeout(r, 350));
+        }
+        highlight(-1); cue.textContent = shadow ? "✓ Well done! Try again with the text hidden." : "";
+      }
+      card.querySelector('[data-act="play"]').onclick = () => run(false);
+      card.querySelector('[data-act="shadow"]').onclick = () => run(true);
+      card.querySelector('[data-act="hide"]').onclick = (e) => { card.classList.toggle("hidetext"); bubs.forEach(b => b.classList.remove("revealed")); e.target.textContent = card.classList.contains("hidetext") ? "👁 Show text" : "🙈 Hide text"; };
+      m.appendChild(card);
+    });
+  };
+
+  /* ---------- Vocabulary ---------- */
+  const boxOf = w => S.words[w.t] || 0;
+  const setBox = (w, b) => { S.words[w.t] = Math.max(0, Math.min(5, b)); save(); };
+  views.vocabulary = (m) => {
+    const cats = ["All", ...new Set(L.vocab.map(v => v.cat))];
+    let cat = "All", mode = "list";
+    m.appendChild(h(`<div><h2>Vocabulary</h2><p class="lead">${L.vocab.length} words and phrases. Learn them in <b>List</b> mode, then test yourself with <b>Flashcards</b>. Flashcard results go into your spaced-review deck: words you miss come back more often.</p></div>`));
+    const bar = h(`<div class="row" style="justify-content:space-between;margin-bottom:6px"><div class="filters"></div><div class="row"><button class="chip on" data-m="list">📋 List</button><button class="chip" data-m="flash">🃏 Flashcards</button></div></div>`);
+    const box = h(`<div></div>`); m.append(bar, box);
+    const drawFilters = () => { $(".filters", bar).innerHTML = cats.map(c => `<button class="chip ${c === cat ? "on" : ""}" data-c="${c}">${c}</button>`).join(""); };
+    bar.onclick = e => { const c = e.target.closest("[data-c]"), mm = e.target.closest("[data-m]");
+      if (c) { cat = c.dataset.c; } if (mm) { mode = mm.dataset.m; bar.querySelectorAll("[data-m]").forEach(x => x.classList.toggle("on", x === mm)); }
+      if (c || mm) draw(); };
+    const list = () => L.vocab.filter(v => cat === "All" || v.cat === cat);
+    function draw() {
+      drawFilters(); box.innerHTML = "";
+      if (mode === "list") {
+        box.appendChild(h(`<div class="grid">${list().map(v => `<div class="card vcard" data-say="${esc(v.t)}" style="cursor:pointer">${playBtn(v.t)}<span class="box">${"●".repeat(boxOf(v))}${"○".repeat(5 - boxOf(v))}</span><div class="pic">${v.pic}</div>${tk(v.t)}${v.pr ? `<div class="pr">${esc(v.pr)}</div>` : ""}<div>${esc(v.en)}</div>${gl(v.ar)}${v.extra ? `<span class="tag">from the video</span>` : ""}</div>`).join("")}</div>`));
+      } else flash(box, shuffle(list()));
+    }
+    draw();
+  };
+  function flash(box, deck) {
+    let i = 0, dir = "tr", known = 0;
+    const wrap = h(`<div class="flash-wrap"><div class="row" style="justify-content:center"><button class="chip on" data-d="tr">Turkish → English</button><button class="chip" data-d="en">English → Turkish</button></div><div class="muted" id="fc-count" style="margin-top:8px"></div><div class="flash"><div class="flash-inner"><div class="face front"></div><div class="face back"></div></div></div><div class="row" style="justify-content:center" id="fc-btns"><button class="btn" data-r="0">😕 Again</button><button class="btn primary" data-r="1">😀 Got it</button></div><p class="muted" style="font-size:13px">Tap the card to flip it.</p></div>`);
+    box.appendChild(wrap);
+    const card = $(".flash", wrap);
+    function show() {
+      if (i >= deck.length) { wrap.innerHTML = `<div class="card" style="text-align:center"><div class="score">${known}/${deck.length}</div><p>Words you marked “Again” will come up more often in the <a href="#review">Review</a> tab.</p><button class="btn primary" id="fc-again">Shuffle &amp; go again</button></div>`; $("#fc-again", wrap).onclick = () => { box.innerHTML = ""; flash(box, shuffle(deck)); }; return; }
+      const v = deck[i]; card.classList.remove("flipped");
+      $("#fc-count", wrap).textContent = `Card ${i + 1} of ${deck.length}`;
+      const trFace = `<div class="pic">${v.pic}</div>${tk(v.t)}${v.pr ? `<div class="pr">${esc(v.pr)}</div>` : ""}${playBtn(v.t)}`;
+      const enFace = `<div class="pic">${v.pic}</div><div style="font-size:22px;font-weight:600">${esc(v.en)}</div>${gl(v.ar)}`;
+      $(".front", wrap).innerHTML = dir === "tr" ? `${tk(v.t)}${playBtn(v.t)}` : enFace;
+      $(".back", wrap).innerHTML = dir === "tr" ? `${enFace}${v.pr ? `<div class="pr">${esc(v.pr)}</div>` : ""}` : trFace;
+      if (dir === "tr") speak(v.t);
+    }
+    card.onclick = (e) => { if (e.target.closest(".play")) return; card.classList.toggle("flipped"); if (dir === "en" && card.classList.contains("flipped")) speak(deck[i].t); };
+    $("#fc-btns", wrap).onclick = e => { const r = e.target.closest("[data-r]"); if (!r) return; const v = deck[i]; if (r.dataset.r === "1") { known++; setBox(v, boxOf(v) + 1); } else setBox(v, 0); i++; show(); };
+    wrap.querySelectorAll("[data-d]").forEach(b => b.onclick = () => { dir = b.dataset.d; wrap.querySelectorAll("[data-d]").forEach(x => x.classList.toggle("on", x === b)); show(); });
+    show();
+  }
+
+  /* ---------- Grammar ---------- */
+  views.grammar = (m) => {
+    m.appendChild(h(`<div><h2>Grammar</h2><p class="lead">The rules behind the dialogues. Try each interactive box. Every Turkish word you build is read aloud. Tap any <b class="say" data-say="Türkçe">bold Turkish word</b> to hear it.</p></div>`));
+    L.grammar.forEach(g => {
+      const c = h(`<div class="card gblock" style="margin-bottom:16px"><h3>${tz(esc(g.title))}</h3>${g.body.map(p => `<p>${tz(p)}</p>`).join("")}</div>`);
+      if (g.table) c.appendChild(tableEl(g.table));
+      const w = g.widget, W = { harmony: harmonyWidget, origin: originWidget, combo: comboWidget, alphabet: alphabetWidget, demo: demoWidget };
+      if (w && W[w.type]) c.appendChild(W[w.type](w));
+      m.appendChild(c);
+    });
+  };
+  // table: { head:[...], rows:[[...]], say: <column index holding Turkish to play> }
+  function tableEl(t) {
+    const sc = t.say == null ? 1 : t.say;
+    return h(`<div style="overflow-x:auto"><table class="g"><tr>${t.head.map(x => `<th>${x}</th>`).join("")}</tr>${t.rows.map(r => `<tr>${r.map((cell, j) => j === sc ? `<td class="tkcell">${tk(cell)} ${playBtn(cell)}</td>` : `<td>${tz(cell)}</td>`).join("")}</tr>`).join("")}</table></div>`);
+  }
+  // vowel-harmony builder: pick a word and a suffix; the engine computes the form and explains the vowel choice
+  function harmonyWidget(w) {
+    let n = 0, k = w.suffixes[0];
+    const el = h(`<div class="widget"><div class="label">${esc(w.label || "Build it yourself · pick a word, then a suffix")}</div><div class="row words"></div><div class="row sfxs" style="margin-top:8px"></div><div class="result"></div><div class="cap" style="text-align:center"></div></div>`);
+    function draw(sayIt) {
+      $(".words", el).innerHTML = w.words.map((x, i) => `<button class="chip ${i === n ? "on" : ""}" data-n="${i}">${esc(x.t)} <span class="muted">· ${esc(x.en)}</span></button>`).join("");
+      $(".sfxs", el).innerHTML = w.suffixes.map(s => `<button class="chip ${s === k ? "on" : ""}" data-k="${s}">${esc(SUFFIX[s].name)}</button>`).join("");
+      const x = w.words[n], sf = SUFFIX[k], exc = x.exc && x.exc[k];
+      const out = exc || sf.make(x.t), v = lastV(x.t);
+      const base = esc(x.t), i = tlow(x.t).lastIndexOf(v);
+      const marked = i >= 0 ? `${esc(x.t.slice(0, i))}<u class="lv">${esc(x.t[i])}</u>${esc(x.t.slice(i + 1))}` : base;
+      const tail = out.startsWith(x.t) ? out.slice(x.t.length) : "";
+      $(".result", el).innerHTML = `<span class="tk">${tail ? `${esc(x.t)}<span class="sfx">${esc(tail)}</span>` : esc(out)}</span> ${playBtn(out)}`;
+      const kind = BACK.includes(v) ? "kalın (back)" : "ince (front)";
+      const why = exc ? `⚠️ Exception: ${esc(x.why || "this word breaks the usual rule")}`
+        : sf.rule === "none" ? "değil is a separate word and never changes."
+        : sf.rule === "2-way" ? `last vowel <b>${v}</b> is ${kind} → <b>${BACK.includes(v) ? "-lar" : "-ler"}</b>`
+        : `last vowel <b>${v}</b> → <b>${four(x.t)}</b> (a/ı→ı · e/i→i · o/u→u · ö/ü→ü)${k === "im" && endsV(x.t) ? " · the word ends in a vowel, so a buffer <b>y</b> goes in first" : ""}`;
+      $(".cap", el).innerHTML = `<div>${marked} → ${why}</div>${x.en && w.mean ? `<div class="muted" style="font-size:14px">${esc(w.mean(x, k) || "")}</div>` : ""}`;
+      if (sayIt) speak(out);
+    }
+    el.onclick = e => { const a = e.target.closest("[data-n]"), b = e.target.closest("[data-k]"); if (a) n = +a.dataset.n; if (b) k = b.dataset.k; if (a || b) draw(true); };
+    draw(false); return el;
+  }
+  // generic two-axis builder: pick a row, pick a column, see/hear the result
+  function comboWidget(w) {
+    let r = w.rows[0].k, c = w.cols[0].k;
+    const el = h(`<div class="widget"><div class="label">${esc(w.label)}</div><div class="row rows"></div><div class="row cols" style="margin-top:8px"></div><div class="result" style="font-size:34px"></div><div class="cap" style="text-align:center"></div></div>`);
+    function draw(sayIt) {
+      $(".rows", el).innerHTML = w.rows.map(x => `<button class="chip ${x.k === r ? "on" : ""}" data-r="${x.k}">${esc(x.label)}</button>`).join("");
+      $(".cols", el).innerHTML = w.cols.map(x => `<button class="chip ${x.k === c ? "on" : ""}" data-c="${x.k}">${esc(x.label)}</button>`).join("");
+      const o = w.out[r + "|" + c]; if (!o) return;
+      $(".result", el).innerHTML = `${tk(o[0])} ${playBtn(o[0])}`;
+      $(".cap", el).innerHTML = `<b>${esc(o[1])}</b>${o[2] ? `<div class="muted" style="font-size:13px;margin-top:4px">${tz(o[2])}</div>` : ""}`;
+      if (sayIt) speak(o[0]);
+    }
+    el.onclick = e => { const a = e.target.closest("[data-r]"), b = e.target.closest("[data-c]"); if (a) r = a.dataset.r; if (b) c = b.dataset.c; if (a || b) draw(true); };
+    draw(false); return el;
+  }
+  // country cards: tap to cycle country → -lI (person from) → -lIyIm (I'm from…) → nationality
+  function originWidget(w) {
+    const el = h(`<div class="widget"><div class="label">Tap a country: country → person from (-lI) → “I'm from…” (-lIyIm)${w.items.some(i => i.nat) ? " → nationality" : ""}</div><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))"></div></div>`);
+    const g = $(".grid", el);
+    w.items.forEach(it => {
+      const li = SUFFIX.li.make(it.c), liyim = SUFFIX.liyim.make(it.c);
+      const st = [[it.c, it.en, "country"], [li, `a person from ${it.en}`, "-lI"], [liyim, `I am from ${it.en}`, "-lIyIm"]];
+      if (it.nat) st.push([it.nat[0], it.nat[1], "nationality"]);
+      let s = 0; const c = h(`<div class="ncard"></div>`);
+      const draw = () => { c.innerHTML = `<div class="flag">${it.flag}</div>${tk(st[s][0])}<div style="font-size:14px">${esc(st[s][1])}</div><div class="stage">${st[s][2]}${it.bonus ? " · bonus" : ""}</div>`; };
+      c.onclick = () => { s = (s + 1) % st.length; draw(); speak(st[s][0]); };
+      draw(); g.appendChild(c);
+    });
+    return el;
+  }
+  // the 29-letter alphabet: tap a letter to hear its name and an example word
+  const ABC = [["A", "a"], ["B", "be"], ["C", "ce"], ["Ç", "çe"], ["D", "de"], ["E", "e"], ["F", "fe"], ["G", "ge"], ["Ğ", "yumuşak ge"], ["H", "he"], ["I", "ı"], ["İ", "i"], ["J", "je"], ["K", "ke"], ["L", "le"], ["M", "me"], ["N", "ne"], ["O", "o"], ["Ö", "ö"], ["P", "pe"], ["R", "re"], ["S", "se"], ["Ş", "şe"], ["T", "te"], ["U", "u"], ["Ü", "ü"], ["V", "ve"], ["Y", "ye"], ["Z", "ze"]];
+  function alphabetWidget(w) {
+    const el = h(`<div class="widget"><div class="label">Tap a letter · <span class="kv">kalın vowel</span> <span class="iv">ince vowel</span> consonant</div><div class="abc"></div><div class="cap" style="text-align:center;min-height:70px;margin-top:10px"></div></div>`);
+    $(".abc", el).innerHTML = ABC.map(([L2, nm]) => { const lo = tlow(L2); const cls = "aıou".includes(lo) ? "kv" : "eiöü".includes(lo) ? "iv" : ""; return `<button class="abtn ${cls}" data-l="${L2}">${L2}${lo}</button>`; }).join("");
+    el.onclick = e => {
+      const b = e.target.closest("[data-l]"); if (!b) return;
+      const [L2, nm] = ABC.find(x => x[0] === b.dataset.l), ex = (w.words || {})[L2];
+      el.querySelectorAll(".abtn").forEach(x => x.classList.toggle("sel", x === b));
+      $(".cap", el).innerHTML = `<div style="font-size:28px"><b>${L2} ${tlow(L2)}</b> <span class="muted" style="font-size:16px">name: “${esc(nm)}”</span></div>${ex ? `<div>${tk(ex[0])} ${playBtn(ex[0])} <span class="muted">${esc(ex[1])}</span></div>` : ""}${w.tips && w.tips[L2] ? `<div class="muted" style="font-size:14px">${tz(w.tips[L2])}</div>` : ""}`;
+      speak(ex ? `${nm}. ${ex[0]}` : nm);
+    };
+    return el;
+  }
+  // bu / şu / o: how far is the object?
+  function demoWidget(w) {
+    let d = 0, o = 0, pl = false;
+    const D = [["bu", "bunlar", "near (yakın)", 1], ["şu", "şunlar", "further away (uzak)", 4], ["o", "onlar", "far away (çok uzak)", 8]];
+    const el = h(`<div class="widget"><div class="label">${esc(w.label || "How far away is it? Pick a distance and an object")}</div><div class="row ds"></div><div class="row os" style="margin-top:8px"></div><div class="row" style="margin-top:8px"><button class="chip" data-pl="1">➕ plural (more than one)</button></div><div class="dscene"></div><div class="result" style="font-size:34px;min-height:0"></div><div class="cap" style="text-align:center"></div></div>`);
+    function draw(sayIt) {
+      $(".ds", el).innerHTML = D.map((x, i) => `<button class="chip ${i === d ? "on" : ""}" data-d="${i}">${x[0]} · ${x[2]}</button>`).join("");
+      $(".os", el).innerHTML = w.objects.map((x, i) => `<button class="chip ${i === o ? "on" : ""}" data-o="${i}">${x.pic} ${esc(x.t)}</button>`).join("");
+      el.querySelector("[data-pl]").classList.toggle("on", pl);
+      const ob = w.objects[o], pic = pl ? ob.pic.repeat(3) : ob.pic;
+      $(".dscene", el).innerHTML = `<span style="font-size:34px">🙋</span><span class="gap" style="flex:${D[d][3]}"></span><span style="font-size:34px">${pic}</span><span class="gap" style="flex:${9 - D[d][3]}"></span>`;
+      const q = `${pl ? D[d][1] : D[d][0]} ne?`.replace(/^./, c => c.toLocaleUpperCase("tr"));
+      const a = `${(pl ? D[d][1] : D[d][0]).replace(/^./, c => c.toLocaleUpperCase("tr"))} ${ob.t}.`;
+      $(".result", el).innerHTML = `${tk(q)} → ${tk(a)} ${playBtn(q + " " + a)}`;
+      $(".cap", el).innerHTML = `<b>${pl ? "What are these/those?" : "What is this/that?"}</b> → <b>${pl ? "These/those are" : "This/that is"} ${pl ? "" : "a "}${esc(ob.en)}${pl ? "s" : ""}.</b>${pl ? `<div class="muted" style="font-size:13px">With bunlar/şunlar/onlar the noun usually stays singular: ${esc(a)} (you can also just answer ${esc(SUFFIX.pl.make(ob.t).replace(/^./, c => c.toLocaleUpperCase("tr")))}.)</div>` : ""}`;
+      if (sayIt) speak(q + " " + a);
+    }
+    el.onclick = e => { const a = e.target.closest("[data-d]"), b = e.target.closest("[data-o]"), p = e.target.closest("[data-pl]"); if (a) d = +a.dataset.d; if (b) o = +b.dataset.o; if (p) pl = !pl; if (a || b || p) draw(true); };
+    draw(false); return el;
+  }
+
+  /* ---------- Pronunciation ---------- */
+  views.sounds = (m) => {
+    const sd = L.sounds;
+    m.appendChild(h(`<div><h2>Pronunciation</h2><p class="lead">${tz(esc(sd.intro))}</p></div>`));
+    const g = h(`<div class="stack"></div>`);
+    sd.letters.forEach(x => g.appendChild(h(`<div class="card letter"><div class="glyph" data-say="${esc(x.ex[0])}">${esc(x.l)}</div><div><b>${esc(x.name)}</b><p style="margin:4px 0 8px">${tz(esc(x.tip))}</p>${x.ex.map(w => `<span class="ex" data-say="${esc(w)}">${tk(w)}<button class="play" style="width:28px;height:28px;font-size:12px">🔊</button></span>`).join("")}</div></div>`)));
+    m.appendChild(g);
+    m.appendChild(h(`<h3>Minimal pairs: hear the difference</h3>`));
+    const pg = h(`<div class="stack"></div>`);
+    sd.pairs.forEach(p => pg.appendChild(h(`<div class="card pair"><div class="side" data-say="${esc(p.a[0])}">${tk(p.a[0])}<div class="en">${esc(p.a[1])}</div></div><div class="vs">${esc(p.note)}<br>vs</div><div class="side" data-say="${esc(p.b[0])}">${tk(p.b[0])}<div class="en">${esc(p.b[1])}</div></div></div>`)));
+    m.appendChild(pg);
+    m.appendChild(h(`<h3>🎯 Which one did you hear?</h3>`));
+    const game = h(`<div class="card" style="text-align:center"><button class="play big-play" id="pg-play">▶</button><div class="row" style="justify-content:center" id="pg-opts"></div><div id="pg-fb" class="muted" style="margin-top:10px">Press play, then choose the word you heard.</div><div class="muted" id="pg-score" style="font-size:13px"></div></div>`);
+    let cur, right = 0, total = 0;
+    const next = () => { const p = sd.pairs[Math.floor(Math.random() * sd.pairs.length)]; cur = { p, pick: Math.random() < .5 ? "a" : "b" }; $("#pg-opts", game).innerHTML = shuffle(["a", "b"]).map(k => `<button class="opt" data-k="${k}">${tk(p[k][0])} <span class="en">${esc(p[k][1])}</span></button>`).join(""); };
+    $("#pg-play", game).onclick = (e) => speak(cur.p[cur.pick][0], e.currentTarget, 0.7);
+    $("#pg-opts", game).onclick = e => { const b = e.target.closest("[data-k]"); if (!b) return; total++; const ok = b.dataset.k === cur.pick; if (ok) right++;
+      $("#pg-fb", game).innerHTML = ok ? `<span style="color:var(--good)">✓ Correct!</span>` : `<span style="color:var(--bad)">✗ It was ${tk(cur.p[cur.pick][0])}</span>`;
+      $("#pg-score", game).textContent = `Score: ${right}/${total}`; next(); };
+    next(); m.appendChild(game);
+    m.appendChild(recorderCard("Record yourself", "Say a word or a dialogue line, then play it back and compare it with the 🔊 model."));
+  };
+
+  /* ---------- recorder (works where the microphone is allowed) ---------- */
+  function recorderCard(title, sub) {
+    const el = h(`<div class="card" style="margin-top:16px"><b>🎙️ ${title}</b><p class="muted" style="margin:4px 0 10px;font-size:14px">${sub}</p><div class="rec"><button class="btn" id="rec-btn">● Record</button><span id="rec-state" class="muted"></span><audio id="rec-audio" controls style="display:none;height:36px"></audio></div></div>`);
+    let mr = null, chunks = [];
+    $("#rec-btn", el).onclick = async () => {
+      const st = $("#rec-state", el), btn = $("#rec-btn", el);
+      if (mr && mr.state === "recording") { mr.stop(); return; }
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mr = new MediaRecorder(stream); chunks = [];
+        mr.ondataavailable = e => chunks.push(e.data);
+        mr.onstop = () => { stream.getTracks().forEach(t => t.stop()); const a = $("#rec-audio", el); a.src = URL.createObjectURL(new Blob(chunks)); a.style.display = "inline-block"; btn.textContent = "● Record again"; st.innerHTML = ""; a.play().catch(() => {}); };
+        mr.start(); btn.textContent = "■ Stop"; st.innerHTML = `<span class="dot"></span> recording…`;
+      } catch (e) { st.innerHTML = "The microphone isn't available on this page. Open the course from your GitHub Pages site to record, or simply say it out loud."; }
+    };
+    return el;
+  }
+
+  /* ---------- quiz runner ---------- */
+  function runQuiz(m, items, quizId, onDone) {
+    let i = 0, score = 0; const wrong = [], wrongItems = [];
+    const q = h(`<div class="quiz card"></div>`); m.appendChild(q);
+    function show() {
+      if (i >= items.length) {
+        const pct = Math.round(100 * score / items.length);
+        LS.best[quizId] = Math.max(LS.best[quizId] || 0, pct); save();
+        q.innerHTML = `<div style="text-align:center"><div class="score">${score} / ${items.length}</div><p>${pct >= 90 ? "Harika! Excellent! 🌟" : pct >= 70 ? "Aferin! Good work 👍" : "Keep practising. Review the tabs and try again 💪"} · Best: ${LS.best[quizId]}%</p>${wrong.length ? `<div style="text-align:left"><b>Review these:</b><ul>${wrong.map(w => `<li>${w}</li>`).join("")}</ul></div>` : ""}<button class="btn primary" id="qa">Try again</button></div>`;
+        $("#qa", q).onclick = () => { q.remove(); runQuiz(m, shuffle(items), quizId, onDone); };
+        if (onDone) onDone(pct, wrongItems, score, items.length); return;
+      }
+      const it = items[i];
+      q.innerHTML = `<div class="qhead"><span>Question ${i + 1} of ${items.length}</span><span>Score ${score}</span></div><div class="qbar"><div style="width:${100 * i / items.length}%"></div></div><div class="qbody"></div>`;
+      const body = $(".qbody", q);
+      const finish = (ok, correctText, explain) => {
+        if (ok) score++; else { wrong.push(esc(correctText)); wrongItems.push(it); }
+        if (it.word) setBox(it.word, ok ? boxOf(it.word) + 1 : 0);
+        body.appendChild(h(`<div class="feedback ${ok ? "good" : "bad"}">${ok ? "✓ Doğru! Correct!" : "✗ Not quite. Answer: " + esc(correctText)}${explain ? `<span class="ex-text">${tz(explain)}</span>` : ""}</div>`));
+        const nb = h(`<div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn primary">Next →</button></div>`);
+        $("button", nb).onclick = () => { i++; show(); }; body.appendChild(nb); $("button", nb).focus();
+      };
+      if (it.type === "order") return orderQ(body, it, finish);
+      if (it.type === "match") return matchQ(body, it, finish);
+      if (it.type === "type") return typeQ(body, it, finish);
+      let head = "";
+      if (it.type === "mcq") head = `<div class="qtext">${tz(esc(it.q))}</div>`;
+      if (it.type === "fill") { const [a, b = ""] = it.sentence.split("___"); head = `<div class="qtext">Fill in the blank</div><div class="qsentence"><span class="tk">${esc(a)}<span class="blank">?</span>${esc(b)}</span></div><div class="en" style="text-align:center">${esc(it.en)}</div>`; }
+      if (it.type === "reply") head = `<div class="qtext">${esc(it.en)}</div><div class="qsentence">${tk(it.prompt)} ${playBtn(it.prompt)}</div>`;
+      if (it.type === "listen") head = `<div class="qtext">${esc(it.q || "Listen. What did you hear?")}</div><button class="play big-play" data-say="${esc(it.say)}">▶</button>`;
+      const opts = it.options.map((o, k) => ({ o, k }));
+      body.innerHTML = head + `<div class="opts">${opts.map(({ o, k }) => `<button class="opt" data-k="${k}">${tz(esc(o))}</button>`).join("")}</div>`;
+      if (it.type === "listen") setTimeout(() => speak(it.say, $(".big-play", body)), 250);
+      body.querySelector(".opts").onclick = e => {
+        const b = e.target.closest(".opt"); if (!b || e.target.closest(".say")) return;
+        const k = +b.dataset.k, ok = k === it.answer;
+        body.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (+x.dataset.k === it.answer) x.classList.add("correct"); });
+        if (!ok) b.classList.add("wrong");
+        if (it.type === "fill") speak(it.sentence.replace("___", it.options[it.answer]));
+        else if (it.type === "reply" || (it.type === "mcq" && it.sayAnswer)) speak(it.options[it.answer]);
+        finish(ok, it.options[it.answer], it.explain);
+      };
+    }
+    show();
+  }
+  function orderQ(body, it, finish) {
+    const lines = !!it.lines, pool = shuffle(it.words.map((w, k) => ({ w, k }))); let ans = [];
+    body.innerHTML = `<div class="qtext">${lines ? esc(it.q || "Put the lines in order") : `Build the sentence: <span class="en" style="color:var(--ink)">“${esc(it.en)}”</span>`}</div><div class="muted" style="font-size:13px">Tap the ${lines ? "lines" : "words"} in order. Tap a placed ${lines ? "line" : "word"} to take it back.</div><div class="tiles answer ${lines ? "lines" : ""}"></div><div class="tiles pool ${lines ? "lines" : ""}"></div><div class="row" style="justify-content:flex-end"><button class="btn small" id="o-clear">Clear</button><button class="btn primary" id="o-check">Check</button></div>`;
+    const draw = () => {
+      $(".answer", body).innerHTML = ans.map((x, j) => `<button class="tile" data-a="${j}">${lines ? `<b>${j + 1}.</b> ` : ""}${esc(x.w)}</button>`).join("");
+      $(".pool", body).innerHTML = pool.filter(x => !ans.includes(x)).map(x => `<button class="tile" data-p="${x.k}">${esc(x.w)}</button>`).join("");
+    };
+    body.onclick = e => {
+      const p = e.target.closest("[data-p]"), a = e.target.closest("[data-a]");
+      if (p) { ans.push(pool.find(x => x.k === +p.dataset.p)); draw(); if (!lines) speak(ans[ans.length - 1].w); }
+      if (a) { ans.splice(+a.dataset.a, 1); draw(); }
+    };
+    $("#o-clear", body).onclick = () => { ans = []; draw(); };
+    $("#o-check", body).onclick = (e) => {
+      if (ans.length < it.words.length) return;
+      // equal words may be swapped freely
+      const ok = ans.every((x, j) => x.w === it.words[j]); body.onclick = null; e.target.disabled = true; $("#o-clear", body).disabled = true;
+      if (!lines) speak(it.words.join(" "));
+      finish(ok, lines ? it.words.map((w, j) => `${j + 1}. ${w}`).join("  ") : it.words.join(" "), it.explain);
+    };
+    draw();
+  }
+  function matchQ(body, it, finish) {
+    const left = shuffle(it.pairs.map((p, k) => ({ t: p[0], k }))), right = shuffle(it.pairs.map((p, k) => ({ t: p[1], k })));
+    let sel = null, matched = 0, mistakes = 0;
+    body.innerHTML = `<div class="qtext">${esc(it.q || "Match each Turkish word with its meaning")}</div><div class="match">${left.map((l, j) => `<button class="mi" data-side="l" data-k="${l.k}">${tk(l.t)}</button><button class="mi" data-side="r" data-k="${right[j].k}">${esc(right[j].t)}</button>`).join("")}</div>`;
+    body.querySelector(".match").onclick = e => {
+      const b = e.target.closest(".mi"); if (!b || b.classList.contains("ok")) return;
+      if (b.dataset.side === "l") speak(it.pairs[+b.dataset.k][0]);
+      if (!sel || sel.dataset.side === b.dataset.side) { if (sel) sel.classList.remove("sel"); sel = b; b.classList.add("sel"); return; }
+      if (sel.dataset.k === b.dataset.k) { sel.classList.replace("sel", "ok"); b.classList.add("ok"); matched++; sel = null;
+        if (matched === it.pairs.length) finish(mistakes <= 1, mistakes <= 1 ? "" : `${mistakes} mismatches. Try the match again later`); }
+      else { mistakes++; const s = sel; s.classList.remove("sel"); [s, b].forEach(x => x.classList.add("no")); setTimeout(() => [s, b].forEach(x => x.classList.remove("no")), 500); sel = null; }
+    };
+  }
+  // typed answer; accepts any of it.answers (case and punctuation ignored). Special-letter buttons for phones/keyboards without Turkish.
+  const TRKEYS = ["ç", "ğ", "ı", "İ", "ö", "ş", "ü"];
+  const keyRow = () => `<div class="row trkeys">${TRKEYS.map(c => `<button class="chip" data-ch="${c}">${c}</button>`).join("")}</div>`;
+  function wireKeys(el) { el.addEventListener("click", e => { const k = e.target.closest("[data-ch]"); if (!k) return; const host = k.closest("li,.qbody"); const inp = host && host.querySelector("input"); if (!inp || inp.disabled) return; const s = inp.selectionStart ?? inp.value.length; inp.value = inp.value.slice(0, s) + k.dataset.ch + inp.value.slice(inp.selectionEnd ?? s); inp.focus(); inp.setSelectionRange(s + 1, s + 1); }); }
+  function typeQ(body, it, finish) {
+    body.innerHTML = `<div class="qtext">${tz(esc(it.q))}</div>${it.say ? `<div style="text-align:center">${playBtn(it.say, "big-play")}</div>` : ""}<div class="row"><input class="tin" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type in Turkish…" style="flex:1"><button class="btn primary" id="t-check">Check</button></div>${keyRow()}`;
+    wireKeys(body);
+    const inp = $("input", body); inp.focus(); if (it.say) setTimeout(() => speak(it.say, $(".big-play", body)), 250);
+    const go = () => { if (!inp.value.trim()) return; const ok = it.answers.some(a => norm(a) === norm(inp.value)); inp.disabled = true; $("#t-check", body).disabled = true; inp.classList.add(ok ? "ok" : "no"); speak(it.answers[0]); finish(ok, it.answers[0], it.explain); };
+    $("#t-check", body).onclick = go; inp.onkeydown = e => { if (e.key === "Enter") go(); };
+  }
+  function vocabMCQ(n, dir) {
+    const pool = L.vocab;
+    return shuffle(pool).slice(0, n).map(w => {
+      const distract = shuffle(pool.filter(x => x !== w && x.en !== w.en)).slice(0, 3);
+      const opts = shuffle([w, ...distract]);
+      return dir === "listen"
+        ? { type: "listen", say: w.t, options: opts.map(o => o.en), answer: opts.indexOf(w), word: w, src: w.src, area: "vocabulary" }
+        : dir === "en2tr"
+          ? { type: "mcq", q: `How do you say “${w.en}”?`, options: opts.map(o => o.t), answer: opts.indexOf(w), word: w, src: w.src, area: "vocabulary", sayAnswer: true }
+          : { type: "mcq", q: `What does [[${w.t}]] mean?`, options: opts.map(o => o.en), answer: opts.indexOf(w), word: w, src: w.src, area: "vocabulary" };
+    });
+  }
+
+  /* ---------- Listening ---------- */
+  views.listening = (m) => {
+    m.appendChild(h(`<div><h2>Listening</h2><p class="lead">Train your ear without reading. Each question plays automatically. Press ▶ to hear it again. Set 🐢 Slow at the top if it's too fast.</p></div>`));
+    const B = L.classify;
+    const pick = h(`<div class="row" style="margin-bottom:14px"><button class="chip on" data-l="words">🔤 Words (10)</button><button class="chip" data-l="lines">💬 Dialogue lines (8)</button>${B ? `<button class="chip" data-l="cls">${esc(B.label)} (8)</button>` : ""}<button class="chip" data-l="dict">⌨️ Dictation (6)</button></div>`);
+    const box = h(`<div></div>`); m.append(pick, box);
+    const allLines = L.dialogues.flatMap(d => d.lines.map(l => ({ l, d })));
+    const sets = {
+      words: () => vocabMCQ(10, "listen"),
+      lines: () => shuffle([...new Map(allLines.filter(x => x.l[1].length > 6).map(x => [x.l[1], x])).values()]).slice(0, 8).map(({ l }) => {
+        const others = shuffle([...new Set(allLines.filter(x => x.l[1] !== l[1]).map(x => x.l[2]).filter(t => t !== l[2]))]).slice(0, 3);
+        const opts = shuffle([l[2], ...others]); return { type: "listen", say: l[1], options: opts, answer: opts.indexOf(l[2]) };
+      }),
+      cls: () => {
+        const src = B.items || allLines.map(x => ({ say: x.l[1], en: x.l[2] }));
+        return shuffle(src.map(x => Object.assign({}, x, { a: x.a != null ? x.a : B.rules.findIndex(r => new RegExp(r, "i").test(x.say)) })).filter(x => x.a >= 0)).slice(0, 8)
+          .map(x => ({ type: "listen", q: B.q, say: x.say, options: B.options, answer: x.a, explain: `${x.say}${x.en ? " — " + x.en : ""}` }));
+      },
+      dict: () => shuffle(L.vocab.filter(v => v.t.length < 22)).slice(0, 6).map(w => ({ type: "type", q: "Listen and type what you hear", say: w.t, answers: [w.t], word: w, explain: `${w.t} = ${w.en}` }))
+    };
+    const go = k => { box.innerHTML = ""; runQuiz(box, sets[k](), "listen-" + k); };
+    pick.onclick = e => { const b = e.target.closest("[data-l]"); if (!b) return; pick.querySelectorAll("[data-l]").forEach(x => x.classList.toggle("on", x === b)); go(b.dataset.l); };
+    go("words");
+  };
+
+  /* ---------- Practice quiz ---------- */
+  views.practice = (m) => {
+    m.appendChild(h(`<div><h2>Quiz</h2><p class="lead">Mixed practice: grammar choices, fill in the blank, sentence building, logical replies, typing, word matching and vocabulary. Your best score is saved.</p></div>`));
+    const matchItem = { type: "match", pairs: shuffle(L.vocab.filter(v => !v.extra)).slice(0, 6).map(v => [v.t, v.en]) };
+    const items = [...shuffle(L.practice), matchItem, ...vocabMCQ(4, "tr2en"), ...vocabMCQ(3, "en2tr")];
+    runQuiz(m, items, "practice");
+  };
+
+  /* ---------- Speaking ---------- */
+  views.speaking = (m) => {
+    m.appendChild(h(`<div><h2>Speaking: role-play</h2><p class="lead">${tz(esc(L.roleplayIntro || "Your partner speaks and you answer out loud with your own name and country. Then reveal the model answer and compare."))}</p></div>`));
+    const card = h(`<div class="card rp"></div>`); m.appendChild(card);
+    let i = 0;
+    function show() {
+      if (i >= L.roleplay.length) { card.innerHTML = `<div style="text-align:center"><div class="score">🎉</div><p>Conversation complete! Do it again faster, or swap roles and ask the questions yourself.</p><button class="btn primary" id="rp-again">Start over</button></div>`; $("#rp-again", card).onclick = () => { i = 0; show(); }; return; }
+      const r = L.roleplay[i];
+      card.innerHTML = `<div class="muted">Turn ${i + 1} of ${L.roleplay.length}</div>
+        <div class="bub left m"><div>${avatar(L.partner || "m1", 40)}</div><div class="body" data-say="${esc(r.them)}">${tk(r.them, "line")} ${playBtn(r.them)}${r.themEn ? `<div class="en">${esc(r.themEn)}</div>` : ""}</div></div>
+        <div><b>Your turn:</b> ${tz(esc(r.hint))}</div>
+        <div class="row"><button class="btn" id="rp-show">👁 Show model answer</button><button class="btn primary" id="rp-next">Next →</button></div>
+        <div id="rp-model" style="display:none" class="bub right"><div class="body">${tk(r.you, "line")} ${playBtn(r.you)}${r.youEn ? `<div class="en">${esc(r.youEn)}</div>` : ""}</div></div>`;
+      $("#rp-show", card).onclick = () => { $("#rp-model", card).style.display = "flex"; speak(r.you); };
+      $("#rp-next", card).onclick = () => { i++; show(); };
+      setTimeout(() => speak(r.them), 200);
+    }
+    show();
+    m.appendChild(recorderCard("Record your answers", "Record the whole role-play in one take, then listen back."));
+  };
+
+  /* ---------- Tips ---------- */
+  views.tips = (m) => {
+    m.appendChild(h(`<div><h2>Teacher's tips</h2><p class="lead">The key points and memory aids from the video and the book.</p></div>`));
+    const g = h(`<div class="stack"></div>`);
+    L.tips.forEach(t => g.appendChild(h(`<div class="card tipcard"><div class="ic">${t.icon}</div><div><b>${tz(esc(t.t))}</b><p style="margin:4px 0 0">${tz(t.d)}</p></div></div>`)));
+    m.appendChild(g);
+  };
+
+  /* ---------- Teacher's notes (English translation of the video) ---------- */
+  views.notes = (m) => {
+    const N = L.notes;
+    m.appendChild(h(`<div><h2>Teacher's notes</h2><p class="lead">${N ? tz(N.intro) : "The teacher's video notes for this lesson haven't been added yet. Until then, use the Teacher's tips tab and the book pages listed on the Overview."}</p></div>`));
+    if (!N) return;
+    if (N.summary) m.appendChild(h(`<div class="card" style="margin-bottom:14px"><b>In short</b><ul class="goals">${N.summary.map(s => `<li>${tz(s)}</li>`).join("")}</ul></div>`));
+    N.sections.forEach((s, i) => {
+      const d = h(`<details class="card note" ${i < 2 ? "open" : ""} style="margin-bottom:10px"><summary><b>${esc(s.h)}</b>${s.ref ? ` <span class="muted" style="font-size:13px">· ${esc(s.ref)}</span>` : ""}</summary>${s.p.map(p => `<p>${tz(p)}</p>`).join("")}</details>`);
+      m.appendChild(d);
+    });
+    if (N.source) m.appendChild(h(`<p class="muted" style="font-size:13px">${tz(N.source)}</p>`));
+  };
+
+  /* ---------- Review ---------- */
+  views.review = (m) => {
+    const weak = L.vocab.filter(w => boxOf(w) <= 1);
+    const strong = L.vocab.filter(w => boxOf(w) >= 3).length;
+    m.appendChild(h(`<div><h2>Review</h2><p class="lead">Spaced repetition: each correct answer moves a word up a box (○ → ●●●●●). A miss sends it back to the start. Review the weak words daily until they reach 3+ boxes.</p></div>`));
+    m.appendChild(h(`<div class="grid" style="margin-bottom:16px">
+      <div class="card"><div class="muted">Sections completed</div><div class="score" style="font-size:36px;text-align:left">${learnable.filter(s => LS.done[s[0]]).length}/${learnable.length}</div></div>
+      <div class="card"><div class="muted">Words known well (3+)</div><div class="score" style="font-size:36px;text-align:left">${strong}/${L.vocab.length}</div></div>
+      <div class="card"><div class="muted">Best quiz score</div><div class="score" style="font-size:36px;text-align:left">${LS.best.practice != null ? LS.best.practice + "%" : "—"}</div></div></div>`));
+    const box = h(`<div></div>`); m.appendChild(box);
+    if (weak.length) { box.appendChild(h(`<h3>Due for review: ${weak.length} words</h3>`)); flash(box, shuffle(weak)); }
+    else box.appendChild(h(`<div class="card">🎉 Nothing due. Every word is in box 2 or higher. Come back tomorrow, or test yourself in the Quiz tab.</div>`));
+    const reset = h(`<div style="margin-top:30px"><button class="btn small" id="rs">Reset this lesson's progress</button> <span id="rs-c"></span></div>`);
+    $("#rs", reset).onclick = () => { $("#rs-c", reset).innerHTML = `Are you sure? <button class="btn small" id="rs-y">Yes, reset</button>`; $("#rs-y", reset).onclick = () => { S.lessons[L.id] = { done: {}, best: {} }; L.vocab.forEach(w => delete S.words[w.t]); save(); location.reload(); }; };
+    m.appendChild(reset);
+  };
+
+  /* =====================================================================
+     TEST PAGES: book test (the unit's "Neler Öğrendik?" page), mastery test, results
+     ===================================================================== */
+  function initTest() {
+    S.tests = S.tests || {};
+    const TS = S.tests[T.id] = S.tests[T.id] || { attempts: [] };
+    const lessonName = id => { const l = L.lessons.find(x => x.id === id); return l ? `Lesson ${l.num}: ${l.title}` : id; };
+    const lessonLink = (id, area) => window.COURSE_HOME ? `<a href="${id}.html#${area || "grammar"}">${esc(lessonName(id))} ↗</a>` : esc(lessonName(id));
+    const fmt = n => (Math.round(n * 2) / 2).toString();
+    document.title = `${T.title} · Turkish A1`;
+    document.body.innerHTML = `
+    <header class="top"><div class="top-inner">
+      <div class="brand"><small>${window.COURSE_HOME ? `<a href="${window.COURSE_HOME}">← Course</a> · ` : ""}${BOOK} · Unit ${T.unit} · ${esc(T.pages)}</small><b>${esc(T.title)}</b></div>
+      <div class="toggles"><button class="chip" id="t-en">EN Meaning</button><button class="chip" id="t-rate">🐢 Speed</button></div></div>
+      <nav class="tabs" id="tabs"><a href="#book" data-tab="book">📘 Book test</a><a href="#mastery" data-tab="mastery">🎯 Mastery test</a><a href="#results" data-tab="results">📈 Results</a></nav>
+    </header><main id="main"></main>
+    <footer>Book test from <i>${BOOK}</i> (“Neler Öğrendik?”) · answers checked against the book and the unit's lessons.</footer>`;
+    wirePrefs();
+
+    function saveAttempt(a) { TS.attempts.push(Object.assign({ date: new Date().toISOString() }, a)); save(); }
+    function weakReport(wrongs) {
+      const g = {}; wrongs.forEach(w => { if (!w.lesson) return; g[w.lesson] = g[w.lesson] || { n: 0, areas: new Set() }; g[w.lesson].n++; g[w.lesson].areas.add(w.area || "grammar"); });
+      const ids = Object.keys(g).sort((a, b) => g[b].n - g[a].n);
+      if (!ids.length) return `<p>🌟 No mistakes. You've mastered this unit, so move on to the next one!</p>`;
+      return `<b>Revise these first:</b><ul>${ids.map(id => `<li>${lessonLink(id, [...g[id].areas][0])} · ${g[id].n} mistake${g[id].n > 1 ? "s" : ""}</li>`).join("")}</ul>`;
+    }
+    const fbLine = (ok, ans, why) => `${ok ? "✓" : "✗ Answer: " + tk(ans)} <span class="muted">${tz(esc(why || ""))}</span>`;
+    const pickTiles = (sec, el, onPick) => { const pick = {}; let locked = false;
+      el.addEventListener("click", e => { const b = e.target.closest("[data-j]"); if (!b || locked) return; const i = b.dataset.i; pick[i] = +b.dataset.j;
+        el.querySelectorAll(`[data-i="${i}"]`).forEach(x => x.classList.toggle("sel", x === b)); if (onPick) onPick(+i, pick[i]); });
+      return { pick, lock() { locked = true; } };
+    };
+    const markTiles = (el, i, a, p) => el.querySelectorAll(`[data-i="${i}"]`).forEach((x, j) => { if (j === a) x.classList.add("ok"); else if (j === p) x.classList.add("no"); });
+
+    /* ---------- section widgets: each returns { el, check() → {score, wrong:[{lesson, area}]} } ---------- */
+    const W = {};
+    // match: left item + dropdown of right items
+    W.match = (sec) => {
+      const bs = shuffle(sec.items.map(x => x.b));
+      const el = h(`<ol class="titems">${sec.items.map((it, i) => `<li><span class="qsent">${tk(it.a)} → <select data-i="${i}"><option value="">……</option>${bs.map(b => `<option>${esc(b)}</option>`).join("")}</select></span><div class="fb"></div></li>`).join("")}</ol>`);
+      return { el, check() {
+        let sc = 0; const wrong = [];
+        el.querySelectorAll("select").forEach(s => { const it = sec.items[+s.dataset.i], ok = s.value === it.b; s.disabled = true; s.classList.add(ok ? "ok" : "no");
+          if (ok) sc++; else wrong.push({ lesson: it.lesson });
+          s.closest("li").querySelector(".fb").innerHTML = fbLine(ok, it.b, it.why); });
+        return { score: sc * sec.marks / sec.items.length, wrong };
+      } };
+    };
+    // dialogue: a short exchange with one blank line; choose a/b/c
+    W.dialogue = (sec) => {
+      const el = h(`<ol class="titems">${sec.items.map((it, i) => `<li><div class="mini">${it.lines.map(([who, txt]) => `<div><b>${esc(who)}:</b> ${txt === "___" ? `<span class="blank" data-b="${i}">……</span>` : tk(txt)}</div>`).join("")}</div><div class="opts" style="margin-top:6px">${it.o.map((o, j) => `<button class="tile opt-l" data-i="${i}" data-j="${j}">${"abc"[j]}. ${esc(o)}</button>`).join("")}</div><div class="fb"></div></li>`).join("")}</ol>`);
+      const P = pickTiles(sec, el, (i, j) => { el.querySelector(`[data-b="${i}"]`).textContent = sec.items[i].o[j]; speak(sec.items[i].o[j]); });
+      return { el, check() {
+        P.lock(); let sc = 0; const wrong = [];
+        sec.items.forEach((it, i) => { const ok = P.pick[i] === it.a; if (ok) sc++; else wrong.push({ lesson: it.lesson });
+          markTiles(el, i, it.a, P.pick[i]); el.querySelectorAll("li > .fb")[i].innerHTML = fbLine(ok, it.o[it.a], it.why); });
+        return { score: sc * sec.marks / sec.items.length, wrong };
+      } };
+    };
+    // type: write the answer (plural forms, unscrambled words…)
+    W.type = (sec) => {
+      const el = h(`<div>${keyRow()}<ol class="titems tgrid">${sec.items.map((it, i) => `<li><span class="qsent">${tk(it.p)} → <input class="tin" data-i="${i}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"></span><div class="fb"></div></li>`).join("")}</ol></div>`);
+      wireKeys(el);
+      el.addEventListener("focusin", e => { if (e.target.matches("input")) el._last = e.target; });
+      el.querySelector(".trkeys").addEventListener("click", e => { const k = e.target.closest("[data-ch]"); const inp = el._last; if (!k || !inp || inp.disabled) return; inp.value += k.dataset.ch; inp.focus(); }, true);
+      return { el, check() {
+        let sc = 0; const wrong = [];
+        el.querySelectorAll("input").forEach(inp => { const it = sec.items[+inp.dataset.i], ok = it.a.split("|").some(a => norm(a) === norm(inp.value)); inp.disabled = true; inp.classList.add(ok ? "ok" : "no");
+          if (ok) sc++; else wrong.push({ lesson: it.lesson });
+          inp.closest("li").querySelector(".fb").innerHTML = fbLine(ok, it.a.split("|")[0], it.why); });
+        return { score: sc * sec.marks / sec.items.length, wrong };
+      } };
+    };
+    // tf: Doğru (D) / Yanlış (Y)
+    W.tf = (sec) => {
+      const el = h(`<ol class="titems">${sec.items.map((it, i) => `<li><div class="row" style="justify-content:space-between"><span class="qsent">${tk(it.s)} ${playBtn(it.s)}</span><span class="row"><button class="tile" data-i="${i}" data-j="0">D · doğru</button><button class="tile" data-i="${i}" data-j="1">Y · yanlış</button></span></div><div class="fb"></div></li>`).join("")}</ol>`);
+      const P = pickTiles(sec, el);
+      return { el, check() {
+        P.lock(); let sc = 0; const wrong = [];
+        sec.items.forEach((it, i) => { const a = it.ok ? 0 : 1, ok = P.pick[i] === a; if (ok) sc++; else wrong.push({ lesson: it.lesson });
+          markTiles(el, i, a, P.pick[i]); el.querySelectorAll("li > .fb")[i].innerHTML = `${ok ? "✓" : "✗"} <b>${it.ok ? "Doğru" : "Yanlış"}</b> <span class="muted">${tz(esc(it.why || ""))}</span>`; });
+        return { score: sc * sec.marks / sec.items.length, wrong };
+      } };
+    };
+    // choose: a situation + options
+    W.choose = (sec) => {
+      const el = h(`<ol class="titems">${sec.items.map((it, i) => `<li><div class="row" style="justify-content:space-between"><span class="qsent"><b>${esc(it.s)}</b>${it.en ? ` <span class="muted">(${esc(it.en)})</span>` : ""}</span><span class="row">${it.o.map((o, j) => `<button class="tile" data-i="${i}" data-j="${j}">${"abc"[j]}) ${esc(o)}</button>`).join("")}</span></div><div class="fb"></div></li>`).join("")}</ol>`);
+      const P = pickTiles(sec, el, (i, j) => speak(sec.items[i].o[j]));
+      return { el, check() {
+        P.lock(); let sc = 0; const wrong = [];
+        sec.items.forEach((it, i) => { const ok = P.pick[i] === it.a; if (ok) sc++; else wrong.push({ lesson: it.lesson });
+          markTiles(el, i, it.a, P.pick[i]); el.querySelectorAll("li > .fb")[i].innerHTML = fbLine(ok, it.o[it.a], it.why); });
+        return { score: sc * sec.marks / sec.items.length, wrong };
+      } };
+    };
+    const SECNAME = { match: "Match the sentences", dialogue: "Choose the right line", type: "Write the answers", tf: "True or false", choose: "What do we say?" };
+
+    const views = {};
+    views.book = (m) => {
+      const start = Date.now(), results = {};
+      const max = T.sections.reduce((a, s) => a + s.marks, 0);
+      m.appendChild(h(`<div><h2>${tk(T.titleTr)}</h2><p class="lead">${tz(esc(T.intro))} The test is out of <b>${max} marks</b> (one mark per item).</p></div>`));
+      const widgets = [];
+      T.sections.forEach((sec, n) => {
+        const w = W[sec.type](sec); widgets.push([sec, w]);
+        const card = h(`<div class="card tsec" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:flex-start"><div style="flex:1"><div style="font-size:18px;font-weight:600">${n + 1}. ${tk(sec.instr)}</div><div class="muted" style="font-size:14px">${tz(esc(sec.instrEn))}</div></div><div class="markbox"><span class="got">—</span><span class="of">${sec.marks}</span></div></div><div class="tbody"></div><div class="row" style="justify-content:space-between;margin-top:10px"><span class="secfb muted"></span><button class="btn small chk">Check this section</button></div></div>`);
+        $(".tbody", card).appendChild(w.el);
+        const doCheck = () => { if (results[sec.id]) return results[sec.id]; const r = w.check(); results[sec.id] = r;
+          $(".got", card).textContent = fmt(r.score); card.classList.add(r.score === sec.marks ? "full" : "part"); $(".chk", card).disabled = true;
+          if (sec.explain) $(".secfb", card).innerHTML = "💡 " + tz(esc(sec.explain)); return r; };
+        $(".chk", card).onclick = doCheck; w.doCheck = doCheck;
+        m.appendChild(card);
+      });
+      const fin = h(`<div class="card" style="text-align:center"><button class="btn primary" id="finish">Finish &amp; save my score</button><div id="summary"></div></div>`);
+      m.appendChild(fin);
+      $("#finish", fin).onclick = () => {
+        const rs = widgets.map(([sec, w]) => [sec, w.doCheck()]);
+        const total = rs.reduce((a, [, r]) => a + r.score, 0), wrong = rs.flatMap(([, r]) => r.wrong);
+        const pct = Math.round(100 * total / max);
+        saveAttempt({ mode: "book", score: total, max, pct, secs: Math.round((Date.now() - start) / 1000), weak: wrong.map(w => w.lesson) });
+        $("#finish", fin).remove();
+        $("#summary", fin).innerHTML = `<div class="score">${fmt(total)} / ${max}</div><p>${pct >= 90 ? "Harika! 🌟 You're ready for the next unit." : pct >= 70 ? "Aferin 👍 Revise the lessons below, then retake the test." : "Revise the words and practise a bit more before moving on 💪"}</p>
+          <table class="g" style="max-width:420px;margin:0 auto 12px">${rs.map(([sec, r], i) => `<tr><td>${i + 1}. ${SECNAME[sec.type] || sec.type}</td><td style="text-align:right"><b>${fmt(r.score)}</b> / ${sec.marks}</td></tr>`).join("")}</table>
+          <div style="text-align:left">${weakReport(wrong)}</div><button class="btn" id="retake">↻ Retake the book test</button> <a class="btn" href="#mastery" style="text-decoration:none">🎯 Try the mastery test</a>`;
+        $("#retake", fin).onclick = () => route();
+      };
+      if (T.selfCheck) m.appendChild(h(`<div class="card" style="margin-top:14px"><b>Öz değerlendirme · Self-assessment</b><p class="muted" style="font-size:14px">Can you do these in Turkish? Rate yourself from 1 (I can't) to 5 (very well).</p><ol>${T.selfCheck.map(s => `<li>${tk(s[0])} <span class="muted">— ${esc(s[1])}</span></li>`).join("")}</ol></div>`));
+    };
+    views.mastery = (m) => {
+      m.appendChild(h(`<div><h2>🎯 Mastery test</h2><p class="lead">A fresh mix of about 30 questions every time, drawn from <b>all ${L.lessons.length} lessons</b> this test covers: vocabulary both ways, listening, grammar, sentence building and dialogues. Your mistakes also go into each word's spaced-review deck.</p>
+        <div class="card"><b>Covers:</b><ul>${L.lessons.map(l => `<li>${lessonLink(l.id, "overview")}</li>`).join("")}</ul><button class="btn primary" id="go">Start a new mastery test</button></div></div>`));
+      $("#go", m).onclick = () => {
+        m.innerHTML = ""; const start = Date.now();
+        const all = L.dialogues.flatMap(d => d.lines.map(l => ({ l, src: d.src }))).filter(x => x.l[1].length > 8);
+        const lines = shuffle(all).slice(0, 4).map(({ l, src }) => {
+          const others = shuffle([...new Set(all.map(x => x.l[2]).filter(t => t !== l[2]))]).slice(0, 3);
+          const o = shuffle([l[2], ...others]); return { type: "listen", say: l[1], options: o, answer: o.indexOf(l[2]), src, area: "dialogues" };
+        });
+        const prac = shuffle(L.practice).slice(0, 12).map(x => Object.assign({ area: "practice" }, x));
+        const items = shuffle([...vocabMCQ(7, "tr2en"), ...vocabMCQ(4, "en2tr"), ...vocabMCQ(4, "listen"), ...lines, ...prac]);
+        runQuiz(m, items, T.id + "-mastery", (pct, wrongItems, sc, n) => {
+          saveAttempt({ mode: "mastery", score: sc, max: n, pct, secs: Math.round((Date.now() - start) / 1000), weak: wrongItems.map(w => w.src) });
+          m.appendChild(h(`<div class="card" style="margin-top:14px">${weakReport(wrongItems.map(w => ({ lesson: w.src, area: w.area })))}<button class="btn primary" id="again">New mastery test</button></div>`));
+          $("#again", m).onclick = () => route();
+        });
+      };
+    };
+    views.results = (m) => {
+      const at = TS.attempts.slice().reverse();
+      const best = mode => { const xs = TS.attempts.filter(a => a.mode === mode); return xs.length ? Math.max(...xs.map(a => a.pct)) + "%" : "—"; };
+      m.appendChild(h(`<div><h2>📈 Results</h2><p class="lead">Your attempts are saved in this browser. Aim for 90%+ on both tests before moving on.</p>
+        <div class="grid" style="margin-bottom:16px"><div class="card"><div class="muted">Best book test</div><div class="score" style="font-size:36px;text-align:left">${best("book")}</div></div>
+        <div class="card"><div class="muted">Best mastery test</div><div class="score" style="font-size:36px;text-align:left">${best("mastery")}</div></div>
+        <div class="card"><div class="muted">Attempts</div><div class="score" style="font-size:36px;text-align:left">${TS.attempts.length}</div></div></div>
+        ${at.length ? `<div class="card" style="overflow-x:auto"><table class="g"><tr><th>Date</th><th>Test</th><th>Score</th><th></th><th>Time</th></tr>${at.map(a => `<tr><td>${new Date(a.date).toLocaleString()}</td><td>${a.mode === "book" ? "📘 Book" : "🎯 Mastery"}</td><td><b>${a.mode === "book" ? fmt(a.score) : a.score} / ${a.max}</b></td><td style="width:35%"><div class="qbar" style="margin:0"><div style="width:${a.pct}%;background:${a.pct >= 90 ? "var(--good)" : a.pct >= 70 ? "var(--accent)" : "var(--bad)"}"></div></div></td><td>${Math.floor(a.secs / 60)}m ${a.secs % 60}s</td></tr>`).join("")}</table></div>
+        <div class="card" style="margin-top:14px"><b>From your latest attempt:</b> ${weakReport((at[0].weak || []).map(l => ({ lesson: l })))}</div>` : `<div class="card">No attempts yet. Start with the <a href="#book">📘 Book test</a>.</div>`}</div>`));
+    };
+    function route() {
+      const id = (location.hash || "#book").slice(1), v = views[id] ? id : "book";
+      document.querySelectorAll("#tabs a").forEach(a => a.classList.toggle("active", a.dataset.tab === v));
+      if (synth) synth.cancel();
+      const m = $("#main"); m.innerHTML = ""; m.appendChild(voiceBanner()); pickVoice(); views[v](m); window.scrollTo(0, 0);
+    }
+    route(); window.addEventListener("hashchange", route);
+  }
+
+  // exposed for the build-time self-test (node) — harmless in the browser
+  window.TR_HARMONY = { SUFFIX, lastV, two, four };
+  if (T) initTest();
+  else { renderShell(); updateProgress(); route(); window.addEventListener("hashchange", route); }
+})();
+</script></body></html>
